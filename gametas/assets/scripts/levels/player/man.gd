@@ -53,3 +53,6 @@ func _physics_process(delta):
 
 func _on_invulnerability_timeout():
 	invulnerability_timer.stop()
+	
+func _on_pill_body_entered(body):
+	pass

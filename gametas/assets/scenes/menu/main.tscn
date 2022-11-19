@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://assets/scripts/main.gd" type="Script" id=1]
+[ext_resource path="res://assets/scenes/levels/total/loading/transition.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/resource/images/levels/background-test.png" type="Texture" id=3]
+[ext_resource path="res://assets/scripts/ui/load.gd" type="Script" id=4]
 
 [node name="Menu" type="Control"]
 anchor_right = 1.0
@@ -17,6 +20,11 @@ margin_left = -0.439999
 margin_top = -44.0
 margin_right = 117.56
 
+[node name="Background-test" type="Sprite" parent="VBoxContainer"]
+position = Vector2( 476.874, -217.65 )
+scale = Vector2( 0.536198, 0.565278 )
+texture = ExtResource( 3 )
+
 [node name="Start" type="Button" parent="VBoxContainer"]
 margin_right = 122.0
 margin_bottom = 20.0
@@ -31,6 +39,15 @@ margin_bottom = 44.0
 rect_pivot_offset = Vector2( -133, 225 )
 focus_neighbour_bottom = NodePath("../Start")
 text = "Quit"
+
+[node name="Control" parent="." instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 3.0
+margin_top = -5.0
+margin_right = 125.0
+margin_bottom = -5.0
+script = ExtResource( 4 )
 
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_Start_pressed"]
 [connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_Quit_pressed"]
