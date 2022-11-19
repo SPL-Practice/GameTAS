@@ -6,14 +6,25 @@ signal killed()
 
 var velocity = Vector2()
 var speed = 400
+var constant_damage = 0
 
 export (float) var max_health = 25
 onready var health = max_health setget _set_health
+onready var torso = $shape
 onready var invulnerability_timer = $invulnerability
 onready var animation = $animation
 
 func sanity_up(amount):
-	emit_signal("max_health_updated", max_health + amount)
+	max_health += amount
+	emit_signal("max_health_updated", max_health)
+	_set_health(max_health)
+
+func release_damage(amount):
+	constant_damage -= amount
+
+func hold_damage(amount):
+	constant_damage += amount
+	damage(amount)
 
 func damage(amount):
 	if invulnerability_timer.is_stopped():
@@ -53,6 +64,8 @@ func _physics_process(delta):
 
 func _on_invulnerability_timeout():
 	invulnerability_timer.stop()
+	if constant_damage > 0:
+		damage(constant_damage)
 	
 func _on_pill_body_entered(body):
 	pass
