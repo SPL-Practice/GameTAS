@@ -7,3 +7,4 @@ func _on_spikes_body_entered(body):
 
 func _on_spikes_body_exited(body):
 	body.release_damage(damage)
+
