@@ -36,6 +36,9 @@ func kill():
 	print("killed")
 	queue_free()
 
+func heal(value):
+	 _set_health(health + value)
+
 func _set_health(value):
 	var prev_health = health
 	health = clamp(value, 0, max_health);
