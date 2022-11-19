@@ -14,6 +14,10 @@ config/name="Gametas"
 run/main_scene="res://assets/scenes/menu/main.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+config="*res://assets/scripts/config.gd"
+
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true
