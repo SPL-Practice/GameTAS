@@ -1,4 +1,10 @@
-extends StaticBody2D
+extends Area2D
 
-func _on_detector_body_entered(body):
-	body.damage(5)
+var damage = 5
+
+func _on_spikes_body_entered(body):
+	body.hold_damage(damage)
+
+func _on_spikes_body_exited(body):
+	body.release_damage(damage)
+

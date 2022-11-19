@@ -1,7 +1,7 @@
 extends Node
 
 func _ready():
-	$VBoxContainer/Start.grab_focus()
+	$menu/centered/aspect/options/Start.grab_focus()
 
 
 
