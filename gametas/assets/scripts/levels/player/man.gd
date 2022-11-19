@@ -16,3 +16,8 @@ func _physics_process(delta):
 		velocity.y = 0
 		
 	move_and_slide(velocity)
+
+
+	
+func _on_pill_body_entered(body):
+	pass
