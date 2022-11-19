@@ -1,9 +1,17 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://assets/scripts/main.gd" type="Script" id=1]
 [ext_resource path="res://assets/scenes/levels/total/loading/transition.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/resource/images/levels/background-test.png" type="Texture" id=3]
 [ext_resource path="res://assets/scripts/ui/load.gd" type="Script" id=4]
+[ext_resource path="res://assets/resources/ost/music/menu.ogg" type="AudioStream" id=5]
+[ext_resource path="res://assets/resources/images/ui/buttons/start/usual.png" type="Texture" id=6]
+[ext_resource path="res://assets/resources/images/ui/buttons/start/focus.png" type="Texture" id=7]
+[ext_resource path="res://assets/resources/images/ui/buttons/exit/usual.png" type="Texture" id=8]
+[ext_resource path="res://assets/resources/images/ui/buttons/exit/focus.png" type="Texture" id=9]
+[ext_resource path="res://assets/resources/images/ui/background/options.png" type="Texture" id=10]
+
+[sub_resource type="CanvasItemMaterial" id=1]
 
 [node name="Menu" type="Control"]
 anchor_right = 1.0
@@ -11,36 +19,73 @@ anchor_bottom = 1.0
 rect_pivot_offset = Vector2( 40, 186 )
 script = ExtResource( 1 )
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-anchor_left = 0.034
-anchor_top = 0.934
-anchor_right = 0.038
-anchor_bottom = 0.934
-margin_left = -0.439999
-margin_top = -44.0
-margin_right = 117.56
-
-[node name="Background-test" type="Sprite" parent="VBoxContainer"]
-position = Vector2( 476.874, -217.65 )
+[node name="Background-test" type="Sprite" parent="."]
+position = Vector2( 511.25, 298.75 )
 scale = Vector2( 0.536198, 0.565278 )
 texture = ExtResource( 3 )
 
-[node name="Start" type="Button" parent="VBoxContainer"]
-margin_right = 122.0
-margin_bottom = 20.0
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+autoplay = true
+
+[node name="menu" type="TextureRect" parent="."]
+anchor_left = 0.034
+anchor_top = 0.773
+anchor_right = 0.19
+anchor_bottom = 0.953
+margin_left = -0.816002
+margin_top = 0.199951
+margin_right = 0.439987
+margin_bottom = 0.199951
+texture = ExtResource( 10 )
+expand = true
+
+[node name="centered" type="CenterContainer" parent="menu"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="aspect" type="AspectRatioContainer" parent="menu/centered"]
+margin_left = 80.0
+margin_top = 17.0
+margin_right = 80.0
+margin_bottom = 91.0
+stretch_mode = 1
+
+[node name="options" type="VBoxContainer" parent="menu/centered/aspect"]
+material = SubResource( 1 )
+margin_left = -37.0
+margin_right = 37.0
+margin_bottom = 74.0
+
+[node name="Start" type="TextureButton" parent="menu/centered/aspect/options"]
+margin_right = 74.0
+margin_bottom = 35.0
+rect_min_size = Vector2( 0, 35 )
 rect_pivot_offset = Vector2( -133, 225 )
 focus_neighbour_bottom = NodePath("../Quit")
-text = "Start"
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 7 )
+texture_hover = ExtResource( 6 )
+texture_focused = ExtResource( 7 )
+expand = true
+stretch_mode = 5
 
-[node name="Quit" type="Button" parent="VBoxContainer"]
-margin_top = 24.0
-margin_right = 122.0
-margin_bottom = 44.0
+[node name="Quit" type="TextureButton" parent="menu/centered/aspect/options"]
+margin_top = 39.0
+margin_right = 74.0
+margin_bottom = 74.0
+rect_min_size = Vector2( 0, 35 )
 rect_pivot_offset = Vector2( -133, 225 )
 focus_neighbour_bottom = NodePath("../Start")
-text = "Quit"
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 9 )
+texture_hover = ExtResource( 8 )
+texture_focused = ExtResource( 9 )
+expand = true
+stretch_mode = 5
 
 [node name="Control" parent="." instance=ExtResource( 2 )]
+visible = false
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 3.0
@@ -49,5 +94,5 @@ margin_right = 125.0
 margin_bottom = -5.0
 script = ExtResource( 4 )
 
-[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_Start_pressed"]
-[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_Quit_pressed"]
+[connection signal="pressed" from="menu/centered/aspect/options/Start" to="." method="_on_Start_pressed"]
+[connection signal="pressed" from="menu/centered/aspect/options/Quit" to="." method="_on_Quit_pressed"]

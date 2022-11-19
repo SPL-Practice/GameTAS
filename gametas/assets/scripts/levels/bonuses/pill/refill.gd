@@ -1,7 +1,7 @@
 extends Area2D
 
-var sanity_buff = 1
+var sanity = 10
 
 func _on_pill_body_entered(body):
-	body.sanity_up(sanity_buff)
+	body.heal(sanity)
 	queue_free()

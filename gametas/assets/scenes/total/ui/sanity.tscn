@@ -7,42 +7,45 @@
 [ext_resource path="res://assets/resources/images/ui/bars/border.png" type="Texture" id=5]
 
 [node name="sanity" type="Panel"]
-anchor_right = 0.24
-anchor_bottom = 0.063
-margin_right = 4.23999
-margin_bottom = 4.2
+anchor_right = 0.244
+anchor_bottom = 0.07
+margin_right = 0.143982
 theme = ExtResource( 4 )
 script = ExtResource( 3 )
 
-[node name="under" type="TextureProgress" parent="."]
+[node name="fill" type="Panel" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -123.0
-margin_top = -19.0
-margin_right = 123.0
-margin_bottom = 19.0
+margin_left = -113.0
+margin_top = -15.0
+margin_right = 113.0
+margin_bottom = 16.0
+
+[node name="under" type="TextureProgress" parent="fill"]
+anchor_right = 1.0
+anchor_bottom = 1.0
 max_value = 10.0
 value = 10.0
 texture_under = ExtResource( 2 )
 texture_progress = ExtResource( 1 )
-tint_progress = Color( 0.803922, 0.313726, 0.313726, 1 )
+tint_progress = Color( 0.764706, 0.298039, 1, 1 )
+nine_patch_stretch = true
 
-[node name="over" type="TextureProgress" parent="."]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -123.0
-margin_top = -19.0
-margin_right = 123.0
-margin_bottom = 19.0
+[node name="over" type="TextureProgress" parent="fill"]
+anchor_right = 1.0
+anchor_bottom = 1.0
 max_value = 10.0
 value = 10.0
-texture_over = ExtResource( 5 )
 texture_progress = ExtResource( 1 )
-tint_progress = Color( 0.160784, 0.588235, 0.478431, 1 )
+nine_patch_stretch = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 5 )
+expand = true
 
 [node name="updater" type="Tween" parent="."]
 

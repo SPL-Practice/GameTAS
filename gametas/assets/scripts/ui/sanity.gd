@@ -1,7 +1,7 @@
 extends Control
 
-onready var sanity_over = $over
-onready var sanity_under = $under
+onready var sanity_over = $fill/over
+onready var sanity_under = $fill/under
 onready var update_tween = $updater
 
 onready var character = get_parent().get_parent().get_node("player")

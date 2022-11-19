@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://assets/resources/images/levels/total/map/map.png" type="Texture" id=1]
 [ext_resource path="res://assets/scenes/levels/total/hero/man.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://assets/scenes/levels/total/pill/up.tscn" type="PackedScene" id=7]
 [ext_resource path="res://assets/resources/images/levels/total/weapon/axe.png" type="Texture" id=8]
 [ext_resource path="res://assets/scripts/levels/weapon/weapon1.gd" type="Script" id=9]
+[ext_resource path="res://assets/resources/ost/music/game/play.ogg" type="AudioStream" id=10]
 
 [sub_resource type="ConvexPolygonShape2D" id=2]
 points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
@@ -219,3 +220,7 @@ margin_left = 34.0
 margin_top = 25.0
 margin_right = 280.0
 margin_bottom = 63.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+autoplay = true
