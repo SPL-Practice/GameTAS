@@ -11,7 +11,7 @@ config_version=4
 [application]
 
 config/name="Gametas"
-run/main_scene="res://assets/scenes/levels/boss/bananos.tscn"
+run/main_scene="res://assets/scenes/total/authors/logo.tscn"
 config/icon="res://icon.png"
 
 [autoload]
