@@ -7,12 +7,7 @@
 [ext_resource path="res://assets/scenes/levels/total/enemies/spikes.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/scenes/total/ui/sanity.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/scenes/levels/total/pill/up.tscn" type="PackedScene" id=7]
-<<<<<<< HEAD
-[ext_resource path="res://assets/resources/images/levels/total/map/tiles-pixel/small-tree-3.png" type="Texture" id=8]
-[ext_resource path="res://assets/resources/images/levels/total/map/tiles-pixel/small-pine-2.png" type="Texture" id=9]
-=======
 [ext_resource path="res://assets/scenes/levels/total/enemies/slime/horizontal.tscn" type="PackedScene" id=8]
->>>>>>> 410ec1ebc19159cd2108ac0caa5949cd268d45e8
 [ext_resource path="res://assets/resources/ost/music/game/play.ogg" type="AudioStream" id=10]
 [ext_resource path="res://assets/scenes/levels/total/weapon/weapon.tscn" type="PackedScene" id=11]
 [ext_resource path="res://assets/scenes/levels/total/enemies/slime/vertical.tscn" type="PackedScene" id=12]
