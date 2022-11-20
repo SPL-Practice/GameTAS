@@ -4,7 +4,7 @@
 [ext_resource path="res://assets/scripts/levels/weapons/weapon.gd" type="Script" id=2]
 
 [sub_resource type="CapsuleShape2D" id=3]
-radius = 75.96
+radius = 104.0
 height = 24.08
 
 [sub_resource type="Animation" id=2]
@@ -41,6 +41,7 @@ collision_mask = 8
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
+visible = false
 position = Vector2( -1, -6 )
 rotation = 4.18355
 scale = Vector2( 0.15955, 0.225886 )

@@ -6,11 +6,13 @@ signal killed()
 var velocity = Vector2()
 var current = 0
 
-export (float) var speed = 150
-export (Vector2) var edge = Vector2(-4500, 4500)
+export (float) var speed = 450
+current = Vector2()
+export (Vector3) var edge1 = [ Vector3(-4500, -4500, -4500) ]
+export (Vector3) var edge2 = Vector3(4500, 4500, 4500)
 
 var damage = 7
-onready var health = 7 setget _set_health
+onready var health = 15 setget _set_health
 onready var animation = $animation
 
 func _set_max_health(max_health):

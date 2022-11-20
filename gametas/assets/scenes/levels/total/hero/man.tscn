@@ -115,7 +115,7 @@ shape = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="shape"]
 frames = ExtResource( 3 )
-frame = 9
+frame = 13
 
 [node name="invulnerability" type="Timer" parent="."]
 wait_time = 0.5
