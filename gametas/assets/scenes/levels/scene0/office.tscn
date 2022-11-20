@@ -410,7 +410,6 @@ editor_draw_drag_margin = true
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Area2D"]
 position = Vector2( 152, -25 )
 frames = SubResource( 12 )
-
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
