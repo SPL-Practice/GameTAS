@@ -1,0 +1,79 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/resources/images/ui/background/ending/bad2.jpg" type="Texture" id=1]
+[ext_resource path="res://assets/scripts/authors/badend.gd" type="Script" id=2]
+[ext_resource path="res://assets/resources/themes/menu.tres" type="Theme" id=3]
+[ext_resource path="res://assets/resources/ost/music/game/over.ogg" type="AudioStream" id=4]
+
+[sub_resource type="Animation" id=1]
+resource_name = "end"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[node name="Control" type="Control"]
+modulate = Color( 1, 0, 0, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="supregression" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 1 )
+expand = true
+
+[node name="menu" type="Button" parent="supregression"]
+margin_left = 521.0
+margin_top = 396.0
+margin_right = 655.0
+margin_bottom = 452.0
+rect_rotation = -10.0
+theme = ExtResource( 3 )
+text = "Menu"
+
+[node name="authors" type="ColorRect" parent="."]
+anchor_bottom = 1.0
+margin_right = 345.0
+color = Color( 0.0588235, 0.0588235, 0.0588235, 0.686275 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="authors"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -138.0
+margin_top = -196.0
+margin_right = 138.0
+margin_bottom = 196.0
+theme = ExtResource( 3 )
+text = "- GameTAS -
+
+Den Dilman
+
+- Stepanova Maria
+Muromtsev Maxim
+
+- Tatarintsev Aleksandr
+Lvova Anastasia
+
+- Alekseeva Viktoria
+Yakovlev Nikita"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+autoplay = true
+
+[node name="player" type="AnimationPlayer" parent="."]
+anims/end = SubResource( 1 )
+
+[connection signal="pressed" from="supregression/menu" to="." method="_on_menu_pressed"]

@@ -4,15 +4,15 @@ signal health_updated(amount)
 signal killed()
 
 var velocity = Vector2()
-var current = 0
 
-export (float) var speed = 450
-current = Vector2()
-export (Vector3) var edge1 = [ Vector3(-4500, -4500, -4500) ]
-export (Vector3) var edge2 = Vector3(4500, 4500, 4500)
+export (Vector2) var speed = Vector2(500, 500)
+var maxed = Vector2(45000, 22500)
+var current = Vector2(0, 0)
+var state = 1
+
 
 var damage = 7
-onready var health = 15 setget _set_health
+onready var health = 14 setget _set_health
 onready var animation = $animation
 
 func _set_max_health(max_health):
@@ -23,8 +23,8 @@ func damage(amount):
 	_set_health(health - amount)
 	
 func kill():
-	print("killed")
 	queue_free()
+	get_tree().change_scene("res://assets/scenes/levels/end/badend.tscn")
 
 func heal(value):
 	 _set_health(health + value)
@@ -40,10 +40,54 @@ func _set_health(value):
 			
 func _physics_process(delta):
 	velocity.x = 0
-	if current <= edge.x or current >= edge.y:
-		speed *= -1
-	current += speed
-	velocity.x += speed
+	velocity.y = 0
+	
+	if state == 1:
+		velocity.x += speed.x
+		current.x += speed.x
+		if current.x >= maxed.x:
+			speed.x *= -1
+			state = 2
+	elif state == 2:
+		velocity.y += speed.y
+		current.y += speed.y
+		if current.y >= maxed.y:
+			speed.y *= -1
+			state = 3
+	elif state == 3:
+		if current.y >= 0:
+			velocity.y += speed.y
+			current.y += speed.y
+		if current.x >= 0:	
+			velocity.x += speed.x
+			current.x += speed.x
+		else:
+			speed.x *= -1
+			speed.y *= -1
+			state = 4
+	elif state == 4:
+		velocity.y += speed.y
+		current.y += speed.y
+		if current.y >= maxed.y:
+			speed.y *= -1
+			state = 5
+	elif state == 5:
+		velocity.x += speed.x
+		current.x += speed.x
+		if current.x >= maxed.x:
+			speed.x *= -1
+			state = 6
+	elif state == 6:
+		if current.y >= 0:
+			velocity.y += speed.y
+			current.y += speed.y
+		if current.x >= 0:	
+			velocity.x += speed.x
+			current.x += speed.x
+		else:
+			speed.x *= -1
+			speed.y *= -1
+			state = 1
 	
 	move_and_slide(velocity)
 
