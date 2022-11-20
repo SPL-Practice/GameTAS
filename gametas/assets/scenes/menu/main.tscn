@@ -45,9 +45,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="aspect" type="AspectRatioContainer" parent="menu/centered"]
-margin_left = 124.0
+margin_left = 123.0
 margin_top = 39.0
-margin_right = 127.0
+margin_right = 126.0
 margin_bottom = 129.0
 stretch_mode = 1
 
@@ -58,18 +58,13 @@ margin_right = 46.5
 margin_bottom = 90.0
 alignment = 1
 
-[node name="start" type="AspectRatioContainer" parent="menu/centered/aspect/options"]
+[node name="start" type="TextureButton" parent="menu/centered/aspect/options"]
 margin_right = 90.0
 margin_bottom = 35.0
-stretch_mode = 0
-
-[node name="button" type="TextureButton" parent="menu/centered/aspect/options/start"]
-margin_top = -27.5
-margin_right = 90.0
-margin_bottom = 62.5
 rect_min_size = Vector2( 0, 35 )
 rect_pivot_offset = Vector2( -133, 225 )
-focus_neighbour_bottom = NodePath("../Quit")
+focus_neighbour_right = NodePath("../quit")
+focus_neighbour_bottom = NodePath("../quit")
 texture_normal = ExtResource( 6 )
 texture_pressed = ExtResource( 7 )
 texture_hover = ExtResource( 6 )
@@ -87,19 +82,14 @@ margin_top = 47.0
 margin_right = 90.0
 margin_bottom = 51.0
 
-[node name="quit" type="AspectRatioContainer" parent="menu/centered/aspect/options"]
+[node name="quit" type="TextureButton" parent="menu/centered/aspect/options"]
 margin_top = 55.0
 margin_right = 90.0
 margin_bottom = 90.0
-stretch_mode = 0
-
-[node name="button" type="TextureButton" parent="menu/centered/aspect/options/quit"]
-margin_top = -27.5
-margin_right = 90.0
-margin_bottom = 62.5
 rect_min_size = Vector2( 0, 35 )
 rect_pivot_offset = Vector2( -133, 225 )
-focus_neighbour_bottom = NodePath("../Start")
+focus_neighbour_left = NodePath("../start")
+focus_neighbour_top = NodePath("../start")
 texture_normal = ExtResource( 8 )
 texture_pressed = ExtResource( 9 )
 texture_hover = ExtResource( 8 )
@@ -117,5 +107,5 @@ margin_right = 125.0
 margin_bottom = -5.0
 script = ExtResource( 4 )
 
-[connection signal="pressed" from="menu/centered/aspect/options/start/button" to="." method="_on_Start_pressed"]
-[connection signal="pressed" from="menu/centered/aspect/options/quit/button" to="." method="_on_Quit_pressed"]
+[connection signal="pressed" from="menu/centered/aspect/options/start" to="." method="_on_Start_pressed"]
+[connection signal="pressed" from="menu/centered/aspect/options/quit" to="." method="_on_Quit_pressed"]

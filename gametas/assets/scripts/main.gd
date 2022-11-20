@@ -1,7 +1,7 @@
 extends Node
 
 func _ready():
-	$menu/centered/aspect/options/start/button.grab_focus()
+	$menu/centered/aspect/options/start.grab_focus()
 
 
 

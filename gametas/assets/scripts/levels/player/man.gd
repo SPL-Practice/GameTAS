@@ -5,12 +5,14 @@ signal max_health_updated(health)
 signal killed()
 
 var velocity = Vector2()
-var speed = 400
 var constant_damage = 0
 var sanity_drop = 1
 
+var speed = 400
+var speed_lv = 1
+
 var power = 10
-var equipped = 1
+var skill = 1
 
 export (float) var max_health = 25
 onready var health = max_health setget _set_health
