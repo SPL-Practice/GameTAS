@@ -21,7 +21,7 @@ onready var invulnerability_timer = $invulnerability
 onready var sanity_timer = $sanity
 onready var animation = $animation
 onready var animate_tree = $tree
-#onready var weapon: Node2D = get_node("weapon1")
+onready var weapon = $weapon
 
 
 func boost_invulnerability_time(bonus):
@@ -70,12 +70,6 @@ func _set_health(value):
 			kill()
 			emit_signal("killed")
 
-#func _process(delta: float) -> void:
-	#var mouse_direction: Vector2 = (get_global_mouse_position()-global_position).normalized()
-	#if mouse_direction.x>0 and animated_sprite.flip_h:
-		#animated_sprite.flip_h = false
-	#else mouse_direction.x<0 and animated_sprite.flip_h:
-		#animated_sprite.flip_h = true
 
 
 func _physics_process(delta):
@@ -112,7 +106,9 @@ func _on_sanity_timeout():
 	#	damage(sanity_drop)
 	#	sanity_timer.start()
 
-
+func _unhandled_input(event:InputEvent)-> void:
+	if event.is_action_pressed("ui_attack"):
+		weapon.attack()
 
 func _on_door_body_entered(body):
 	get_tree().change_scene("res://assets/scenes/levels/end/goodend.tscn")

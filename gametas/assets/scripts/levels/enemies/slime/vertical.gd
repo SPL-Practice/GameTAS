@@ -51,3 +51,6 @@ func _on_slug_body_entered(body):
 
 func _on_slug_body_exited(body):
 	body.release_damage(damage)
+
+func handle_hit():
+	print("enemy hit")
