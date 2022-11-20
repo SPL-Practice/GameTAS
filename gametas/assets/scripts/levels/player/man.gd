@@ -7,13 +7,30 @@ signal killed()
 var velocity = Vector2()
 var speed = 400
 var constant_damage = 0
+var sanity_drop = 1
+
+var power = 10
+var equipped = 1
 
 export (float) var max_health = 25
 onready var health = max_health setget _set_health
 onready var torso = $shape
 onready var invulnerability_timer = $invulnerability
+onready var sanity_timer = $sanity
 onready var animation = $animation
 onready var weapon = $weapon
+
+func boost_invulnerability_time(bonus):
+	invulnerability_timer.wait_time * bonus
+	
+func boost_sanity_time(bonus):
+	sanity_timer.wait_time * bonus
+	
+func boost_sanity_drop(bonus):
+	sanity_drop = max(sanity_drop + bonus, 0);
+	
+func weapon(bonus):
+	sanity_drop = max(sanity_drop + bonus, 0);
 
 func sanity_up(amount):
 	max_health += amount
@@ -68,12 +85,18 @@ func _physics_process(delta):
 
 func _on_invulnerability_timeout():
 	invulnerability_timer.stop()
-	if constant_damage > 0:
+	if constant_damage > 0 and health > 0:
 		damage(constant_damage)
-	
-func _on_pill_body_entered(body):
-	pass
 
+func _on_sanity_timeout():
+	sanity_timer.stop()
+	if health > 0:
+		damage(sanity_drop)
+		sanity_timer.start()
+	
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("attack"):
 		weapon.attack()
+
+
+

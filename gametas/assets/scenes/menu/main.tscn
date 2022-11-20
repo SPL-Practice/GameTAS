@@ -30,13 +30,13 @@ autoplay = true
 
 [node name="menu" type="TextureRect" parent="."]
 anchor_left = 0.034
-anchor_top = 0.773
-anchor_right = 0.19
+anchor_top = 0.673
+anchor_right = 0.278
 anchor_bottom = 0.953
 margin_left = -0.816002
-margin_top = 0.199951
-margin_right = 0.439987
-margin_bottom = 0.199951
+margin_top = 0.199982
+margin_right = 0.327972
+margin_bottom = 0.200012
 texture = ExtResource( 10 )
 expand = true
 
@@ -45,21 +45,28 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="aspect" type="AspectRatioContainer" parent="menu/centered"]
-margin_left = 80.0
-margin_top = 17.0
-margin_right = 80.0
-margin_bottom = 91.0
+margin_left = 124.0
+margin_top = 39.0
+margin_right = 127.0
+margin_bottom = 129.0
 stretch_mode = 1
 
 [node name="options" type="VBoxContainer" parent="menu/centered/aspect"]
 material = SubResource( 1 )
-margin_left = -37.0
-margin_right = 37.0
-margin_bottom = 74.0
+margin_left = -43.5
+margin_right = 46.5
+margin_bottom = 90.0
+alignment = 1
 
-[node name="Start" type="TextureButton" parent="menu/centered/aspect/options"]
-margin_right = 74.0
+[node name="start" type="AspectRatioContainer" parent="menu/centered/aspect/options"]
+margin_right = 90.0
 margin_bottom = 35.0
+stretch_mode = 0
+
+[node name="button" type="TextureButton" parent="menu/centered/aspect/options/start"]
+margin_top = -27.5
+margin_right = 90.0
+margin_bottom = 62.5
 rect_min_size = Vector2( 0, 35 )
 rect_pivot_offset = Vector2( -133, 225 )
 focus_neighbour_bottom = NodePath("../Quit")
@@ -70,10 +77,26 @@ texture_focused = ExtResource( 7 )
 expand = true
 stretch_mode = 5
 
-[node name="Quit" type="TextureButton" parent="menu/centered/aspect/options"]
+[node name="separator" type="HSeparator" parent="menu/centered/aspect/options"]
 margin_top = 39.0
-margin_right = 74.0
-margin_bottom = 74.0
+margin_right = 90.0
+margin_bottom = 43.0
+
+[node name="separator2" type="HSeparator" parent="menu/centered/aspect/options"]
+margin_top = 47.0
+margin_right = 90.0
+margin_bottom = 51.0
+
+[node name="quit" type="AspectRatioContainer" parent="menu/centered/aspect/options"]
+margin_top = 55.0
+margin_right = 90.0
+margin_bottom = 90.0
+stretch_mode = 0
+
+[node name="button" type="TextureButton" parent="menu/centered/aspect/options/quit"]
+margin_top = -27.5
+margin_right = 90.0
+margin_bottom = 62.5
 rect_min_size = Vector2( 0, 35 )
 rect_pivot_offset = Vector2( -133, 225 )
 focus_neighbour_bottom = NodePath("../Start")
@@ -94,5 +117,5 @@ margin_right = 125.0
 margin_bottom = -5.0
 script = ExtResource( 4 )
 
-[connection signal="pressed" from="menu/centered/aspect/options/Start" to="." method="_on_Start_pressed"]
-[connection signal="pressed" from="menu/centered/aspect/options/Quit" to="." method="_on_Quit_pressed"]
+[connection signal="pressed" from="menu/centered/aspect/options/start/button" to="." method="_on_Start_pressed"]
+[connection signal="pressed" from="menu/centered/aspect/options/quit/button" to="." method="_on_Quit_pressed"]
