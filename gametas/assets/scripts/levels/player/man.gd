@@ -20,7 +20,7 @@ onready var torso = $shape
 onready var invulnerability_timer = $invulnerability
 onready var sanity_timer = $sanity
 onready var animation = $animation
-onready var weapon: Node2D = get_node("weapon1")
+#onready var weapon: Node2D = get_node("weapon1")
 
 
 func boost_invulnerability_time(bonus):
@@ -92,7 +92,7 @@ func _physics_process(delta):
 		velocity.y = speed
 			
 	move_and_slide(velocity)
-	weapon.rotation = mouse_direction.angle()
+	#weapon.rotation = mouse_direction.angle()
 
 
 func _on_invulnerability_timeout():
