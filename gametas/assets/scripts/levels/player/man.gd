@@ -18,7 +18,7 @@ onready var torso = $shape
 onready var invulnerability_timer = $invulnerability
 onready var sanity_timer = $sanity
 onready var animation = $animation
-onready var weapon = $weapon
+
 
 func boost_invulnerability_time(bonus):
 	invulnerability_timer.wait_time * bonus
@@ -93,10 +93,11 @@ func _on_sanity_timeout():
 	if health > 0:
 		damage(sanity_drop)
 		sanity_timer.start()
-	
-func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("attack"):
-		weapon.attack()
 
 
+func _on_door_body_entered(body):
+	get_tree().change_scene("res://assets/scenes/levels/end/goodend.tscn")
 
+
+func _on_Area2D_body_entered(body):
+	get_tree().change_scene("res://assets/scenes/levels/scene1/level1.tscn")
