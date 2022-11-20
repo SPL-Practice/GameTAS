@@ -47,7 +47,7 @@ func _physics_process(delta):
 
 
 func _on_slug_body_entered(body):
-	body.hold_damage(damage)
+ddddd	body.hold_damage(damage)
 
 
 func _on_slug_body_exited(body):
