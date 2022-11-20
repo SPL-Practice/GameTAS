@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://assets/resources/images/levels/total/map/map.png" type="Texture" id=1]
 [ext_resource path="res://assets/scenes/levels/total/hero/man.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://assets/resources/images/levels/total/map/tiles-pixel/small-tree-3.png" type="Texture" id=8]
 [ext_resource path="res://assets/resources/images/levels/total/map/tiles-pixel/small-pine-2.png" type="Texture" id=9]
 [ext_resource path="res://assets/resources/ost/music/game/play.ogg" type="AudioStream" id=10]
+[ext_resource path="res://assets/scenes/levels/total/weapon/weapon1.tscn" type="PackedScene" id=11]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 130, 220, 173, 220, 186, 254, 126, 258 )
@@ -185,7 +186,8 @@ position = Vector2( 813, 114 )
 
 [node name="player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 304, 308 )
-max_health = 25.0
+
+[node name="weapon1" parent="player" instance=ExtResource( 11 )]
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 current = true
