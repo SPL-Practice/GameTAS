@@ -20,6 +20,7 @@ onready var torso = $shape
 onready var invulnerability_timer = $invulnerability
 onready var sanity_timer = $sanity
 onready var animation = $animation
+onready var animate_tree = $tree
 #onready var weapon: Node2D = get_node("weapon1")
 
 
@@ -82,14 +83,18 @@ func _physics_process(delta):
 	velocity.y = 0
 	
 	if Input.is_action_pressed("ui_left"):
+		animate_tree.set("parameters/run/current", 0)
 		velocity.x = -speed
 	elif Input.is_action_pressed("ui_right"):
 		velocity.x = speed
+		animate_tree.set("parameters/run/current", 1)
 	
 	if Input.is_action_pressed("ui_up"):
 		velocity.y = -speed
+		animate_tree.set("parameters/run/current", 2)
 	elif Input.is_action_pressed("ui_down"):
 		velocity.y = speed
+		animate_tree.set("parameters/run/current", 3)
 			
 	move_and_slide(velocity)
 	#weapon.rotation = mouse_direction.angle()

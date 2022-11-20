@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://assets/resources/themes/frames/player/player/left.tres" type="Animation" id=1]
 [ext_resource path="res://assets/scripts/levels/player/man.gd" type="Script" id=2]
@@ -8,9 +8,27 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 41, 84 )
 
+[sub_resource type="Animation" id=12]
+resource_name = "right"
+length = 0.7
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 21, 22, 23, 24, 25, 26, 27 ]
+}
+
 [sub_resource type="Animation" id=9]
 resource_name = "up"
 length = 0.7
+loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimatedSprite:frame")
 tracks/0/interp = 1
@@ -30,6 +48,9 @@ animation = "up"
 [sub_resource type="AnimationNodeAnimation" id=11]
 animation = "down"
 
+[sub_resource type="AnimationNodeAnimation" id=13]
+animation = "right"
+
 [sub_resource type="AnimationNodeAnimation" id=6]
 animation = "left"
 
@@ -42,20 +63,22 @@ input_1/auto_advance = false
 input_2/name = "up"
 input_2/auto_advance = false
 input_3/name = "down"
-input_3/auto_advance = true
+input_3/auto_advance = false
 
 [sub_resource type="AnimationNodeBlendTree" id=3]
-graph_offset = Vector2( -300.859, 119.389 )
+graph_offset = Vector2( -310.497, 118.766 )
 nodes/Animation/node = SubResource( 6 )
-nodes/Animation/position = Vector2( 200, 280 )
+nodes/Animation/position = Vector2( 200, 160 )
 "nodes/Animation 2/node" = SubResource( 10 )
 "nodes/Animation 2/position" = Vector2( 80, 420 )
 "nodes/Animation 3/node" = SubResource( 11 )
 "nodes/Animation 3/position" = Vector2( 300, 480 )
-nodes/Transition/node = SubResource( 8 )
-nodes/Transition/position = Vector2( 500, 240 )
+"nodes/Animation 4/node" = SubResource( 13 )
+"nodes/Animation 4/position" = Vector2( 160, 280 )
 nodes/output/position = Vector2( 800, 240 )
-node_connections = [ "output", 0, "Transition", "Transition", 0, "Animation", "Transition", 2, "Animation 2", "Transition", 3, "Animation 3" ]
+nodes/run/node = SubResource( 8 )
+nodes/run/position = Vector2( 500, 240 )
+node_connections = [ "output", 0, "run", "run", 0, "Animation", "run", 1, "Animation 4", "run", 2, "Animation 2", "run", 3, "Animation 3" ]
 
 [node name="player" type="KinematicBody2D"]
 scale = Vector2( 0.431562, 0.405763 )
@@ -69,7 +92,7 @@ shape = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="shape"]
 frames = ExtResource( 3 )
-playing = true
+frame = 10
 
 [node name="invulnerability" type="Timer" parent="."]
 wait_time = 0.5
@@ -82,12 +105,14 @@ root_node = NodePath("../shape")
 anims/down = ExtResource( 4 )
 anims/downplayer = ExtResource( 1 )
 anims/left = ExtResource( 1 )
+anims/right = SubResource( 12 )
 anims/up = SubResource( 9 )
 
-[node name="AnimationTree" type="AnimationTree" parent="."]
+[node name="tree" type="AnimationTree" parent="."]
 tree_root = SubResource( 3 )
 anim_player = NodePath("../animation")
-parameters/Transition/current = 0
+active = true
+parameters/run/current = 3
 
 [connection signal="timeout" from="invulnerability" to="." method="_on_invulnerability_timeout"]
 [connection signal="timeout" from="sanity" to="." method="_on_sanity_timeout"]
