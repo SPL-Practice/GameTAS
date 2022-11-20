@@ -32,7 +32,7 @@ func boost_sanity_drop(bonus):
 	sanity_drop = max(sanity_drop + bonus, 0);
 	
 func weapon(bonus):
-	sanity_drop = max(sanity_drop + bonus, 0);
+	pass
 
 func sanity_up(amount):
 	max_health += amount
@@ -91,10 +91,11 @@ func _on_invulnerability_timeout():
 		damage(constant_damage)
 
 func _on_sanity_timeout():
-	sanity_timer.stop()
-	if health > 0:
-		damage(sanity_drop)
-		sanity_timer.start()
+	pass
+	#sanity_timer.stop()
+	#if health > 0:
+	#	damage(sanity_drop)
+	#	sanity_timer.start()
 
 
 func _on_door_body_entered(body):

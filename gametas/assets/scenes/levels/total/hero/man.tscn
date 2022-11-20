@@ -35,7 +35,6 @@ tracks/1/keys = {
 
 [node name="player" type="KinematicBody2D"]
 script = ExtResource( 2 )
-max_health = null
 
 [node name="shape" type="CollisionShape2D" parent="."]
 position = Vector2( 14.25, 25.5 )

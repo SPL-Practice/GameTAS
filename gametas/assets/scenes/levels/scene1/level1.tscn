@@ -185,6 +185,7 @@ position = Vector2( 813, 114 )
 
 [node name="player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 304, 308 )
+max_health = 25.0
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 current = true
