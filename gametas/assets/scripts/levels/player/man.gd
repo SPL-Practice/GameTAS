@@ -13,7 +13,7 @@ onready var health = max_health setget _set_health
 onready var torso = $shape
 onready var invulnerability_timer = $invulnerability
 onready var animation = $animation
-onready var weapon = $weapon
+
 
 func sanity_up(amount):
 	max_health += amount
@@ -70,10 +70,11 @@ func _on_invulnerability_timeout():
 	invulnerability_timer.stop()
 	if constant_damage > 0:
 		damage(constant_damage)
-	
-func _on_pill_body_entered(body):
-	pass
 
-func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("attack"):
-		weapon.attack()
+
+func _on_door_body_entered(body):
+	get_tree().change_scene("res://assets/scenes/levels/end/goodend.tscn")
+
+
+func _on_Area2D_body_entered(body):
+	get_tree().change_scene("res://assets/scenes/levels/scene1/level1.tscn")

@@ -7,7 +7,7 @@ func _ready():
 
 func _on_Start_pressed():
 # warning-ignore:return_value_discarded
-	get_tree().change_scene("res://assets/scenes/levels/scene1/level1.tscn")
+	get_tree().change_scene("res://assets/scenes/levels/scene0/office.tscn")
 
 
 func _on_Quit_pressed():
