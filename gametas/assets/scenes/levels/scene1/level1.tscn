@@ -10,6 +10,7 @@
 [ext_resource path="res://assets/resources/images/levels/total/map/tiles-pixel/small-tree-3.png" type="Texture" id=8]
 [ext_resource path="res://assets/resources/images/levels/total/map/tiles-pixel/small-pine-2.png" type="Texture" id=9]
 [ext_resource path="res://assets/resources/ost/music/game/play.ogg" type="AudioStream" id=10]
+[ext_resource path="res://assets/scenes/levels/total/weapon/weapon1.tscn" type="PackedScene" id=11]
 [ext_resource path="res://assets/scenes/levels/total/enemies/slime/vertical.tscn" type="PackedScene" id=12]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
@@ -197,6 +198,8 @@ position = Vector2( 813, 114 )
 
 [node name="player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 304, 308 )
+
+[node name="weapon1" parent="player" instance=ExtResource( 11 )]
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 current = true
