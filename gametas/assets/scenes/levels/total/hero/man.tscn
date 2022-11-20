@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://assets/resources/themes/frames/player/player/left.tres" type="Animation" id=1]
 [ext_resource path="res://assets/scripts/levels/player/man.gd" type="Script" id=2]
@@ -7,6 +7,22 @@
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 41, 84 )
+
+[sub_resource type="Animation" id=14]
+resource_name = "attack"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42 ]
+}
 
 [sub_resource type="Animation" id=12]
 resource_name = "right"
@@ -51,11 +67,14 @@ animation = "down"
 [sub_resource type="AnimationNodeAnimation" id=13]
 animation = "right"
 
+[sub_resource type="AnimationNodeAnimation" id=15]
+animation = "attack"
+
 [sub_resource type="AnimationNodeAnimation" id=6]
 animation = "left"
 
 [sub_resource type="AnimationNodeTransition" id=8]
-input_count = 4
+input_count = 5
 input_0/name = "left"
 input_0/auto_advance = false
 input_1/name = "right"
@@ -64,9 +83,11 @@ input_2/name = "up"
 input_2/auto_advance = false
 input_3/name = "down"
 input_3/auto_advance = false
+input_4/name = "attack"
+input_4/auto_advance = true
 
 [sub_resource type="AnimationNodeBlendTree" id=3]
-graph_offset = Vector2( -310.497, 118.766 )
+graph_offset = Vector2( -117.602, 218.967 )
 nodes/Animation/node = SubResource( 6 )
 nodes/Animation/position = Vector2( 200, 160 )
 "nodes/Animation 2/node" = SubResource( 10 )
@@ -75,10 +96,12 @@ nodes/Animation/position = Vector2( 200, 160 )
 "nodes/Animation 3/position" = Vector2( 300, 480 )
 "nodes/Animation 4/node" = SubResource( 13 )
 "nodes/Animation 4/position" = Vector2( 160, 280 )
+"nodes/Animation 5/node" = SubResource( 15 )
+"nodes/Animation 5/position" = Vector2( 320, 640 )
 nodes/output/position = Vector2( 800, 240 )
 nodes/run/node = SubResource( 8 )
-nodes/run/position = Vector2( 500, 240 )
-node_connections = [ "output", 0, "run", "run", 0, "Animation", "run", 1, "Animation 4", "run", 2, "Animation 2", "run", 3, "Animation 3" ]
+nodes/run/position = Vector2( 540, 300 )
+node_connections = [ "output", 0, "run", "run", 0, "Animation", "run", 1, "Animation 4", "run", 2, "Animation 2", "run", 3, "Animation 3", "run", 4, "Animation 5" ]
 
 [node name="player" type="KinematicBody2D"]
 scale = Vector2( 0.431562, 0.405763 )
@@ -92,16 +115,17 @@ shape = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="shape"]
 frames = ExtResource( 3 )
-frame = 10
+frame = 9
 
 [node name="invulnerability" type="Timer" parent="."]
 wait_time = 0.5
 
 [node name="sanity" type="Timer" parent="."]
-wait_time = 3.0
+autostart = true
 
 [node name="animation" type="AnimationPlayer" parent="."]
 root_node = NodePath("../shape")
+anims/attack = SubResource( 14 )
 anims/down = ExtResource( 4 )
 anims/downplayer = ExtResource( 1 )
 anims/left = ExtResource( 1 )

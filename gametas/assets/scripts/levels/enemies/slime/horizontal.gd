@@ -11,13 +11,14 @@ export (Vector2) var edge = Vector2(-4500, 4500)
 
 var damage = 7
 onready var health setget _set_health
+onready var animation = $animation
 
 func _set_max_health(max_health):
 	health = max_health
 
 func damage(amount):
+	animation.play("damage")
 	_set_health(health - amount)
-	#animation.play("damage")
 	
 func kill():
 	print("killed")

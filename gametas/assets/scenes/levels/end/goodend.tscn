@@ -1,12 +1,62 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://assets/resource/images/levels/background-test.png" type="Texture" id=1]
+[ext_resource path="res://assets/resources/images/ui/background/ending/good.png" type="Texture" id=1]
+[ext_resource path="res://assets/scripts/authors/end.gd" type="Script" id=2]
+[ext_resource path="res://assets/resources/themes/menu.tres" type="Theme" id=3]
+[ext_resource path="res://assets/resources/ost/music/game/won.ogg" type="AudioStream" id=4]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 2 )
 
-[node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 511, 294 )
-scale = Vector2( 0.5375, 0.548148 )
+[node name="supregression" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
 texture = ExtResource( 1 )
+expand = true
+
+[node name="menu" type="Button" parent="supregression"]
+margin_left = 671.0
+margin_top = 298.0
+margin_right = 748.0
+margin_bottom = 330.0
+text = "Menu"
+
+[node name="authors" type="ColorRect" parent="."]
+anchor_bottom = 1.0
+margin_right = 345.0
+color = Color( 0.0588235, 0.0588235, 0.0588235, 0.686275 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="authors"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -135.0
+margin_top = -237.0
+margin_right = 135.0
+margin_bottom = 237.0
+theme = ExtResource( 3 )
+text = "$ Den Dilman
+- Game designer -
+
+V Stepanova Maria
+# Muromtsev Maxim
+- Art -
+
+0 Tatarintsev Aleksandr
+1 Lvova Anastasia
+- Programmers -
+
+@ Alekseeva Viktoria
+@ Yakovlev Nikita
+- QA -
+
+"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+autoplay = true
+
+[connection signal="pressed" from="supregression/menu" to="." method="_on_menu_pressed"]
