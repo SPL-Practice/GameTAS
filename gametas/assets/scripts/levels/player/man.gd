@@ -11,7 +11,7 @@ var sanity_drop = 1
 var speed = 400
 var speed_lv = 1
 
-var power = 10
+var power = 1
 var skill = 1
 
 export (float) var max_health = 25
