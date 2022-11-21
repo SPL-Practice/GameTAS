@@ -10,9 +10,11 @@ config_version=4
 
 [application]
 
-config/name="Gametas"
+config/name="Supregression"
+config/description="You are ordinary clerk, Edward Norman Commander. He tired of his routines every single day. Which decision he has to make?"
 run/main_scene="res://assets/scenes/total/authors/logo.tscn"
-config/icon="res://icon.png"
+config/icon="res://assets/resources/images/logo/game.png"
+config/windows_native_icon="res://assets/resources/images/logo/game.ico"
 
 [autoload]
 
@@ -23,6 +25,10 @@ config="*res://assets/scripts/config.gd"
 mouse_cursor/custom_image="res://assets/resources/images/ui/cursor.png"
 mouse_cursor/custom_image_hotspot=Vector2( 32, 32 )
 window/stretch/mode="2d"
+
+[editor]
+
+version_control_plugin_name="Git"
 
 [gui]
 
@@ -63,6 +69,21 @@ attack={
 "events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
  ]
 }
+ui_attack={
+"deadzone": 0.5,
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
+ ]
+}
+
+[layer_names]
+
+2d_physics/layer_1="world"
+2d_physics/layer_2="player"
+2d_physics/layer_3="enemy"
+
+[logging]
+
+file_logging/enable_file_logging=true
 
 [physics]
 

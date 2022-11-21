@@ -7,6 +7,7 @@ onready var update_tween = $updater
 onready var character = get_parent().get_parent().get_node("player")
 
 func _ready():
+	print(character.name)
 	character.connect("health_updated", self, "_on_health_updated")
 	character.connect("max_health_updated", self, "_on_max_health_updated")
 	_on_max_health_updated(character.max_health)

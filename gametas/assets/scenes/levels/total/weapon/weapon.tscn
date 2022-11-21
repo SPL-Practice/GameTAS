@@ -1,0 +1,58 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/resources/images/levels/total/weapon/slashes.png" type="Texture" id=1]
+[ext_resource path="res://assets/scripts/levels/weapons/weapon.gd" type="Script" id=2]
+
+[sub_resource type="CapsuleShape2D" id=3]
+radius = 104.0
+height = 24.08
+
+[sub_resource type="Animation" id=2]
+resource_name = "attack"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ -128.714, 109.1, 239.7 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[node name="weapon" type="Area2D"]
+position = Vector2( -4, -1 )
+collision_layer = 8
+collision_mask = 8
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+visible = false
+position = Vector2( -1, -6 )
+rotation = 4.18355
+scale = Vector2( 0.15955, 0.225886 )
+texture = ExtResource( 1 )
+offset = Vector2( 170, -120 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 1, -4 )
+shape = SubResource( 3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/attack = SubResource( 2 )
+
+[connection signal="body_entered" from="." to="." method="_on_weapon_body_entered"]
