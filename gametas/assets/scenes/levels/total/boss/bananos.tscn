@@ -11,7 +11,7 @@ extents = Vector2( 25.5, 37.75 )
 extents = Vector2( 32, 43.25 )
 
 [node name="bananos" type="KinematicBody2D"]
-collision_layer = 8
+collision_layer = 4
 collision_mask = 8
 script = ExtResource( 2 )
 
@@ -19,7 +19,7 @@ script = ExtResource( 2 )
 position = Vector2( 2, -39 )
 scale = Vector2( 0.570313, 0.570313 )
 frames = ExtResource( 1 )
-frame = 2
+frame = 4
 playing = true
 
 [node name="hitbox" type="CollisionShape2D" parent="."]

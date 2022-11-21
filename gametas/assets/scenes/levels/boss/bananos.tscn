@@ -1,10 +1,9 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/resources/ost/music/boss.ogg" type="AudioStream" id=1]
 [ext_resource path="res://assets/scenes/levels/total/boss/bananos.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/scenes/total/ui/sanity.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/scenes/levels/total/hero/man.tscn" type="PackedScene" id=4]
-[ext_resource path="res://assets/scenes/levels/total/weapon/weapon.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/resources/images/levels/total/map/bananos.tres" type="TileSet" id=6]
 [ext_resource path="res://assets/scenes/levels/total/enemies/spikes.tscn" type="PackedScene" id=7]
 [ext_resource path="res://assets/scenes/levels/total/pill/up.tscn" type="PackedScene" id=8]
@@ -49,10 +48,12 @@ scale = Vector2( 16.0495, 13.2121 )
 position = Vector2( 95, 151 )
 
 [node name="player" parent="." instance=ExtResource( 4 )]
-position = Vector2( 565, 347 )
+position = Vector2( 509, 329 )
 
-[node name="weapon" parent="player" instance=ExtResource( 5 )]
-position = Vector2( -13.903, -32.0384 )
+[node name="Camera2D" type="Camera2D" parent="player"]
+position = Vector2( -13.903, -32.0385 )
+scale = Vector2( 2.31716, 2.46449 )
+current = true
 
 [node name="HUD" type="CanvasLayer" parent="."]
 

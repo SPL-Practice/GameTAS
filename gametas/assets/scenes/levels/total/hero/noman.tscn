@@ -1,11 +1,10 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://assets/resources/themes/frames/player/player/left.tres" type="Animation" id=1]
-[ext_resource path="res://assets/scripts/levels/player/man.gd" type="Script" id=2]
+[ext_resource path="res://assets/scripts/levels/player/noman.gd" type="Script" id=2]
 [ext_resource path="res://assets/resources/themes/frames/player/down.tres" type="SpriteFrames" id=3]
 [ext_resource path="res://assets/resources/themes/frames/player/player/down.tres" type="Animation" id=4]
 [ext_resource path="res://assets/resources/themes/frames/player/damage.tres" type="Animation" id=5]
-[ext_resource path="res://assets/scenes/levels/total/weapon/weapon.tscn" type="PackedScene" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 41, 84 )
@@ -115,6 +114,7 @@ node_connections = [ "output", 0, "run", "run", 0, "Animation", "run", 1, "Anima
 [node name="player" type="KinematicBody2D"]
 scale = Vector2( 0.431562, 0.405763 )
 collision_layer = 2
+collision_mask = 5
 script = ExtResource( 2 )
 
 [node name="shape" type="CollisionShape2D" parent="."]
@@ -123,18 +123,7 @@ shape = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="shape"]
 frames = ExtResource( 3 )
-frame = 13
-
-[node name="weapon" parent="." instance=ExtResource( 6 )]
-position = Vector2( -13.903, -24.6449 )
-collision_layer = 0
-collision_mask = 4
-
-[node name="invulnerability" type="Timer" parent="."]
-wait_time = 0.5
-
-[node name="sanity" type="Timer" parent="."]
-autostart = true
+frame = 10
 
 [node name="animation" type="AnimationPlayer" parent="."]
 root_node = NodePath("../shape")
@@ -151,6 +140,3 @@ tree_root = SubResource( 3 )
 anim_player = NodePath("../animation")
 active = true
 parameters/run/current = 3
-
-[connection signal="timeout" from="invulnerability" to="." method="_on_invulnerability_timeout"]
-[connection signal="timeout" from="sanity" to="." method="_on_sanity_timeout"]

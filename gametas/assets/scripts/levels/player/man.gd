@@ -1,14 +1,12 @@
-extends KinematicBody2D
+extends "res://assets/scripts/levels/player/noman.gd"
 
 signal health_updated(health)
 signal max_health_updated(health)
 signal killed()
 
-var velocity = Vector2()
 var constant_damage = 0
 var sanity_drop = 1
 
-var speed = 400
 var speed_lv = 1
 
 export (int) var power = 5
@@ -20,20 +18,18 @@ onready var torso = $shape
 onready var invulnerability_timer = $invulnerability
 onready var sanity_timer = $sanity
 onready var animation = $animation
-onready var animate_tree = $tree
 onready var weapon = $weapon
 
-
 func boost_invulnerability_time(bonus):
-	invulnerability_timer.wait_time * bonus
+	invulnerability_timer.wait_time *= bonus
 	
 func boost_sanity_time(bonus):
-	sanity_timer.wait_time * bonus
+	sanity_timer.wait_time *= bonus
 	
 func boost_sanity_drop(bonus):
 	sanity_drop = max(sanity_drop + bonus, 0);
 	
-func weapon(bonus):
+func weaponed(bonus):
 	pass
 
 func sanity_up(amount):
@@ -52,7 +48,7 @@ func damage(amount):
 	if invulnerability_timer.is_stopped():
 		invulnerability_timer.start()
 		_set_health(health - amount)
-		animation.play("damage")
+		animate_tree.set("parameters/run/current", 5)
 
 func kill():
 	queue_free()
@@ -65,37 +61,11 @@ func _set_health(value):
 	var prev_health = health
 	health = clamp(value, 0, max_health);
 	if health != prev_health:
+		print("health_updated")
 		emit_signal("health_updated", health)
 		if health == 0:
 			kill()
 			emit_signal("killed")
-
-
-
-func _physics_process(delta):
-	velocity.x = 0
-	velocity.y = 0
-	
-	if Input.is_action_pressed("ui_left"):
-		velocity.x = -speed
-		if animate_tree.get("parameters/run/current") != 4:
-			animate_tree.set("parameters/run/current", 0)
-	elif Input.is_action_pressed("ui_right"):
-		velocity.x = speed
-		if animate_tree.get("parameters/run/current") != 4:
-			animate_tree.set("parameters/run/current", 1)
-	
-	if Input.is_action_pressed("ui_up"):
-		velocity.y = -speed
-		if animate_tree.get("parameters/run/current") != 4:
-			animate_tree.set("parameters/run/current", 2)
-	elif Input.is_action_pressed("ui_down"):
-		velocity.y = speed
-		if animate_tree.get("parameters/run/current") != 4:
-			animate_tree.set("parameters/run/current", 3)
-			
-	move_and_slide(velocity)
-	#weapon.rotation = mouse_direction.angle()
 
 func _on_invulnerability_timeout():
 	invulnerability_timer.stop()
@@ -104,7 +74,6 @@ func _on_invulnerability_timeout():
 
 func _on_sanity_timeout():
 	if health > 0:
-		print(health)
 		damage(sanity_drop)
 		sanity_timer.start()
 
@@ -113,10 +82,3 @@ func _unhandled_input(event:InputEvent)-> void:
 		if weapon != null:
 			weapon.attack()
 		animate_tree.set("parameters/run/current", 4)
-
-func _on_door_body_entered(body):
-	get_tree().change_scene("res://assets/scenes/levels/end/goodend.tscn")
-
-
-func _on_Area2D_body_entered(body):
-	get_tree().change_scene("res://assets/scenes/levels/scene1/level1.tscn")

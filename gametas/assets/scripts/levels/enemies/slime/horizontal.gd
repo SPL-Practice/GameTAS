@@ -6,7 +6,7 @@ signal killed()
 var velocity = Vector2()
 var current = 0
 
-export (float) var speed = 150
+export (int) var speed = 150
 export (Vector2) var edge = Vector2(-4500, 4500)
 
 var damage = 7

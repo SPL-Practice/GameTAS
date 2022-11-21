@@ -6,7 +6,7 @@ signal killed()
 var velocity = Vector2()
 var current = 0
 
-export (float) var speed = 150
+export (int) var speed = 150
 export (Vector2) var edge = Vector2(-4500, 4500)
 
 var damage = 7
@@ -36,7 +36,7 @@ func _set_health(value):
 			kill()
 			emit_signal("killed")
 			
-func _physics_process(delta):
+func _physics_process(_delta):
 	velocity.y = 0
 	if current <= edge.x or current >= edge.y:
 		speed *= -1
