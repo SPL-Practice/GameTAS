@@ -24,7 +24,7 @@ func damage(amount):
 	
 func kill():
 	queue_free()
-	get_tree().change_scene("res://assets/scenes/levels/end/badend.tscn")
+	get_tree().change_scene("res://assets/scenes/menu/ending/bad.tscn")
 
 func heal(value):
 	 _set_health(health + value)

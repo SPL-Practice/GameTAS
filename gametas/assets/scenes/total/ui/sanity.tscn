@@ -6,7 +6,7 @@
 [ext_resource path="res://assets/resources/themes/menu.tres" type="Theme" id=4]
 [ext_resource path="res://assets/resources/images/ui/bars/border.png" type="Texture" id=5]
 
-[node name="sanity" type="Panel"]
+[node name="sanity" type="Control"]
 anchor_right = 0.244
 anchor_bottom = 0.07
 margin_right = 0.143982

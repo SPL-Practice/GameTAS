@@ -12,9 +12,9 @@ config_version=4
 
 config/name="Supregression"
 config/description="You are ordinary clerk, Edward Norman Commander. He tired of his routines every single day. Which decision he has to make?"
-run/main_scene="res://assets/scenes/total/authors/logo.tscn"
+run/main_scene="res://assets/scenes/menu/logo.tscn"
 config/icon="res://assets/resources/images/logo/game.png"
-config/windows_native_icon="res://assets/resources/images/logo/game.ico"
+config/windows_native_icon="res://assets/resources/images/logo/company/game.ico"
 
 [autoload]
 

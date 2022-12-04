@@ -1,8 +1,8 @@
 [gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://assets/scripts/main.gd" type="Script" id=1]
-[ext_resource path="res://assets/scenes/levels/total/loading/transition.tscn" type="PackedScene" id=2]
-[ext_resource path="res://assets/resource/images/levels/background-test.png" type="Texture" id=3]
+[ext_resource path="res://assets/scripts/menu/main.gd" type="Script" id=1]
+[ext_resource path="res://assets/scenes/menu/transition.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/resources/images/ui/background/menu.png" type="Texture" id=3]
 [ext_resource path="res://assets/scripts/ui/load.gd" type="Script" id=4]
 [ext_resource path="res://assets/resources/ost/music/menu.ogg" type="AudioStream" id=5]
 [ext_resource path="res://assets/resources/images/ui/buttons/start/usual.png" type="Texture" id=6]
