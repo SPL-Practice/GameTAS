@@ -1,11 +1,9 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/resources/images/levels/total/map/bananos.tres" type="TileSet" id=1]
 [ext_resource path="res://assets/scenes/levels/total/entities/hero/man.tscn" type="PackedScene" id=2]
-[ext_resource path="res://assets/scenes/menu/transition.tscn" type="PackedScene" id=3]
-[ext_resource path="res://assets/scripts/ui/load.gd" type="Script" id=4]
+[ext_resource path="res://assets/scenes/total/ui/hud/usual.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/scenes/levels/total/entities/enemies/foe/spikes.tscn" type="PackedScene" id=5]
-[ext_resource path="res://assets/scenes/total/ui/sanity.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/scenes/levels/total/items/pill/up.tscn" type="PackedScene" id=7]
 [ext_resource path="res://assets/resources/ost/music/game/play.ogg" type="AudioStream" id=10]
 [ext_resource path="res://assets/scenes/levels/total/entities/enemies/foe/slime/vertical.tscn" type="PackedScene" id=12]
@@ -149,19 +147,7 @@ position = Vector2( -13.903, -32.0386 )
 current = true
 editor_draw_drag_margin = true
 
-[node name="HUD" type="CanvasLayer" parent="."]
-
-[node name="sanity" parent="HUD" instance=ExtResource( 6 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 41.0
-margin_top = 32.0
-margin_right = 291.0
-margin_bottom = 74.0
-
-[node name="transition" parent="HUD" instance=ExtResource( 3 )]
-visible = false
-script = ExtResource( 4 )
+[node name="HUD" parent="." instance=ExtResource( 3 )]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 10 )

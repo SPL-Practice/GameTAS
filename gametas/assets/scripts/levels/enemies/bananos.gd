@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 signal health_updated(amount)
+signal max_health_updated(health)
 signal killed()
 
 var velocity = Vector2()
@@ -12,7 +13,8 @@ var state = 1
 
 
 var damage = 7
-onready var health = 14 setget _set_health
+export (float) var max_health = 14
+onready var health = max_health setget _set_health
 onready var animation = $animation
 
 func _set_max_health(max_health):

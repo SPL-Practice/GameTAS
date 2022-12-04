@@ -4,7 +4,9 @@ onready var sanity_over = $fill/over
 onready var sanity_under = $fill/under
 onready var update_tween = $updater
 
-onready var character = get_parent().get_parent().get_node("player")
+export var node_name = "player"
+
+onready var character = get_parent().get_parent().get_parent().get_node(node_name)
 
 func _ready():
 	print(character.name)

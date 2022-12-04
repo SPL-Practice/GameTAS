@@ -2,7 +2,7 @@
 
 [ext_resource path="res://assets/resources/ost/music/boss.ogg" type="AudioStream" id=1]
 [ext_resource path="res://assets/scenes/levels/total/entities/enemies/boss/bananos.tscn" type="PackedScene" id=2]
-[ext_resource path="res://assets/scenes/total/ui/sanity.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/scenes/total/ui/hud/boss.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/scenes/levels/total/entities/hero/man.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/resources/images/levels/total/map/bananos.tres" type="TileSet" id=6]
 [ext_resource path="res://assets/scenes/levels/total/entities/enemies/foe/spikes.tscn" type="PackedScene" id=7]
@@ -44,7 +44,7 @@ position = Vector2( 537, 885 )
 rotation = 1.57079
 scale = Vector2( 16.0495, 13.2121 )
 
-[node name="bananos" parent="." instance=ExtResource( 2 )]
+[node name="boss" parent="." instance=ExtResource( 2 )]
 position = Vector2( 95, 151 )
 
 [node name="player" parent="." instance=ExtResource( 4 )]
@@ -55,17 +55,7 @@ position = Vector2( -13.903, -32.0385 )
 scale = Vector2( 2.31716, 2.46449 )
 current = true
 
-[node name="HUD" type="CanvasLayer" parent="."]
-
-[node name="sanity" parent="HUD" instance=ExtResource( 3 )]
-anchor_left = 0.027
-anchor_top = 0.048
-anchor_right = 0.271
-anchor_bottom = 0.118
-margin_left = 0.351999
-margin_top = 0.199999
-margin_right = 0.495972
-margin_bottom = 0.199997
+[node name="HUD" parent="." instance=ExtResource( 3 )]
 
 [node name="up2" parent="." instance=ExtResource( 8 )]
 position = Vector2( 898, 517 )
