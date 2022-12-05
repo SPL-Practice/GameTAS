@@ -8,6 +8,22 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Node",
+"class": "meta",
+"language": "GDScript",
+"path": "res://assets/scripts/machine/meta.gd"
+}, {
+"base": "Reference",
+"class": "state",
+"language": "GDScript",
+"path": "res://assets/scripts/machine/state.gd"
+} ]
+_global_script_class_icons={
+"meta": "",
+"state": ""
+}
+
 [application]
 
 config/name="Supregression"
