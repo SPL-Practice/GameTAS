@@ -1,10 +1,19 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://assets/resources/themes/frames/player/player/left.tres" type="Animation" id=1]
 [ext_resource path="res://assets/scripts/levels/player/noman.gd" type="Script" id=2]
 [ext_resource path="res://assets/resources/themes/frames/player/down.tres" type="SpriteFrames" id=3]
 [ext_resource path="res://assets/resources/themes/frames/player/player/down.tres" type="Animation" id=4]
 [ext_resource path="res://assets/resources/themes/frames/player/damage.tres" type="Animation" id=5]
+[ext_resource path="res://addons/godot-behavior-tree-plugin/selector.gd" type="Script" id=6]
+[ext_resource path="res://addons/godot-behavior-tree-plugin/sequence.gd" type="Script" id=7]
+[ext_resource path="res://addons/godot-behavior-tree-plugin/behavior_tree.gd" type="Script" id=8]
+[ext_resource path="res://assets/scripts/levels/behaviour/movement/player/left.gd" type="Script" id=9]
+[ext_resource path="res://assets/scripts/levels/behaviour/movement/player/right.gd" type="Script" id=10]
+[ext_resource path="res://assets/scripts/levels/behaviour/movement/player/top.gd" type="Script" id=11]
+[ext_resource path="res://assets/scripts/levels/behaviour/movement/player/down.gd" type="Script" id=12]
+[ext_resource path="res://addons/godot-behavior-tree-plugin/blackboard.gd" type="Script" id=13]
+[ext_resource path="res://addons/godot-behavior-tree-plugin/succeeder.gd" type="Script" id=14]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 41, 84 )
@@ -140,3 +149,36 @@ tree_root = SubResource( 3 )
 anim_player = NodePath("../animation")
 active = true
 parameters/run/current = 3
+
+[node name="blackboard" type="Node" parent="."]
+script = ExtResource( 13 )
+
+[node name="behaviour" type="Node" parent="."]
+script = ExtResource( 8 )
+
+[node name="selector" type="Node" parent="behaviour"]
+script = ExtResource( 6 )
+
+[node name="move" type="Node" parent="behaviour/selector"]
+script = ExtResource( 7 )
+
+[node name="success" type="Node" parent="behaviour/selector/move"]
+script = ExtResource( 14 )
+
+[node name="vertical" type="Node" parent="behaviour/selector/move/success"]
+script = ExtResource( 6 )
+
+[node name="top" type="Node" parent="behaviour/selector/move/success/vertical"]
+script = ExtResource( 11 )
+
+[node name="down" type="Node" parent="behaviour/selector/move/success/vertical"]
+script = ExtResource( 12 )
+
+[node name="horizontal" type="Node" parent="behaviour/selector/move"]
+script = ExtResource( 6 )
+
+[node name="left" type="Node" parent="behaviour/selector/move/horizontal"]
+script = ExtResource( 9 )
+
+[node name="right" type="Node" parent="behaviour/selector/move/horizontal"]
+script = ExtResource( 10 )
