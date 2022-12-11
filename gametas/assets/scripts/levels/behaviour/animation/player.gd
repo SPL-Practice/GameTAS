@@ -21,16 +21,6 @@ func move(velocity):
 	for blend in blends:
 		tree.set("parameters/down_actions/%s/blend_position" % blend, velocity.normalized())
 
-func up(y: int):
-	pass
-	#velocity.y = y
-	#move()
-
-func right(x: int):
-	pass
-	#velocity.x = x
-	#move()
-	
 func travel_to(animation):
 	state.travel(animation)
 

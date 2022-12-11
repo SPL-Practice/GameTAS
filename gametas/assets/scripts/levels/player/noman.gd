@@ -9,16 +9,6 @@ onready var moves = $shape/look
 
 func press_power(main, alternate):
 	return Input.get_action_strength(main) - Input.get_action_strength(alternate)
-
-func up(multiplier: int):
-	var input = press_power("ui_down", "ui_up")
-	velocity.y = speed * multiplier * input
-	return input
-
-func right(multiplier: int):
-	var input = press_power("ui_right", "ui_left")
-	velocity.x = speed * multiplier * input
-	return input
 	
 func move():
 	velocity.x = press_power("ui_right", "ui_left")

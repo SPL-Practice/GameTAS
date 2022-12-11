@@ -43,9 +43,11 @@ blend_point_0/pos = Vector2( -1, 0 )
 blend_point_1/node = SubResource( 44 )
 blend_point_1/pos = Vector2( 1, 0 )
 blend_point_2/node = SubResource( 45 )
-blend_point_2/pos = Vector2( 0, -1 )
+blend_point_2/pos = Vector2( 0, -1.1 )
 blend_point_3/node = SubResource( 46 )
-blend_point_3/pos = Vector2( 0, 1 )
+blend_point_3/pos = Vector2( 0, 1.1 )
+min_space = Vector2( -1, -1.1 )
+max_space = Vector2( 1, 1.1 )
 
 [sub_resource type="AnimationNodeAnimation" id=38]
 animation = "run_left"
@@ -63,11 +65,13 @@ animation = "run_up"
 blend_point_0/node = SubResource( 38 )
 blend_point_0/pos = Vector2( -1, 0 )
 blend_point_1/node = SubResource( 39 )
-blend_point_1/pos = Vector2( 0, 1 )
+blend_point_1/pos = Vector2( 0, 1.1 )
 blend_point_2/node = SubResource( 40 )
 blend_point_2/pos = Vector2( 1, 0 )
 blend_point_3/node = SubResource( 41 )
-blend_point_3/pos = Vector2( 0, -1 )
+blend_point_3/pos = Vector2( 0, -1.1 )
+min_space = Vector2( -1, -1.1 )
+max_space = Vector2( 1, 1.1 )
 blend_mode = 1
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=48]
@@ -83,6 +87,7 @@ states/run/node = SubResource( 42 )
 states/run/position = Vector2( 492, 72 )
 transitions = [ "run", "base_attack", SubResource( 48 ), "base_attack", "run", SubResource( 49 ) ]
 start_node = "run"
+graph_offset = Vector2( 12, -81 )
 
 [sub_resource type="AnimationNodeTransition" id=17]
 input_count = 2
