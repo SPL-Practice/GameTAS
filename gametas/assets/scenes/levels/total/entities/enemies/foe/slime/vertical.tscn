@@ -2,7 +2,7 @@
 
 [ext_resource path="res://assets/resources/themes/frames/enemies/slime.tres" type="SpriteFrames" id=1]
 [ext_resource path="res://assets/scripts/levels/enemies/slime/vertical.gd" type="Script" id=2]
-[ext_resource path="res://assets/resources/images/levels/total/animations/damage.tres" type="Animation" id=3]
+[ext_resource path="res://assets/resources/media/animations/total/damage.tres" type="Animation" id=3]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 18, 29.5 )

@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://assets/resources/images/ui/buttons/usual.png" type="Texture" id=1]
-[ext_resource path="res://assets/resources/images/ui/buttons/focus.png" type="Texture" id=2]
-[ext_resource path="res://assets/resources/images/ui/buttons/press.png" type="Texture" id=3]
+[ext_resource path="res://assets/resources/media/images/ui/buttons/usual.png" type="Texture" id=1]
+[ext_resource path="res://assets/resources/media/images/ui/buttons/focus.png" type="Texture" id=2]
+[ext_resource path="res://assets/resources/media/images/ui/buttons/press.png" type="Texture" id=3]
 
 [node name="option" type="TextureButton"]
 margin_right = 90.0

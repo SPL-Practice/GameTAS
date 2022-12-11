@@ -2,11 +2,11 @@
 
 [ext_resource path="res://assets/scripts/menu/main.gd" type="Script" id=1]
 [ext_resource path="res://assets/scenes/menu/transition.tscn" type="PackedScene" id=2]
-[ext_resource path="res://assets/resources/images/ui/background/menu.png" type="Texture" id=3]
+[ext_resource path="res://assets/resources/media/images/ui/background/menu.png" type="Texture" id=3]
 [ext_resource path="res://assets/scripts/ui/load.gd" type="Script" id=4]
-[ext_resource path="res://assets/resources/ost/music/menu.ogg" type="AudioStream" id=5]
+[ext_resource path="res://assets/resources/media/ost/music/menu.ogg" type="AudioStream" id=5]
 [ext_resource path="res://assets/scenes/total/ui/buttons/menu.tscn" type="PackedScene" id=8]
-[ext_resource path="res://assets/resources/images/ui/background/options.png" type="Texture" id=10]
+[ext_resource path="res://assets/resources/media/images/ui/background/options.png" type="Texture" id=10]
 [ext_resource path="res://assets/resources/themes/menu.tres" type="Theme" id=11]
 
 [sub_resource type="CanvasItemMaterial" id=1]

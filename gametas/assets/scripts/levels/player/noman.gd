@@ -5,49 +5,27 @@ var speed = 400
 
 onready var blackboard = $blackboard
 onready var behaviour = $behaviour
-onready var animate_tree = $tree
+onready var moves = $shape/look
 
-enum Run { LEFT, RIGHT, TOP, DOWN }
+func press_power(main, alternate):
+	return Input.get_action_strength(main) - Input.get_action_strength(alternate)
 
-func _up(multiplier: int, side: int):
-	velocity.y = speed * multiplier
-	animate_tree.set("parameters/run/current", side)
+func up(multiplier: int):
+	var input = press_power("ui_down", "ui_up")
+	velocity.y = speed * multiplier * input
+	return input
 
-func _right(multiplier: int, side: int):
-	velocity.x = speed * multiplier
-	animate_tree.set("parameters/run/current", side)
+func right(multiplier: int):
+	var input = press_power("ui_right", "ui_left")
+	velocity.x = speed * multiplier * input
+	return input
+	
+func move():
+	velocity.x = press_power("ui_right", "ui_left")
+	velocity.y = press_power("ui_down", "ui_up")
+	return velocity
 
 func _physics_process(delta):
 	behaviour.tick(self, $blackboard)
-	""""
-	if Input.is_action_pressed("ui_left"):
-		velocity.x = -speed
-		if animate_tree.get("parameters/run/current") != 4:
-			animate_tree.set("parameters/run/current", 0)
-	elif Input.is_action_pressed("ui_right"):
-		velocity.x = speed
-		if animate_tree.get("parameters/run/current") != 4:
-			animate_tree.set("parameters/run/current", 1)
-	
-	if Input.is_action_pressed("ui_up"):
-		velocity.y = -speed
-		if animate_tree.get("parameters/run/current") != 4:
-			animate_tree.set("parameters/run/current", 2)
-	elif Input.is_action_pressed("ui_down"):
-		velocity.y = speed
-		if animate_tree.get("parameters/run/current") != 4:
-			animate_tree.set("parameters/run/current", 3)
-	"""
-			
-	move_and_slide(velocity)
-	velocity.x = 0
-	velocity.y = 0
-
-func _on_door_body_entered(body):	
-	pass
-	#get_tree().change_scene("res://assets/scenes/levels/end/good.tscn")
-	#print(body.get_name())
-	#if body.get_name() == "door":
-	#	
-	#else:
-		#get_tree().change_scene("res://assets/scenes/levels/scene1/level1.tscn")
+	move_and_slide(velocity * speed)
+	velocity = Vector2.ZERO

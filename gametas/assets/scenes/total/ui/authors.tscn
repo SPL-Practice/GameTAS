@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://assets/resources/themes/menu.tres" type="Theme" id=1]
-[ext_resource path="res://assets/resources/images/logo/company/horizontal/transparent.png" type="Texture" id=2]
+[ext_resource path="res://assets/resources/media/images/logo/company/horizontal/transparent.png" type="Texture" id=2]
 
 [node name="authors" type="ColorRect"]
 anchor_bottom = 1.0

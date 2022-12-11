@@ -2,8 +2,8 @@
 
 [ext_resource path="res://assets/scenes/total/ui/authors.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/resources/themes/menu.tres" type="Theme" id=2]
-[ext_resource path="res://assets/resources/images/ui/background/ending/bad/2.jpg" type="Texture" id=3]
-[ext_resource path="res://assets/resources/ost/music/game/over.ogg" type="AudioStream" id=4]
+[ext_resource path="res://assets/resources/media/images/ui/background/ending/bad/2.jpg" type="Texture" id=3]
+[ext_resource path="res://assets/resources/media/ost/music/game/over.ogg" type="AudioStream" id=4]
 [ext_resource path="res://assets/scripts/authors/ending/bad.gd" type="Script" id=5]
 
 [sub_resource type="Animation" id=1]
