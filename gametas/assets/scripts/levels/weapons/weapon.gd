@@ -36,7 +36,7 @@ func base_combo():
 
 func move(velocity):
 	tree.set(Look.blender("melee/base_combo"), velocity.normalized())
-	tree.set(Look.blender("melee/charge"), velocity.normalized())
+	tree.set(Look.blender("melee/c"), velocity.normalized())
 
 func attack():
 	anim.play("attack")

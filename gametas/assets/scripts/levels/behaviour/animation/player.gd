@@ -59,18 +59,8 @@ func custom(animation, type: int):
 	tree.set("parameters/down_actions/run/blend_position/x", 0)
 	tree.set("parameters/%s/current" % animation, type)
 
-#func attack(type: int):
-	#custom(directions[turned] + "side_attack", type)
-
-#func action(kind: int):
-#	custom(directions[turned], kind)
-
 func turn(side: int, action: int):
-	#if (turned != side):
-	#	action(action)
 	custom("turn", side)
-	#if (acted != action):
-	#	custom(directions[side], action)
 	turned = side
 
 
