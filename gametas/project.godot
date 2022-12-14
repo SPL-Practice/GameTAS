@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "AnimatedSprite",
+"class": "Look",
+"language": "GDScript",
+"path": "res://assets/scripts/levels/behaviour/animation/player.gd"
+}, {
 "base": "Node",
 "class": "meta",
 "language": "GDScript",
@@ -20,6 +25,7 @@ _global_script_classes=[ {
 "path": "res://assets/scripts/machine/state.gd"
 } ]
 _global_script_class_icons={
+"Look": "",
 "meta": "",
 "state": ""
 }
