@@ -1,37 +1,35 @@
-extends CollisionShape2D
+extends Area2D
 
-onready var wielder = get_parent()
-onready var tree = $tree
+var wielder
+onready var tree = $shape/look/tree
 onready var combos = $combos
-onready var melee = get_state("melee")
-onready var base_combo = get_state("melee/base_combo")
-onready var charge = get_state("melee/charge")
+onready var base_combo = get_state("base_melee_combo")
 
 var combo = 0
-var max_combo = 2
+var max_combo = 3
+
+func set_wielder(wields):
+	wielder = wields
 
 func get_state(states):
 	return tree.get("parameters/%s/playback" % states)
 
-func turn(blend, velocity):
-	tree.set(Look.blender(blend), velocity.normalized())
-
 func move(velocity):
-	turn("melee/charge", velocity)
 	for tact in max_combo:
-		turn("melee/base_combo/%s" % tact, velocity)
+		tree.set("parameters/base_melee_combo/%s/blend_position" % (tact + 1), velocity.normalized())
 
 func stop_combo():
 	combo = 0
 	combos.stop()
-	wielder.idle()
+	wielder.look.run()
 
 func attack():
 	combo += 1
 	base_combo.travel(str(combo))
-	wielder.attack(combo)
-	if (combos.is_stopped()):
-		melee.travel("base_combo")
+	var is_started = combos.is_stopped()
+	wielder.look.attack(combo, is_started)
+	if (is_started):
+		tree.set("parameters/melee/current", 0)
 		combos.start()
 	elif combo >= max_combo:
 		stop_combo()

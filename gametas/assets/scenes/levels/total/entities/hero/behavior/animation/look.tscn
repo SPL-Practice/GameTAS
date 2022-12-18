@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=2]
+[gd_scene load_steps=65 format=2]
 
 [ext_resource path="res://assets/resources/media/animations/player/left/run_left.tres" type="Animation" id=1]
 [ext_resource path="res://assets/resources/media/animations/frames/player/down.tres" type="SpriteFrames" id=2]
@@ -26,15 +26,6 @@
 
 [sub_resource type="AnimationNodeAnimation" id=16]
 animation = "damage"
-
-[sub_resource type="AnimationNodeTransition" id=19]
-input_count = 3
-input_0/name = "attack"
-input_0/auto_advance = true
-input_1/name = "run"
-input_1/auto_advance = false
-input_2/name = "idle"
-input_2/auto_advance = false
 
 [sub_resource type="AnimationNodeAnimation" id=43]
 animation = "base_leftside_attack"
@@ -130,21 +121,35 @@ blend_point_2/pos = Vector2( 0, -1 )
 blend_point_3/node = SubResource( 66 )
 blend_point_3/pos = Vector2( 1, 0 )
 
+[sub_resource type="AnimationNodeAnimation" id=72]
+animation = "RESET"
+
 [sub_resource type="AnimationNodeStateMachineTransition" id=68]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=69]
 
+[sub_resource type="AnimationNodeStateMachineTransition" id=73]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=74]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=75]
+switch_mode = 2
+
 [sub_resource type="AnimationNodeStateMachine" id=51]
 states/1/node = SubResource( 57 )
-states/1/position = Vector2( 312, 109 )
+states/1/position = Vector2( 306, 82 )
 states/2/node = SubResource( 62 )
-states/2/position = Vector2( 484, 109 )
+states/2/position = Vector2( 484, 82 )
 states/3/node = SubResource( 67 )
-states/3/position = Vector2( 651, 109 )
-transitions = [ "1", "2", SubResource( 68 ), "2", "3", SubResource( 69 ) ]
+states/3/position = Vector2( 654, 82 )
+states/RESET/node = SubResource( 72 )
+states/RESET/position = Vector2( 484, 226 )
+transitions = [ "1", "2", SubResource( 68 ), "2", "3", SubResource( 69 ), "1", "RESET", SubResource( 73 ), "2", "RESET", SubResource( 74 ), "3", "RESET", SubResource( 75 ) ]
 start_node = "1"
-end_node = "3"
-graph_offset = Vector2( 34, 57 )
+end_node = "RESET"
+graph_offset = Vector2( 42, 13 )
 
 [sub_resource type="AnimationNodeAnimation" id=38]
 animation = "run_left"
@@ -188,142 +193,18 @@ transitions = [ "run", "base_combo", SubResource( 70 ), "base_combo", "run", Sub
 start_node = "run"
 graph_offset = Vector2( 335, 0 )
 
-[sub_resource type="AnimationNodeTransition" id=17]
-input_count = 2
-input_0/name = "base"
-input_0/auto_advance = false
-input_1/name = "charge"
-input_1/auto_advance = false
-
-[sub_resource type="AnimationNodeAnimation" id=15]
-animation = "base_downside_attack"
-
-[sub_resource type="AnimationNodeTransition" id=21]
-input_count = 3
-input_0/name = "attack"
-input_0/auto_advance = true
-input_1/name = "run"
-input_1/auto_advance = false
-input_2/name = "idle"
-input_2/auto_advance = false
-
-[sub_resource type="AnimationNodeTransition" id=23]
-input_count = 2
-input_0/name = "base"
-input_0/auto_advance = true
-input_1/name = "charge"
-input_1/auto_advance = false
-
-[sub_resource type="AnimationNodeAnimation" id=29]
-animation = "base_leftside_attack"
-
-[sub_resource type="AnimationNodeTransition" id=18]
-input_count = 3
-input_0/name = "attack"
-input_0/auto_advance = true
-input_1/name = "run"
-input_1/auto_advance = false
-input_2/name = "idle"
-input_2/auto_advance = false
-
-[sub_resource type="AnimationNodeTransition" id=24]
-input_count = 2
-input_0/name = "base"
-input_0/auto_advance = false
-input_1/name = "charge"
-input_1/auto_advance = false
-
-[sub_resource type="AnimationNodeAnimation" id=30]
-animation = "base_rightside_attack"
-
-[sub_resource type="AnimationNodeAnimation" id=11]
-animation = "run_down"
-
-[sub_resource type="AnimationNodeAnimation" id=6]
-animation = "run_left"
-
-[sub_resource type="AnimationNodeAnimation" id=13]
-animation = "run_right"
-
-[sub_resource type="AnimationNodeAnimation" id=10]
-animation = "run_up"
-
 [sub_resource type="AnimationNodeTimeScale" id=25]
 
-[sub_resource type="AnimationNodeTransition" id=8]
-input_count = 4
-input_0/name = "left"
-input_0/auto_advance = false
-input_1/name = "right"
-input_1/auto_advance = false
-input_2/name = "up"
-input_2/auto_advance = false
-input_3/name = "down"
-input_3/auto_advance = false
-
-[sub_resource type="AnimationNodeTransition" id=20]
-input_count = 3
-input_0/name = "attack"
-input_0/auto_advance = true
-input_1/name = "run"
-input_1/auto_advance = false
-input_2/name = "idle"
-input_2/auto_advance = false
-
-[sub_resource type="AnimationNodeTransition" id=28]
-input_count = 2
-input_0/name = "base"
-input_0/auto_advance = false
-input_1/name = "charge"
-input_1/auto_advance = false
-
-[sub_resource type="AnimationNodeAnimation" id=31]
-animation = "base_upside_attack"
-
 [sub_resource type="AnimationNodeBlendTree" id=3]
-graph_offset = Vector2( 55.9722, 220.222 )
+graph_offset = Vector2( 475.496, 246 )
 nodes/damage/node = SubResource( 16 )
-nodes/damage/position = Vector2( 780, 480 )
-nodes/down/node = SubResource( 19 )
-nodes/down/position = Vector2( 260, 1020 )
+nodes/damage/position = Vector2( 760, 560 )
 nodes/down_actions/node = SubResource( 37 )
 nodes/down_actions/position = Vector2( 720, 280 )
-nodes/downside_attack/node = SubResource( 17 )
-nodes/downside_attack/position = Vector2( -80, 880 )
-nodes/downside_base/node = SubResource( 15 )
-nodes/downside_base/position = Vector2( -340, 920 )
-nodes/left/node = SubResource( 21 )
-nodes/left/position = Vector2( 240, -320 )
-nodes/leftside_attack/node = SubResource( 23 )
-nodes/leftside_attack/position = Vector2( 20, -420 )
-nodes/leftside_base/node = SubResource( 29 )
-nodes/leftside_base/position = Vector2( -260, -420 )
 nodes/output/position = Vector2( 1240, 260 )
-nodes/right/node = SubResource( 18 )
-nodes/right/position = Vector2( 240, 180 )
-nodes/rightside_attack/node = SubResource( 24 )
-nodes/rightside_attack/position = Vector2( 0, 60 )
-nodes/rightside_base/node = SubResource( 30 )
-nodes/rightside_base/position = Vector2( -280, 60 )
-nodes/run_down/node = SubResource( 11 )
-nodes/run_down/position = Vector2( 20, 1080 )
-nodes/run_left/node = SubResource( 6 )
-nodes/run_left/position = Vector2( 40, -260 )
-nodes/run_right/node = SubResource( 13 )
-nodes/run_right/position = Vector2( 40, 220 )
-nodes/run_up/node = SubResource( 10 )
-nodes/run_up/position = Vector2( 40, 600 )
 nodes/speed/node = SubResource( 25 )
 nodes/speed/position = Vector2( 1020, 260 )
-nodes/turn/node = SubResource( 8 )
-nodes/turn/position = Vector2( 540, 300 )
-nodes/up/node = SubResource( 20 )
-nodes/up/position = Vector2( 240, 560 )
-nodes/upside_attack/node = SubResource( 28 )
-nodes/upside_attack/position = Vector2( 20, 420 )
-nodes/upside_base/node = SubResource( 31 )
-nodes/upside_base/position = Vector2( -280, 440 )
-node_connections = [ "up", 0, "upside_attack", "up", 1, "run_up", "speed", 0, "down_actions", "left", 0, "leftside_attack", "left", 1, "run_left", "right", 0, "rightside_attack", "right", 1, "run_right", "output", 0, "speed", "turn", 0, "left", "turn", 1, "right", "turn", 2, "up", "turn", 3, "down", "down", 0, "downside_attack", "down", 1, "run_down", "downside_attack", 0, "downside_base", "leftside_attack", 0, "leftside_base", "rightside_attack", 0, "rightside_base", "upside_attack", 0, "upside_base" ]
+node_connections = [ "speed", 0, "down_actions", "output", 0, "speed" ]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=52]
 
@@ -394,7 +275,6 @@ script = ExtResource( 8 )
 tree_root = SubResource( 3 )
 anim_player = NodePath("animation")
 active = true
-parameters/down/current = 1
 parameters/down_actions/playback = ExtResource( 12 )
 parameters/down_actions/base_attack/blend_position = Vector2( 0, 0 )
 parameters/down_actions/base_combo/playback = SubResource( 52 )
@@ -402,15 +282,7 @@ parameters/down_actions/base_combo/1/blend_position = Vector2( 0, 0 )
 parameters/down_actions/base_combo/2/blend_position = Vector2( 0, 0 )
 parameters/down_actions/base_combo/3/blend_position = Vector2( 0, 0 )
 parameters/down_actions/run/blend_position = Vector2( 0, 0 )
-parameters/downside_attack/current = 0
-parameters/left/current = 1
-parameters/leftside_attack/current = 0
-parameters/right/current = 1
-parameters/rightside_attack/current = 0
 parameters/speed/scale = 1.0
-parameters/turn/current = 3
-parameters/up/current = 1
-parameters/upside_attack/current = 0
 
 [node name="animation" type="AnimationPlayer" parent="tree"]
 root_node = NodePath("../../..")
@@ -436,8 +308,3 @@ anims/run_down = ExtResource( 3 )
 anims/run_left = ExtResource( 1 )
 anims/run_right = ExtResource( 6 )
 anims/run_up = ExtResource( 7 )
-
-[node name="combos" type="Timer" parent="."]
-wait_time = 0.5
-
-[connection signal="timeout" from="combos" to="." method="_on_combos_timeout"]

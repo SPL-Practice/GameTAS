@@ -18,14 +18,9 @@ onready var torso = $shape
 onready var invulnerability_timer = $invulnerability
 onready var sanity_timer = $sanity
 onready var weapon = $weapon
-onready var look = $shape/look
-
-func _ready():
-	weapon.set_moves(look)
 	
 func move():
 	var velocity = .move()
-	look.move(velocity)
 	weapon.move(velocity)
 	return velocity
 
