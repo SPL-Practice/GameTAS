@@ -6,14 +6,13 @@ onready var update_tween = $updater
 
 export var node_name = "player"
 
-onready var character = get_parent().get_parent().get_parent().get_node(node_name)
+onready var health = get_parent().get_parent().get_parent().get_node(node_name).health
 
 func _ready():
-	print(character.name)
-	character.connect("health_updated", self, "_on_health_updated")
-	character.connect("max_health_updated", self, "_on_max_health_updated")
-	_on_max_health_updated(character.max_health)
-	_on_health_updated(character.max_health)
+	health.connect("health_updated", self, "_on_health_updated")
+	health.connect("max_health_updated", self, "_on_max_health_updated")
+	_on_max_health_updated(health.max_health)
+	_on_health_updated(health.max_health)
 
 func _on_health_updated(health):
 	sanity_over.value = health

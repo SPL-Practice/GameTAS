@@ -1,7 +1,9 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://assets/scenes/levels/total/entities/hero/behavior/animation/look.tscn" type="PackedScene" id=1]
-[ext_resource path="res://assets/scripts/levels/player/man.gd" type="Script" id=2]
+[ext_resource path="res://assets/scripts/levels/entities/player/man.gd" type="Script" id=2]
+[ext_resource path="res://assets/scenes/levels/total/entities/stats/stat.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/scenes/levels/total/entities/hero/stats/invulnerability.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/scenes/levels/total/items/weapon/weapon.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/scenes/levels/total/entities/hero/behavior/move.tscn" type="PackedScene" id=7]
 [ext_resource path="res://addons/godot-behavior-tree-plugin/selector.gd" type="Script" id=8]
@@ -21,16 +23,18 @@ position = Vector2( -13, -33 )
 shape = SubResource( 1 )
 
 [node name="look" parent="shape" instance=ExtResource( 1 )]
-frame = 5
 
 [node name="weapon" parent="." instance=ExtResource( 6 )]
 position = Vector2( -13.903, -24.6449 )
 
-[node name="invulnerability" type="Timer" parent="."]
-wait_time = 0.5
+[node name="health" parent="." instance=ExtResource( 4 )]
+max_health = 25
 
-[node name="sanity" type="Timer" parent="."]
-autostart = true
+[node name="power" parent="." instance=ExtResource( 3 )]
+value = 5
+
+[node name="speed" parent="." instance=ExtResource( 3 )]
+value = 400
 
 [node name="blackboard" type="Node" parent="."]
 script = ExtResource( 11 )
@@ -42,6 +46,3 @@ script = ExtResource( 9 )
 script = ExtResource( 8 )
 
 [node name="move" parent="behaviour/selector" instance=ExtResource( 7 )]
-
-[connection signal="timeout" from="invulnerability" to="." method="_on_invulnerability_timeout"]
-[connection signal="timeout" from="sanity" to="." method="_on_sanity_timeout"]

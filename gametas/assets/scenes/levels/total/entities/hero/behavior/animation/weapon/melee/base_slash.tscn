@@ -266,4 +266,5 @@ anims/melee_upside_combo3 = ExtResource( 8 )
 
 [node name="combos" type="Timer" parent="."]
 
+[connection signal="body_entered" from="." to="." method="_on_weapon_body_entered"]
 [connection signal="timeout" from="combos" to="." method="stop_combo"]
