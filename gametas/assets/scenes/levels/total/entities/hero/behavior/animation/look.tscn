@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=2]
+[gd_scene load_steps=63 format=2]
 
 [ext_resource path="res://assets/resources/media/animations/player/left/run_left.tres" type="Animation" id=1]
 [ext_resource path="res://assets/resources/media/animations/frames/player/down.tres" type="SpriteFrames" id=2]
@@ -121,20 +121,16 @@ blend_point_2/pos = Vector2( 0, -1 )
 blend_point_3/node = SubResource( 66 )
 blend_point_3/pos = Vector2( 1, 0 )
 
-[sub_resource type="AnimationNodeAnimation" id=72]
-animation = "RESET"
-
 [sub_resource type="AnimationNodeStateMachineTransition" id=68]
+switch_mode = 1
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=69]
+switch_mode = 1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=72]
+switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=73]
-switch_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=74]
-switch_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=75]
 switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachine" id=51]
@@ -143,12 +139,10 @@ states/1/position = Vector2( 306, 82 )
 states/2/node = SubResource( 62 )
 states/2/position = Vector2( 484, 82 )
 states/3/node = SubResource( 67 )
-states/3/position = Vector2( 654, 82 )
-states/RESET/node = SubResource( 72 )
-states/RESET/position = Vector2( 484, 226 )
-transitions = [ "1", "2", SubResource( 68 ), "2", "3", SubResource( 69 ), "1", "RESET", SubResource( 73 ), "2", "RESET", SubResource( 74 ), "3", "RESET", SubResource( 75 ) ]
+states/3/position = Vector2( 391, 194 )
+transitions = [ "1", "2", SubResource( 68 ), "2", "3", SubResource( 69 ), "2", "1", SubResource( 72 ), "3", "1", SubResource( 73 ) ]
 start_node = "1"
-end_node = "RESET"
+end_node = "1"
 graph_offset = Vector2( 42, 13 )
 
 [sub_resource type="AnimationNodeAnimation" id=38]
@@ -191,12 +185,12 @@ states/run/node = SubResource( 42 )
 states/run/position = Vector2( 492, 72 )
 transitions = [ "run", "base_combo", SubResource( 70 ), "base_combo", "run", SubResource( 71 ) ]
 start_node = "run"
-graph_offset = Vector2( 335, 0 )
+graph_offset = Vector2( 285, -28 )
 
 [sub_resource type="AnimationNodeTimeScale" id=25]
 
 [sub_resource type="AnimationNodeBlendTree" id=3]
-graph_offset = Vector2( 475.496, 246 )
+graph_offset = Vector2( 346.35, 349.159 )
 nodes/damage/node = SubResource( 16 )
 nodes/damage/position = Vector2( 760, 560 )
 nodes/down_actions/node = SubResource( 37 )
@@ -268,7 +262,7 @@ tracks/2/keys = {
 [node name="look" type="AnimatedSprite"]
 frames = ExtResource( 2 )
 animation = "run_left"
-frame = 5
+frame = 2
 script = ExtResource( 8 )
 
 [node name="tree" type="AnimationTree" parent="."]

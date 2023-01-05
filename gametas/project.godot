@@ -13,28 +13,16 @@ _global_script_classes=[ {
 "class": "Look",
 "language": "GDScript",
 "path": "res://assets/scripts/levels/behaviour/animation/player.gd"
-}, {
-"base": "Node",
-"class": "meta",
-"language": "GDScript",
-"path": "res://assets/scripts/machine/meta.gd"
-}, {
-"base": "Reference",
-"class": "state",
-"language": "GDScript",
-"path": "res://assets/scripts/machine/state.gd"
 } ]
 _global_script_class_icons={
-"Look": "",
-"meta": "",
-"state": ""
+"Look": ""
 }
 
 [application]
 
 config/name="Supregression"
 config/description="You are ordinary clerk, Edward Norman Commander. He tired of his routines every single day. Which decision he has to make?"
-run/main_scene="res://assets/scenes/levels/office/start.tscn"
+run/main_scene="res://assets/scenes/levels/start.tscn"
 config/icon="res://assets/resources/media/images/logo/game.png"
 config/windows_native_icon="res://assets/resources/media/images/logo/company/game.ico"
 

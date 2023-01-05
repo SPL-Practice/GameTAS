@@ -6,10 +6,6 @@ onready var tree = $tree
 onready var actions = get_state("down_actions")
 onready var combo = get_state("down_actions/base_combo")
 
-enum Run { LEFT, RIGHT, TOP, DOWN }
-enum Act { ATTACK, RUN, IDLE }
-enum Hit { BASE, CHARGE }
-
 var max_combo = 3
 
 func get_state(states):

@@ -6,7 +6,7 @@ onready var combos = $combos
 onready var base_combo = get_state("base_melee_combo")
 
 var combo = 0
-var combinations = [1, 1.25, 1.75]
+var power = [1, 1.25, 1.75]
 
 func set_wielder(wields):
 	wielder = wields
@@ -15,7 +15,7 @@ func get_state(states):
 	return tree.get("parameters/%s/playback" % states)
 
 func move(velocity):
-	for tact in combinations.size():
+	for tact in power.size():
 		tree.set("parameters/base_melee_combo/%s/blend_position" % (tact + 1), velocity.normalized())
 
 func stop_combo():
@@ -31,8 +31,8 @@ func attack():
 	if (is_started):
 		tree.set("parameters/melee/current", 0)
 		combos.start()
-	elif combo >= combinations.size():
+	elif combo >= power.size():
 		stop_combo()
 
 func _on_weapon_body_entered(body):
-	body.damage(wielder.power.value * combinations[combo])
+	body.damage(wielder.power.value * power[combo])

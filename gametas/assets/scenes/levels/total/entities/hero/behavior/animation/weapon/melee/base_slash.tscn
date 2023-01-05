@@ -134,7 +134,7 @@ nodes/base_melee_combo/position = Vector2( -180, 160 )
 nodes/melee/node = SubResource( 11 )
 nodes/melee/position = Vector2( 80, 200 )
 nodes/output/position = Vector2( 420, 160 )
-node_connections = [ "output", 0, "TimeScale", "TimeScale", 0, "melee", "melee", 0, "base_melee_combo" ]
+node_connections = [ "output", 0, "TimeScale", "melee", 0, "base_melee_combo", "TimeScale", 0, "melee" ]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=18]
 
