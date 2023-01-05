@@ -1,9 +1,15 @@
 extends "res://addons/godot-behavior-tree-plugin/action.gd"
 
-func tick(tick: Tick) -> int:
-	var velocity = tick.actor.move()
-	if velocity != Vector2.ZERO:
-		tick.actor.look.move(velocity)
+var velocity: Vector2
+
+func redirect(look, direction: Vector2):
+	if direction != velocity:
+		velocity = direction
+		look.move(velocity)
 		return OK
 	else:
 		return FAILED
+
+func tick(tick: Tick) -> int:
+	return redirect(tick.actor.look, tick.actor.move())
+	

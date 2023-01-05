@@ -190,7 +190,7 @@ graph_offset = Vector2( 285, -28 )
 [sub_resource type="AnimationNodeTimeScale" id=25]
 
 [sub_resource type="AnimationNodeBlendTree" id=3]
-graph_offset = Vector2( 346.35, 349.159 )
+graph_offset = Vector2( 349, 332 )
 nodes/damage/node = SubResource( 16 )
 nodes/damage/position = Vector2( 760, 560 )
 nodes/down_actions/node = SubResource( 37 )
@@ -262,7 +262,7 @@ tracks/2/keys = {
 [node name="look" type="AnimatedSprite"]
 frames = ExtResource( 2 )
 animation = "run_left"
-frame = 2
+frame = 3
 script = ExtResource( 8 )
 
 [node name="tree" type="AnimationTree" parent="."]

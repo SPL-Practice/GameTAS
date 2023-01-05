@@ -14,11 +14,12 @@ func _ready():
 	_on_max_health_updated(health.max_health)
 	_on_health_updated(health.max_health)
 
-func _on_health_updated(health):
-	sanity_over.value = health
-	update_tween.interpolate_property(sanity_under, "value", sanity_under.value, health, 0.25, Tween.TRANS_SINE, Tween.EASE_IN_OUT, 0.25)
+func _on_health_updated(value):
+	print(value)
+	sanity_over.value = value
+	update_tween.interpolate_property(sanity_under, "value", sanity_under.value, value, 0.25, Tween.TRANS_SINE, Tween.EASE_IN_OUT, 0.25)
 	update_tween.start()
 	
-func _on_max_health_updated(max_health):
-	sanity_over.max_value = max_health
-	sanity_under.max_value = max_health
+func _on_max_health_updated(value):
+	sanity_over.max_value = value
+	sanity_under.max_value = value
