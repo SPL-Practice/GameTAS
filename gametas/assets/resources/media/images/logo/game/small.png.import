@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/game.png-88ba9918a64bf70656b89242a9a49821.stex"
+path="res://.import/small.png-eb4cb5946d6122e2f8b9b51b4562446d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/resources/media/images/logo/game.png"
-dest_files=[ "res://.import/game.png-88ba9918a64bf70656b89242a9a49821.stex" ]
+source_file="res://assets/resources/media/images/logo/game/small.png"
+dest_files=[ "res://.import/small.png-eb4cb5946d6122e2f8b9b51b4562446d.stex" ]
 
 [params]
 

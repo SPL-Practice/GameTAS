@@ -23,8 +23,10 @@ _global_script_class_icons={
 config/name="Supregression"
 config/description="You are ordinary clerk, Edward Norman Commander. He tired of his routines every single day. Which decision he has to make?"
 run/main_scene="res://assets/scenes/menu/main.tscn"
-config/icon="res://assets/resources/media/images/logo/game.png"
-config/windows_native_icon="res://assets/resources/media/images/logo/company/game.ico"
+boot_splash/bg_color=Color( 0.0588235, 0.0588235, 0.0588235, 1 )
+config/icon="res://assets/resources/media/images/logo/game/small.png"
+config/macos_native_icon="res://assets/resources/media/images/logo/game/small.icns"
+config/windows_native_icon="res://assets/resources/media/images/logo/game/small.ico"
 
 [autoload]
 
