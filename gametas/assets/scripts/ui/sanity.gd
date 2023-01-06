@@ -15,7 +15,6 @@ func _ready():
 	_on_health_updated(health.max_health)
 
 func _on_health_updated(value):
-	print(value)
 	sanity_over.value = value
 	update_tween.interpolate_property(sanity_under, "value", sanity_under.value, value, 0.25, Tween.TRANS_SINE, Tween.EASE_IN_OUT, 0.25)
 	update_tween.start()

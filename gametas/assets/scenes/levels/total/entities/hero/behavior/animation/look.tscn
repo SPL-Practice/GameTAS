@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=2]
+[gd_scene load_steps=84 format=2]
 
 [ext_resource path="res://assets/resources/media/animations/player/left/run_left.tres" type="Animation" id=1]
 [ext_resource path="res://assets/resources/media/animations/frames/player/down.tres" type="SpriteFrames" id=2]
@@ -24,8 +24,17 @@
 [ext_resource path="res://assets/resources/media/animations/player/right/attack/base_rightside_combo2.tres" type="Animation" id=22]
 [ext_resource path="res://assets/resources/media/animations/player/right/attack/base_rightside_combo3.tres" type="Animation" id=23]
 
+[sub_resource type="AnimationNodeBlend2" id=92]
+
 [sub_resource type="AnimationNodeAnimation" id=16]
 animation = "damage"
+
+[sub_resource type="AnimationNodeTransition" id=93]
+input_count = 2
+input_0/name = "attacking"
+input_0/auto_advance = true
+input_1/name = "running"
+input_1/auto_advance = false
 
 [sub_resource type="AnimationNodeAnimation" id=43]
 animation = "base_leftside_attack"
@@ -67,13 +76,11 @@ animation = "base_rightside_combo1"
 blend_point_0/node = SubResource( 53 )
 blend_point_0/pos = Vector2( -1, 0 )
 blend_point_1/node = SubResource( 54 )
-blend_point_1/pos = Vector2( 0, 1.1 )
+blend_point_1/pos = Vector2( 0, 1 )
 blend_point_2/node = SubResource( 55 )
-blend_point_2/pos = Vector2( 0, -1.1 )
+blend_point_2/pos = Vector2( 0, -1 )
 blend_point_3/node = SubResource( 56 )
 blend_point_3/pos = Vector2( 1, 0 )
-min_space = Vector2( -1, -1.1 )
-max_space = Vector2( 1, 1.1 )
 
 [sub_resource type="AnimationNodeAnimation" id=58]
 animation = "base_leftside_combo2"
@@ -91,13 +98,11 @@ animation = "base_rightside_combo2"
 blend_point_0/node = SubResource( 58 )
 blend_point_0/pos = Vector2( -1, 0 )
 blend_point_1/node = SubResource( 59 )
-blend_point_1/pos = Vector2( 0, 1.1 )
+blend_point_1/pos = Vector2( 0, 1 )
 blend_point_2/node = SubResource( 60 )
-blend_point_2/pos = Vector2( 0, -1.1 )
+blend_point_2/pos = Vector2( 0, -1 )
 blend_point_3/node = SubResource( 61 )
 blend_point_3/pos = Vector2( 1, 0 )
-min_space = Vector2( -1, -1.1 )
-max_space = Vector2( 1, 1.1 )
 
 [sub_resource type="AnimationNodeAnimation" id=63]
 animation = "base_leftside_combo3"
@@ -121,29 +126,132 @@ blend_point_2/pos = Vector2( 0, -1 )
 blend_point_3/node = SubResource( 66 )
 blend_point_3/pos = Vector2( 1, 0 )
 
+[sub_resource type="AnimationNodeAnimation" id=96]
+animation = "RESET"
+
 [sub_resource type="AnimationNodeStateMachineTransition" id=68]
-switch_mode = 1
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=69]
-switch_mode = 1
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=72]
+[sub_resource type="AnimationNodeStateMachineTransition" id=97]
 switch_mode = 2
+auto_advance = true
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=73]
+[sub_resource type="AnimationNodeStateMachineTransition" id=98]
 switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=99]
+switch_mode = 2
+auto_advance = true
 
 [sub_resource type="AnimationNodeStateMachine" id=51]
 states/1/node = SubResource( 57 )
 states/1/position = Vector2( 306, 82 )
 states/2/node = SubResource( 62 )
-states/2/position = Vector2( 484, 82 )
+states/2/position = Vector2( 486, 82 )
 states/3/node = SubResource( 67 )
-states/3/position = Vector2( 391, 194 )
-transitions = [ "1", "2", SubResource( 68 ), "2", "3", SubResource( 69 ), "2", "1", SubResource( 72 ), "3", "1", SubResource( 73 ) ]
+states/3/position = Vector2( 669, 82 )
+states/RESET/node = SubResource( 96 )
+states/RESET/position = Vector2( 486, 197 )
+transitions = [ "1", "2", SubResource( 68 ), "2", "3", SubResource( 69 ), "1", "RESET", SubResource( 97 ), "2", "RESET", SubResource( 98 ), "3", "RESET", SubResource( 99 ) ]
 start_node = "1"
-end_node = "1"
+end_node = "RESET"
 graph_offset = Vector2( 42, 13 )
+
+[sub_resource type="AnimationNodeAnimation" id=73]
+animation = "base_leftside_combo1"
+
+[sub_resource type="AnimationNodeAnimation" id=74]
+animation = "base_rightside_combo1"
+
+[sub_resource type="AnimationNodeAnimation" id=75]
+animation = "base_downside_combo1"
+
+[sub_resource type="AnimationNodeAnimation" id=76]
+animation = "base_upside_combo1"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=77]
+blend_point_0/node = SubResource( 73 )
+blend_point_0/pos = Vector2( -1, 0 )
+blend_point_1/node = SubResource( 74 )
+blend_point_1/pos = Vector2( 1, 0 )
+blend_point_2/node = SubResource( 75 )
+blend_point_2/pos = Vector2( 0, 1.1 )
+blend_point_3/node = SubResource( 76 )
+blend_point_3/pos = Vector2( 0, -1.1 )
+min_space = Vector2( -1, -1.1 )
+max_space = Vector2( 1, 1.1 )
+
+[sub_resource type="AnimationNodeAnimation" id=80]
+animation = "base_leftside_combo2"
+
+[sub_resource type="AnimationNodeAnimation" id=81]
+animation = "base_upside_combo2"
+
+[sub_resource type="AnimationNodeAnimation" id=82]
+animation = "base_downside_combo2"
+
+[sub_resource type="AnimationNodeAnimation" id=83]
+animation = "base_rightside_combo2"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=84]
+blend_point_0/node = SubResource( 80 )
+blend_point_0/pos = Vector2( -1, 0 )
+blend_point_1/node = SubResource( 81 )
+blend_point_1/pos = Vector2( 0, -1.1 )
+blend_point_2/node = SubResource( 82 )
+blend_point_2/pos = Vector2( 0, 1.1 )
+blend_point_3/node = SubResource( 83 )
+blend_point_3/pos = Vector2( 1, 0 )
+min_space = Vector2( -1, -1.1 )
+max_space = Vector2( 1, 1.1 )
+
+[sub_resource type="AnimationNodeAnimation" id=85]
+animation = "base_leftside_combo3"
+
+[sub_resource type="AnimationNodeAnimation" id=86]
+animation = "base_downside_combo3"
+
+[sub_resource type="AnimationNodeAnimation" id=87]
+animation = "base_upside_combo3"
+
+[sub_resource type="AnimationNodeAnimation" id=88]
+animation = "base_rightside_combo3"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=89]
+blend_point_0/node = SubResource( 85 )
+blend_point_0/pos = Vector2( -1, 0 )
+blend_point_1/node = SubResource( 86 )
+blend_point_1/pos = Vector2( 0, 1.1 )
+blend_point_2/node = SubResource( 87 )
+blend_point_2/pos = Vector2( 0, -1.1 )
+blend_point_3/node = SubResource( 88 )
+blend_point_3/pos = Vector2( 1, 0 )
+min_space = Vector2( -1, -1.1 )
+max_space = Vector2( 1, 1.1 )
+
+[sub_resource type="AnimationNodeTransition" id=78]
+input_count = 3
+input_0/name = "1"
+input_0/auto_advance = false
+input_1/name = "2"
+input_1/auto_advance = false
+input_2/name = "3"
+input_2/auto_advance = false
+
+[sub_resource type="AnimationNodeBlendTree" id=79]
+graph_offset = Vector2( -175.184, 2.60001 )
+nodes/1/node = SubResource( 77 )
+nodes/1/position = Vector2( -40, -100 )
+nodes/2/node = SubResource( 84 )
+nodes/2/position = Vector2( -40, 60 )
+nodes/3/node = SubResource( 89 )
+nodes/3/position = Vector2( -40, 220 )
+nodes/combo/node = SubResource( 78 )
+nodes/combo/position = Vector2( 280, 60 )
+nodes/output/position = Vector2( 480, 60 )
+node_connections = [ "output", 0, "combo", "combo", 0, "1", "combo", 1, "2", "combo", 2, "3" ]
 
 [sub_resource type="AnimationNodeAnimation" id=38]
 animation = "run_left"
@@ -170,9 +278,9 @@ min_space = Vector2( -1, -1.1 )
 max_space = Vector2( 1, 1.1 )
 blend_mode = 1
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=70]
+[sub_resource type="AnimationNodeStateMachineTransition" id=94]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=71]
+[sub_resource type="AnimationNodeStateMachineTransition" id=95]
 switch_mode = 2
 auto_advance = true
 
@@ -180,19 +288,25 @@ auto_advance = true
 states/base_attack/node = SubResource( 47 )
 states/base_attack/position = Vector2( 974, 103 )
 states/base_combo/node = SubResource( 51 )
-states/base_combo/position = Vector2( 706, 72 )
+states/base_combo/position = Vector2( 692, 72 )
+states/base_combo2/node = SubResource( 79 )
+states/base_combo2/position = Vector2( 702, 208 )
 states/run/node = SubResource( 42 )
 states/run/position = Vector2( 492, 72 )
-transitions = [ "run", "base_combo", SubResource( 70 ), "base_combo", "run", SubResource( 71 ) ]
+transitions = [ "run", "base_combo", SubResource( 94 ), "base_combo", "run", SubResource( 95 ) ]
 start_node = "run"
 graph_offset = Vector2( 285, -28 )
 
 [sub_resource type="AnimationNodeTimeScale" id=25]
 
 [sub_resource type="AnimationNodeBlendTree" id=3]
-graph_offset = Vector2( 349, 332 )
+graph_offset = Vector2( 355.908, 266.355 )
+nodes/Blend2/node = SubResource( 92 )
+nodes/Blend2/position = Vector2( 80, 320 )
 nodes/damage/node = SubResource( 16 )
 nodes/damage/position = Vector2( 760, 560 )
+nodes/dangerous/node = SubResource( 93 )
+nodes/dangerous/position = Vector2( 420, 340 )
 nodes/down_actions/node = SubResource( 37 )
 nodes/down_actions/position = Vector2( 720, 280 )
 nodes/output/position = Vector2( 1240, 260 )
@@ -211,10 +325,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
 "update": 0,
-"values": [ 5 ]
+"values": [  ]
 }
 
 [sub_resource type="Animation" id=50]
@@ -262,19 +376,25 @@ tracks/2/keys = {
 [node name="look" type="AnimatedSprite"]
 frames = ExtResource( 2 )
 animation = "run_left"
-frame = 3
+frame = 4
 script = ExtResource( 8 )
 
 [node name="tree" type="AnimationTree" parent="."]
 tree_root = SubResource( 3 )
 anim_player = NodePath("animation")
 active = true
+parameters/Blend2/blend_amount = 0
+parameters/dangerous/current = 0
 parameters/down_actions/playback = ExtResource( 12 )
 parameters/down_actions/base_attack/blend_position = Vector2( 0, 0 )
 parameters/down_actions/base_combo/playback = SubResource( 52 )
 parameters/down_actions/base_combo/1/blend_position = Vector2( 0, 0 )
 parameters/down_actions/base_combo/2/blend_position = Vector2( 0, 0 )
 parameters/down_actions/base_combo/3/blend_position = Vector2( 0, 0 )
+parameters/down_actions/base_combo2/1/blend_position = Vector2( 0, 0 )
+parameters/down_actions/base_combo2/2/blend_position = Vector2( 0, 0 )
+parameters/down_actions/base_combo2/3/blend_position = Vector2( 0, 0 )
+parameters/down_actions/base_combo2/combo/current = 0
 parameters/down_actions/run/blend_position = Vector2( 0, 0 )
 parameters/speed/scale = 1.0
 
