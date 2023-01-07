@@ -1,8 +1,8 @@
 [gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://assets/scripts/ui/load.gd" type="Script" id=1]
-[ext_resource path="res://assets/scripts/levels/bonuses/pill/telepill.gd" type="Script" id=2]
-[ext_resource path="res://assets/scenes/menu/transition.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/scripts/levels/items/bonuses/pill/telepill.gd" type="Script" id=2]
+[ext_resource path="res://assets/scenes/levels/total/transition.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/resources/media/images/levels/total/map/office-sprites/book-case-1.png" type="Texture" id=4]
 [ext_resource path="res://assets/resources/media/images/levels/total/map/office-sprites/beanbag-2.png" type="Texture" id=5]
 [ext_resource path="res://assets/resources/media/images/levels/total/map/office-sprites/cabinet-1-1.png" type="Texture" id=6]
@@ -409,7 +409,7 @@ extents = Vector2( 22.5, 38 )
 [node name="game" type="Node2D"]
 position = Vector2( -154, 26 )
 script = ExtResource( 2 )
-scene = "menu/ending/good.tscn"
+scene = "menu/authors/ending/good.tscn"
 
 [node name="floor" type="TileMap" parent="."]
 tile_set = SubResource( 33 )

@@ -1,0 +1,282 @@
+[gd_scene load_steps=44 format=2]
+
+[ext_resource path="res://assets/resources/media/images/levels/total/weapon/Slash.png" type="Texture" id=1]
+[ext_resource path="res://assets/scripts/levels/items/weapons/slash/base.gd" type="Script" id=2]
+[ext_resource path="res://assets/resources/media/animations/player/down/attack/base/slash/melee_downside_combo1.tres" type="Animation" id=3]
+[ext_resource path="res://assets/resources/media/animations/player/down/attack/base/slash/melee_downside_combo2.tres" type="Animation" id=4]
+[ext_resource path="res://assets/resources/media/animations/player/down/attack/base/slash/melee_downside_combo3.tres" type="Animation" id=5]
+[ext_resource path="res://assets/resources/media/animations/player/up/attack/slash/melee_upside_combo1.tres" type="Animation" id=6]
+[ext_resource path="res://assets/resources/media/animations/player/up/attack/slash/melee_upside_combo2.tres" type="Animation" id=7]
+[ext_resource path="res://assets/resources/media/animations/player/up/attack/slash/melee_upside_combo3.tres" type="Animation" id=8]
+[ext_resource path="res://assets/resources/media/animations/player/right/attack/slash/melee_rightside_combo1.tres" type="Animation" id=9]
+[ext_resource path="res://assets/resources/media/animations/player/right/attack/slash/melee_rightside_combo2.tres" type="Animation" id=10]
+[ext_resource path="res://assets/resources/media/animations/player/left/attack/slash/melee_leftside_combo2.tres" type="Animation" id=11]
+[ext_resource path="res://assets/resources/media/animations/player/left/attack/slash/melee_leftside_combo3.tres" type="Animation" id=12]
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 30, 30 )
+
+[sub_resource type="AnimationNodeTimeScale" id=5]
+
+[sub_resource type="AnimationNodeAnimation" id=21]
+animation = "melee_downside_combo1"
+
+[sub_resource type="AnimationNodeAnimation" id=22]
+animation = "melee_rightside_combo1"
+
+[sub_resource type="AnimationNodeAnimation" id=23]
+animation = "melee_upside_combo1"
+
+[sub_resource type="AnimationNodeAnimation" id=24]
+animation = "melee_leftside_combo1"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=25]
+blend_point_0/node = SubResource( 21 )
+blend_point_0/pos = Vector2( 0, 1 )
+blend_point_1/node = SubResource( 22 )
+blend_point_1/pos = Vector2( 1, 0 )
+blend_point_2/node = SubResource( 23 )
+blend_point_2/pos = Vector2( 0, -1 )
+blend_point_3/node = SubResource( 24 )
+blend_point_3/pos = Vector2( -1, 0 )
+
+[sub_resource type="AnimationNodeAnimation" id=27]
+animation = "melee_leftside_combo2"
+
+[sub_resource type="AnimationNodeAnimation" id=28]
+animation = "melee_downside_combo2"
+
+[sub_resource type="AnimationNodeAnimation" id=29]
+animation = "melee_rightside_combo2"
+
+[sub_resource type="AnimationNodeAnimation" id=30]
+animation = "melee_upside_combo2"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=26]
+blend_point_0/node = SubResource( 27 )
+blend_point_0/pos = Vector2( -1, 0 )
+blend_point_1/node = SubResource( 28 )
+blend_point_1/pos = Vector2( 0, 1 )
+blend_point_2/node = SubResource( 29 )
+blend_point_2/pos = Vector2( 1, 0 )
+blend_point_3/node = SubResource( 30 )
+blend_point_3/pos = Vector2( 0, -1 )
+
+[sub_resource type="AnimationNodeAnimation" id=32]
+animation = "melee_leftside_combo3"
+
+[sub_resource type="AnimationNodeAnimation" id=33]
+animation = "melee_downside_combo3"
+
+[sub_resource type="AnimationNodeAnimation" id=34]
+animation = "melee_rightside_combo3"
+
+[sub_resource type="AnimationNodeAnimation" id=35]
+animation = "melee_upside_combo3"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=36]
+blend_point_0/node = SubResource( 32 )
+blend_point_0/pos = Vector2( -1, 0 )
+blend_point_1/node = SubResource( 33 )
+blend_point_1/pos = Vector2( 0, 1 )
+blend_point_2/node = SubResource( 34 )
+blend_point_2/pos = Vector2( 1, 0 )
+blend_point_3/node = SubResource( 35 )
+blend_point_3/pos = Vector2( 0, -1 )
+
+[sub_resource type="AnimationNodeAnimation" id=38]
+animation = "RESET"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=31]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=37]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=43]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=44]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=45]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=46]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachine" id=17]
+states/1/node = SubResource( 25 )
+states/1/position = Vector2( -301, -21 )
+states/2/node = SubResource( 26 )
+states/2/position = Vector2( -176, -21 )
+states/3/node = SubResource( 36 )
+states/3/position = Vector2( -164, -139 )
+states/RESET/node = SubResource( 38 )
+states/RESET/position = Vector2( -310, -139 )
+transitions = [ "1", "2", SubResource( 31 ), "2", "3", SubResource( 37 ), "RESET", "1", SubResource( 43 ), "3", "RESET", SubResource( 44 ), "1", "RESET", SubResource( 45 ), "2", "RESET", SubResource( 46 ) ]
+start_node = "RESET"
+end_node = "3"
+graph_offset = Vector2( -752, -218 )
+
+[sub_resource type="AnimationNodeTransition" id=11]
+input_count = 1
+input_0/name = "base"
+input_0/auto_advance = false
+
+[sub_resource type="AnimationNodeBlendTree" id=4]
+graph_offset = Vector2( -309.472, 128.117 )
+nodes/TimeScale/node = SubResource( 5 )
+nodes/TimeScale/position = Vector2( 260, 160 )
+nodes/base_melee_combo/node = SubResource( 17 )
+nodes/base_melee_combo/position = Vector2( -180, 160 )
+nodes/melee/node = SubResource( 11 )
+nodes/melee/position = Vector2( 80, 200 )
+nodes/output/position = Vector2( 420, 160 )
+node_connections = [ "output", 0, "TimeScale", "TimeScale", 0, "melee", "melee", 0, "base_melee_combo" ]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=18]
+
+[sub_resource type="Animation" id=42]
+length = 0.02
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=20]
+resource_name = "melee_leftside_combo1"
+length = 0.25
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("shape:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 35.0, 28.0, 90.0, 138.0, 164.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("shape:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( -100, 90 ), Vector2( -175, 50 ), Vector2( -175, -50 ), Vector2( -135, -90 ), Vector2( -35, -120 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=19]
+resource_name = "melee_rightside_combo3"
+length = 0.2
+step = 0.025
+tracks/0/type = "value"
+tracks/0/path = NodePath("shape:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.075, 0.1, 0.125, 0.15 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 116.0, 216.0, 236.0, 344.0, 208.0, 115.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("shape:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.05, 0.075, 0.1, 0.125, 0.15, 0.175, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 100, -175 ), Vector2( 175, -50 ), Vector2( 135, 90 ), Vector2( 0, 115 ), Vector2( 100, 160 ), Vector2( 175, 50 ), Vector2( 175, -50 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[node name="base_slash" type="Area2D"]
+visible = false
+collision_layer = 8
+collision_mask = 8
+script = ExtResource( 2 )
+
+[node name="shape" type="CollisionShape2D" parent="."]
+rotation = 4.10152
+shape = SubResource( 3 )
+
+[node name="look" type="Sprite" parent="shape"]
+scale = Vector2( 0.263158, 0.397351 )
+texture = ExtResource( 1 )
+
+[node name="tree" type="AnimationTree" parent="shape/look"]
+tree_root = SubResource( 4 )
+anim_player = NodePath("animation")
+active = true
+parameters/TimeScale/scale = 1.0
+parameters/base_melee_combo/playback = SubResource( 18 )
+parameters/base_melee_combo/1/blend_position = Vector2( 0, 0 )
+parameters/base_melee_combo/2/blend_position = Vector2( 0, 0 )
+parameters/base_melee_combo/3/blend_position = Vector2( 0, 0 )
+parameters/melee/current = 0
+
+[node name="animation" type="AnimationPlayer" parent="shape/look/tree"]
+root_node = NodePath("../../../..")
+anims/RESET = SubResource( 42 )
+anims/melee_downside_combo1 = ExtResource( 3 )
+anims/melee_downside_combo2 = ExtResource( 4 )
+anims/melee_downside_combo3 = ExtResource( 5 )
+anims/melee_leftside_combo1 = SubResource( 20 )
+anims/melee_leftside_combo2 = ExtResource( 11 )
+anims/melee_leftside_combo3 = ExtResource( 12 )
+anims/melee_rightside_combo1 = ExtResource( 9 )
+anims/melee_rightside_combo2 = ExtResource( 10 )
+anims/melee_rightside_combo3 = SubResource( 19 )
+anims/melee_upside_combo1 = ExtResource( 6 )
+anims/melee_upside_combo2 = ExtResource( 7 )
+anims/melee_upside_combo3 = ExtResource( 8 )
+
+[node name="combos" type="Timer" parent="."]
+wait_time = 1.25
+
+[connection signal="body_entered" from="." to="." method="_on_weapon_body_entered"]
+[connection signal="timeout" from="combos" to="." method="stop_combo"]
