@@ -2,7 +2,7 @@
 
 [ext_resource path="res://assets/resources/themes/frames/enemies/slime.tres" type="SpriteFrames" id=1]
 [ext_resource path="res://assets/scripts/levels/entities/enemies/slime/horizontal.gd" type="Script" id=2]
-[ext_resource path="res://assets/resources/media/animations/total/damage.tres" type="Animation" id=3]
+[ext_resource path="res://assets/resources/media/animations/entities/total/damage.tres" type="Animation" id=3]
 [ext_resource path="res://assets/scenes/levels/total/behavior/stats/vulnerability.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/scenes/levels/total/behavior/stats/stat.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/scenes/levels/total/behavior/variations/edger.tscn" type="PackedScene" id=6]

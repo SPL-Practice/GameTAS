@@ -1,28 +1,25 @@
-[gd_scene load_steps=84 format=2]
+[gd_scene load_steps=80 format=2]
 
-[ext_resource path="res://assets/resources/media/animations/player/down/down_actions.tres" type="AnimationNodeStateMachinePlayback" id=1]
+[ext_resource path="res://assets/resources/media/animations/entities/player/actions.tres" type="AnimationNodeStateMachinePlayback" id=1]
 [ext_resource path="res://assets/scripts/levels/entities/player/moves/animation.gd" type="Script" id=2]
-[ext_resource path="res://assets/resources/media/animations/player/left/run_left.tres" type="Animation" id=3]
-[ext_resource path="res://assets/resources/media/animations/frames/player/down.tres" type="SpriteFrames" id=4]
-[ext_resource path="res://assets/resources/media/animations/player/down/run_down.tres" type="Animation" id=5]
+[ext_resource path="res://assets/resources/media/animations/entities/player/left/run_left.tres" type="Animation" id=3]
+[ext_resource path="res://assets/resources/media/animations/entities/player/frames.tres" type="SpriteFrames" id=4]
+[ext_resource path="res://assets/resources/media/animations/entities/player/down/run_down.tres" type="Animation" id=5]
 [ext_resource path="res://assets/resources/themes/frames/player/damage.tres" type="Animation" id=6]
-[ext_resource path="res://assets/resources/media/animations/player/down/attack/base/base_downside_attack.tres" type="Animation" id=7]
-[ext_resource path="res://assets/resources/media/animations/player/right/run_right.tres" type="Animation" id=8]
-[ext_resource path="res://assets/resources/media/animations/player/up/run_up.tres" type="Animation" id=9]
-[ext_resource path="res://assets/resources/media/animations/player/down/attack/base/base_downside_combo3.tres" type="Animation" id=10]
-[ext_resource path="res://assets/resources/media/animations/player/left/attack/base_leftside_attack.tres" type="Animation" id=11]
-[ext_resource path="res://assets/resources/media/animations/player/right/attack/base_rightside_attack.tres" type="Animation" id=12]
-[ext_resource path="res://assets/resources/media/animations/player/up/attack/base_upside_combo1.tres" type="Animation" id=13]
-[ext_resource path="res://assets/resources/media/animations/player/up/attack/base_upside_combo2.tres" type="Animation" id=14]
-[ext_resource path="res://assets/resources/media/animations/player/up/attack/base_upside_combo3.tres" type="Animation" id=15]
-[ext_resource path="res://assets/resources/media/animations/player/down/attack/base/base_downside_combo1.tres" type="Animation" id=16]
-[ext_resource path="res://assets/resources/media/animations/player/down/attack/base/base_downside_combo2.tres" type="Animation" id=17]
-[ext_resource path="res://assets/resources/media/animations/player/left/attack/base_leftside_combo1.tres" type="Animation" id=18]
-[ext_resource path="res://assets/resources/media/animations/player/left/attack/base_leftside_combo2.tres" type="Animation" id=19]
-[ext_resource path="res://assets/resources/media/animations/player/left/attack/base_leftside_combo3.tres" type="Animation" id=20]
-[ext_resource path="res://assets/resources/media/animations/player/right/attack/base_rightside_combo1.tres" type="Animation" id=21]
-[ext_resource path="res://assets/resources/media/animations/player/right/attack/base_rightside_combo2.tres" type="Animation" id=22]
-[ext_resource path="res://assets/resources/media/animations/player/right/attack/base_rightside_combo3.tres" type="Animation" id=23]
+[ext_resource path="res://assets/resources/media/animations/entities/player/right/run_right.tres" type="Animation" id=8]
+[ext_resource path="res://assets/resources/media/animations/entities/player/up/run_up.tres" type="Animation" id=9]
+[ext_resource path="res://assets/resources/media/animations/entities/player/down/attack/slash/base_downside_combo3.tres" type="Animation" id=10]
+[ext_resource path="res://assets/resources/media/animations/entities/player/up/attack/slash/base_upside_combo1.tres" type="Animation" id=13]
+[ext_resource path="res://assets/resources/media/animations/entities/player/up/attack/slash/base_upside_combo2.tres" type="Animation" id=14]
+[ext_resource path="res://assets/resources/media/animations/entities/player/up/attack/slash/base_upside_combo3.tres" type="Animation" id=15]
+[ext_resource path="res://assets/resources/media/animations/entities/player/down/attack/slash/base_downside_combo1.tres" type="Animation" id=16]
+[ext_resource path="res://assets/resources/media/animations/entities/player/down/attack/slash/base_downside_combo2.tres" type="Animation" id=17]
+[ext_resource path="res://assets/resources/media/animations/entities/player/left/attack/slash/base_leftside_combo1.tres" type="Animation" id=18]
+[ext_resource path="res://assets/resources/media/animations/entities/player/left/attack/slash/base_leftside_combo2.tres" type="Animation" id=19]
+[ext_resource path="res://assets/resources/media/animations/entities/player/left/attack/slash/base_leftside_combo3.tres" type="Animation" id=20]
+[ext_resource path="res://assets/resources/media/animations/entities/player/right/attack/slash/base_rightside_combo1.tres" type="Animation" id=21]
+[ext_resource path="res://assets/resources/media/animations/entities/player/right/attack/slash/base_rightside_combo2.tres" type="Animation" id=22]
+[ext_resource path="res://assets/resources/media/animations/entities/player/right/attack/slash/base_rightside_combo3.tres" type="Animation" id=23]
 
 [sub_resource type="AnimationNodeBlend2" id=92]
 
@@ -331,52 +328,10 @@ tracks/0/keys = {
 "values": [  ]
 }
 
-[sub_resource type="Animation" id=50]
-resource_name = "base_upside_attack"
-length = 1.5
-tracks/0/type = "value"
-tracks/0/path = NodePath("look:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ "base_upside_attack" ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("look:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 ]
-}
-tracks/2/type = "method"
-tracks/2/path = NodePath("look")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0.5 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [ false ],
-"method": "set_attack"
-} ]
-}
-
 [node name="look" type="AnimatedSprite"]
 frames = ExtResource( 4 )
 animation = "run_left"
-frame = 4
+frame = 1
 script = ExtResource( 2 )
 
 [node name="tree" type="AnimationTree" parent="."]
@@ -401,19 +356,15 @@ parameters/speed/scale = 1.0
 [node name="animation" type="AnimationPlayer" parent="tree"]
 root_node = NodePath("../../..")
 anims/RESET = SubResource( 32 )
-anims/base_downside_attack = ExtResource( 7 )
 anims/base_downside_combo1 = ExtResource( 16 )
 anims/base_downside_combo2 = ExtResource( 17 )
 anims/base_downside_combo3 = ExtResource( 10 )
-anims/base_leftside_attack = ExtResource( 11 )
 anims/base_leftside_combo1 = ExtResource( 18 )
 anims/base_leftside_combo2 = ExtResource( 19 )
 anims/base_leftside_combo3 = ExtResource( 20 )
-anims/base_rightside_attack = ExtResource( 12 )
 anims/base_rightside_combo1 = ExtResource( 21 )
 anims/base_rightside_combo2 = ExtResource( 22 )
 anims/base_rightside_combo3 = ExtResource( 23 )
-anims/base_upside_attack = SubResource( 50 )
 anims/base_upside_combo1 = ExtResource( 13 )
 anims/base_upside_combo2 = ExtResource( 14 )
 anims/base_upside_combo3 = ExtResource( 15 )

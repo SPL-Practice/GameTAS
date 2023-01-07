@@ -1,26 +1,25 @@
-[gd_scene load_steps=43 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://assets/scripts/ui/load.gd" type="Script" id=1]
-[ext_resource path="res://assets/scripts/levels/items/bonuses/pill/telepill.gd" type="Script" id=2]
+[ext_resource path="res://assets/scripts/levels/items/bonuses/pills/telepill.gd" type="Script" id=2]
 [ext_resource path="res://assets/scenes/levels/total/transition.tscn" type="PackedScene" id=3]
-[ext_resource path="res://assets/resources/media/images/levels/total/map/office-sprites/book-case-1.png" type="Texture" id=4]
-[ext_resource path="res://assets/resources/media/images/levels/total/map/office-sprites/beanbag-2.png" type="Texture" id=5]
-[ext_resource path="res://assets/resources/media/images/levels/total/map/office-sprites/cabinet-1-1.png" type="Texture" id=6]
-[ext_resource path="res://assets/resources/media/images/levels/total/map/office-sprites/door-1.png" type="Texture" id=7]
-[ext_resource path="res://assets/resources/media/images/levels/total/map/office-sprites/beanbag-3.png" type="Texture" id=8]
-[ext_resource path="res://assets/resources/media/images/levels/total/map/office-sprites/beanbag-1.png" type="Texture" id=9]
-[ext_resource path="res://assets/resources/media/images/levels/total/map/office-sprites/desk-1-2.png" type="Texture" id=10]
-[ext_resource path="res://assets/resources/media/images/levels/total/map/office-sprites/cabinet-2-1.png" type="Texture" id=11]
-[ext_resource path="res://assets/resources/media/images/levels/total/map/office-sprites/cabinet-1-2.png" type="Texture" id=12]
-[ext_resource path="res://assets/resources/media/images/levels/total/map/office-sprites/cabinet-2-2.png" type="Texture" id=13]
-[ext_resource path="res://assets/resources/media/images/levels/total/map/office-sprites/desk-2-2.png" type="Texture" id=14]
-[ext_resource path="res://assets/resources/media/images/levels/total/map/offise-tiles.png" type="Texture" id=15]
-[ext_resource path="res://assets/resources/media/images/ui/background/options.png" type="Texture" id=16]
+[ext_resource path="res://assets/resources/media/images/levels/map/office/shelves/cases/1.png" type="Texture" id=4]
+[ext_resource path="res://assets/resources/media/images/levels/map/office/beanbags/2.png" type="Texture" id=5]
+[ext_resource path="res://assets/resources/media/images/levels/map/office/cabinets/1/1.png" type="Texture" id=6]
+[ext_resource path="res://assets/scenes/levels/total/items/bonuses/doors/door.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/resources/media/images/levels/map/office/beanbags/3.png" type="Texture" id=8]
+[ext_resource path="res://assets/resources/media/images/levels/map/office/beanbags/1.png" type="Texture" id=9]
+[ext_resource path="res://assets/resources/media/images/levels/map/office/desks/1/2.png" type="Texture" id=10]
+[ext_resource path="res://assets/resources/media/images/levels/map/office/cabinets/2/1.png" type="Texture" id=11]
+[ext_resource path="res://assets/resources/media/images/levels/map/office/cabinets/1/2.png" type="Texture" id=12]
+[ext_resource path="res://assets/resources/media/images/levels/map/office/cabinets/2/2.png" type="Texture" id=13]
+[ext_resource path="res://assets/resources/media/images/levels/map/office/desks/2/2.png" type="Texture" id=14]
+[ext_resource path="res://assets/resources/media/images/levels/map/office/tiles.png" type="Texture" id=15]
 [ext_resource path="res://assets/resources/media/ost/music/game/start.ogg" type="AudioStream" id=17]
-[ext_resource path="res://assets/resources/media/images/levels/total/map/office-sprites/metal-shelf-1.png" type="Texture" id=18]
-[ext_resource path="res://assets/resources/media/images/levels/total/map/office-sprites/metal-shelf-2.png" type="Texture" id=19]
-[ext_resource path="res://assets/resources/media/images/levels/total/map/office-sprites/book-case-2.png" type="Texture" id=20]
-[ext_resource path="res://assets/scenes/levels/total/items/pill/telepill.tscn" type="PackedScene" id=21]
+[ext_resource path="res://assets/resources/media/images/levels/map/office/shelves/metal/1.png" type="Texture" id=18]
+[ext_resource path="res://assets/resources/media/images/levels/map/office/shelves/metal/2.png" type="Texture" id=19]
+[ext_resource path="res://assets/resources/media/images/levels/map/office/shelves/cases/2.png" type="Texture" id=20]
+[ext_resource path="res://assets/scenes/levels/total/items/bonuses/pill/telepill.tscn" type="PackedScene" id=21]
 [ext_resource path="res://assets/scenes/levels/total/entities/hero/noman.tscn" type="PackedScene" id=22]
 
 [sub_resource type="TileSet" id=33]
@@ -387,25 +386,6 @@ points = PoolVector2Array( 4, 6.41666, 43.5834, 7.11111, 44.9722, 104.333, 4.694
 } ]
 3/z_index = 0
 
-[sub_resource type="TileSet" id=23]
-0/name = "door-1.png 0"
-0/texture = ExtResource( 7 )
-0/tex_offset = Vector2( 0, 0 )
-0/modulate = Color( 1, 1, 1, 1 )
-0/region = Rect2( 49, 19, 173, 231 )
-0/tile_mode = 0
-0/occluder_offset = Vector2( 0, 0 )
-0/navigation_offset = Vector2( 0, 0 )
-0/shape_offset = Vector2( 0, 0 )
-0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-0/shape_one_way = false
-0/shape_one_way_margin = 0.0
-0/shapes = [  ]
-0/z_index = 0
-
-[sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 22.5, 38 )
-
 [node name="game" type="Node2D"]
 position = Vector2( -154, 26 )
 script = ExtResource( 2 )
@@ -445,43 +425,24 @@ tile_set = SubResource( 32 )
 format = 1
 tile_data = PoolIntArray( 131071, 0, 0, 65536, 536870913, 0, 65537, 536870912, 0 )
 
-[node name="doors" type="TileMap" parent="floor"]
-position = Vector2( 254, -136 )
-scale = Vector2( 0.378052, 0.451728 )
-tile_set = SubResource( 23 )
-format = 1
-tile_data = PoolIntArray( -131076, 0, 0 )
-
-[node name="music" type="AudioStreamPlayer" parent="."]
+[node name="audio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 17 )
 autoplay = true
 
-[node name="timer" type="Timer" parent="."]
-wait_time = 10.0
-one_shot = true
-autostart = true
+[node name="choice" type="Node" parent="."]
 
-[node name="pill" parent="." instance=ExtResource( 21 )]
+[node name="door" parent="choice" instance=ExtResource( 7 )]
+position = Vector2( 185, -91 )
+scene = "res://assets/scenes/menu/authors/ending/good.tscn"
+
+[node name="pill" parent="choice" instance=ExtResource( 21 )]
+position = Vector2( -154, 26 )
 collision_mask = 2
 
-[node name="door" type="Area2D" parent="."]
-position = Vector2( 339, -117 )
-collision_layer = 0
-collision_mask = 2
+[node name="player" parent="choice" instance=ExtResource( 22 )]
+position = Vector2( -154, 26 )
 
-[node name="Sprite" type="Sprite" parent="door"]
-visible = false
-position = Vector2( -149.625, -52.25 )
-scale = Vector2( 0.0202885, 0.0444869 )
-texture = ExtResource( 16 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="door"]
-position = Vector2( -150, -53 )
-shape = SubResource( 4 )
-
-[node name="player" parent="." instance=ExtResource( 22 )]
-
-[node name="Camera2D" type="Camera2D" parent="player"]
+[node name="Camera2D" type="Camera2D" parent="choice/player"]
 position = Vector2( 159.884, -179.908 )
 current = true
 limit_left = -500
@@ -494,10 +455,14 @@ drag_margin_right = 0.3
 drag_margin_bottom = 0.4
 editor_draw_drag_margin = true
 
+[node name="timer" type="Timer" parent="choice"]
+wait_time = 10.0
+one_shot = true
+autostart = true
+
 [node name="HUD" type="CanvasLayer" parent="."]
 
 [node name="transition" parent="HUD" instance=ExtResource( 3 )]
 script = ExtResource( 1 )
 
-[connection signal="timeout" from="timer" to="." method="_change_scene"]
-[connection signal="body_entered" from="door" to="." method="_on_Area2D_body_entered"]
+[connection signal="timeout" from="choice/timer" to="." method="_change_scene"]
