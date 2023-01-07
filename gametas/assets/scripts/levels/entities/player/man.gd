@@ -5,9 +5,6 @@ onready var power = $power
 onready var weapon = $weapon
 onready var torso = $shape
 	
-func _ready():
-	health.connect("killed", self, "kill")
-	
 func move():
 	var velocity = .move()
 	weapon.move(velocity)

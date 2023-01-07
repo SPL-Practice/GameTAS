@@ -33,4 +33,4 @@ func attack():
 		combo += 1
 
 func _on_weapon_body_entered(body):
-	body.damage(wielder.power.value * power[combo-1])
+	body.health.damage(wielder.power.value * power[combo-1])

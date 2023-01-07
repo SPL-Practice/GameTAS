@@ -436,7 +436,7 @@ position = Vector2( 185, -91 )
 scene = "res://assets/scenes/menu/authors/ending/good.tscn"
 
 [node name="pill" parent="choice" instance=ExtResource( 21 )]
-position = Vector2( -154, 26 )
+position = Vector2( -4, 13 )
 collision_mask = 2
 
 [node name="player" parent="choice" instance=ExtResource( 22 )]

@@ -4,13 +4,6 @@ onready var health = $health
 onready var power = $power
 onready var speed = $speed
 onready var animation = $animation
-
-func _ready():
-	health.connect("killed", self, "kill")
-
-func damage(amount):
-	animation.play("damage")
-	health.value -= amount
 	
 func kill():
 	queue_free()

@@ -3,12 +3,12 @@
 [ext_resource path="res://assets/resources/media/images/levels/map/office/atlas.tres" type="TileSet" id=1]
 [ext_resource path="res://assets/scenes/levels/total/entities/hero/man.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/scenes/total/ui/hud/levels/usual.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/scenes/levels/total/items/bonuses/pill/telepill.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/scenes/levels/total/entities/enemies/foe/spikes.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/scenes/levels/total/items/bonuses/pill/up.tscn" type="PackedScene" id=7]
 [ext_resource path="res://assets/resources/media/ost/music/game/play.ogg" type="AudioStream" id=10]
 [ext_resource path="res://assets/scenes/levels/total/entities/enemies/foe/slime/vertical.tscn" type="PackedScene" id=12]
 [ext_resource path="res://assets/scenes/levels/total/entities/enemies/foe/slime/horizontal.tscn" type="PackedScene" id=13]
-[ext_resource path="res://assets/scenes/levels/total/transport.tscn" type="PackedScene" id=14]
 
 [node name="distortion" type="Node2D"]
 
@@ -198,6 +198,6 @@ editor_draw_drag_margin = true
 
 [node name="HUD" parent="." instance=ExtResource( 3 )]
 
-[node name="boss" parent="." instance=ExtResource( 14 )]
-position = Vector2( -16, 755 )
-scene = "levels/boss/bananos/1.tscn"
+[node name="boss" parent="." instance=ExtResource( 4 )]
+position = Vector2( 64, 829 )
+scene = "res://assets/scenes/levels/boss/bananos/1.tscn"

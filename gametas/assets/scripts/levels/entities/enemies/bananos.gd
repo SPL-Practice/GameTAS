@@ -1,9 +1,5 @@
 extends KinematicBody2D
 
-signal health_updated(amount)
-signal max_health_updated(health)
-signal killed()
-
 var velocity = Vector2()
 
 export (Vector2) var speed = Vector2(500, 500)
@@ -11,34 +7,13 @@ var maxed = Vector2(45000, 22500)
 var current = Vector2(0, 0)
 var state = 1
 
-
-var damage = 7
-export (float) var max_health = 14
-onready var health = max_health setget _set_health
 onready var animation = $animation
-
-func _set_max_health(max_health):
-	health = max_health
-
-func damage(amount):
-	animation.play("damage")
-	_set_health(health - amount)
+onready var health = $health
+onready var power = $power
 	
 func kill():
 	queue_free()
-	get_tree().change_scene("res://assets/scenes/menu/ending/bad.tscn")
-
-func heal(value):
-	 _set_health(health + value)
-
-func _set_health(value):
-	var prev_health = health
-	health = max(value, 0);
-	if health != prev_health:
-		emit_signal("health_updated", health)
-		if health <= 0:
-			kill()
-			emit_signal("killed")
+	get_tree().change_scene("res://assets/scenes/menu/authors/ending/bad.tscn")
 			
 func _physics_process(delta):
 	velocity.x = 0
@@ -95,8 +70,7 @@ func _physics_process(delta):
 
 
 func _on_slug_body_entered(body):
-	body.hold_damage(damage)
-
+	body.health.hold_damage(power.value)
 
 func _on_slug_body_exited(body):
-	body.release_damage(damage)
+	body.health.release_damage(power.value)
