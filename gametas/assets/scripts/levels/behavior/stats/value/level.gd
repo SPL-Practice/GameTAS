@@ -8,27 +8,39 @@ export onready var stat = get_parent()
 export (Array, int) onready var values
 export (Array, int) onready var next
 
-var level: int = 0
-var xp: int = 0
+var level: int = 0 setget _set_level
+var xp: int = 0 setget _set_experience
+
+func setup():
+	_set_level(Manager.character[stat.name]["level"])
+	experience(Manager.character[stat.name]["xp"])
 
 func _increase():
 	stat.value = values[level]
+	emit_signal("advance", level, next[level])
 
 func _ready():
+	setup()
 	_increase()
-	emit_signal("advance", level)
+
+func _set_level(value):
+	level = value
+	_increase()
 
 func _level_up():
-	level += 1
-	_increase()
-	emit_signal("advance", level, next[level])
+	_set_level(level + 1)
 	if level == next.size():
 		emit_signal("increase_experience", next[level-1])
 		queue_free()
+	Manager.character[stat.name]["level"] = level
 
-func experience(amount):
+func _set_experience(amount):
 	xp += amount
 	while xp >= next[level]:
 		xp -= next[level]
 		_level_up()
 	emit_signal("increase_experience", xp)
+
+func experience(amount):
+	_set_experience(amount)
+	Manager.character[stat.name]["xp"] = xp
