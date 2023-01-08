@@ -1,6 +1,6 @@
 [gd_resource type="SpriteFrames" load_steps=9 format=2]
 
-[ext_resource path="res://assets/resources/media/images/levels/sprites/items/bonuses/pills/up.png" type="Texture" id=1]
+[ext_resource path="res://assets/resources/media/images/levels/sprites/items/bonuses/pills/buffs/health.png" type="Texture" id=1]
 
 [sub_resource type="AtlasTexture" id=1]
 flags = 4

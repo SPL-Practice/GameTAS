@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/resources/media/images/levels/sprites/items/bonuses/pills/shape.tres" type="Shape2D" id=1]
+[ext_resource path="res://assets/scripts/levels/prefabs/items/bonuses/pills/buffs/stat.gd" type="Script" id=2]
+[ext_resource path="res://assets/resources/media/animations/items/bonuses/pill/buffs/speed.tres" type="SpriteFrames" id=3]
+
+[node name="pill" type="Area2D"]
+script = ExtResource( 2 )
+node = "speed"
+
+[node name="shape" type="CollisionShape2D" parent="."]
+shape = ExtResource( 1 )
+
+[node name="look" type="AnimatedSprite" parent="shape"]
+scale = Vector2( 0.675, 0.675 )
+frames = ExtResource( 3 )
+frame = 7
+playing = true
+
+[connection signal="body_entered" from="." to="." method="_on_pill_body_entered"]

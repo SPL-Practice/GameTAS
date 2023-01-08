@@ -6,10 +6,10 @@ onready var update_tween = $updater
 
 export var node_name = "player"
 
-onready var health = get_parent().get_parent().get_parent().get_node(node_name).health
+onready var health = get_parent().get_parent().get_parent().get_parent().get_node(node_name).health
 
 func _ready():
-	health.connect("health_updated", self, "_on_health_updated")
+	health.connect("value_updated", self, "_on_health_updated")
 	health.connect("max_health_updated", self, "_on_max_health_updated")
 	_on_max_health_updated(health.max_health)
 	_on_health_updated(health.max_health)

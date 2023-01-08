@@ -1,7 +1,7 @@
 [gd_scene load_steps=44 format=2]
 
 [ext_resource path="res://assets/resources/media/images/levels/sprites/items/weapon/Slash.png" type="Texture" id=1]
-[ext_resource path="res://assets/scripts/levels/items/weapons/slash/base.gd" type="Script" id=2]
+[ext_resource path="res://assets/scripts/levels/prefabs/items/weapons/slash/base.gd" type="Script" id=2]
 [ext_resource path="res://assets/resources/media/animations/items/weapons/down/slash/melee_downside_combo1.tres" type="Animation" id=3]
 [ext_resource path="res://assets/resources/media/animations/items/weapons/down/slash/melee_downside_combo2.tres" type="Animation" id=4]
 [ext_resource path="res://assets/resources/media/animations/items/weapons/down/slash/melee_downside_combo3.tres" type="Animation" id=5]

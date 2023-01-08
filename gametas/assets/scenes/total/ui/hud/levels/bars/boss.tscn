@@ -7,9 +7,12 @@
 [ext_resource path="res://assets/resources/media/images/ui/bars/border.png" type="Texture" id=5]
 
 [node name="sanity" type="Control"]
-anchor_right = 0.244
-anchor_bottom = 0.07
-margin_right = 0.143982
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -250.0
+margin_top = -42.0
 theme = ExtResource( 4 )
 script = ExtResource( 3 )
 node_name = "boss"
@@ -25,7 +28,7 @@ custom_constants/margin_bottom = 4
 [node name="under" type="TextureProgress" parent="fill"]
 margin_left = 9.0
 margin_top = 4.0
-margin_right = 240.0
+margin_right = 241.0
 margin_bottom = 38.0
 max_value = 10.0
 value = 10.0
@@ -38,7 +41,7 @@ nine_patch_stretch = true
 [node name="over" type="TextureProgress" parent="fill"]
 margin_left = 9.0
 margin_top = 4.0
-margin_right = 240.0
+margin_right = 241.0
 margin_bottom = 38.0
 max_value = 10.0
 value = 10.0

@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "AnimatedSprite",
 "class": "Look",
 "language": "GDScript",
-"path": "res://assets/scripts/levels/entities/player/moves/animation.gd"
+"path": "res://assets/scripts/levels/prefabs/entities/player/moves/animation.gd"
 } ]
 _global_script_class_icons={
 "Look": ""

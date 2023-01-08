@@ -1,16 +1,27 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://assets/resources/media/images/levels/map/office/atlas.tres" type="TileSet" id=1]
 [ext_resource path="res://assets/scenes/levels/total/entities/hero/man.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/scenes/total/ui/hud/levels/usual.tscn" type="PackedScene" id=3]
-[ext_resource path="res://assets/scenes/levels/total/items/bonuses/pill/telepill.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/scenes/levels/total/items/bonuses/pills/telepill.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/scenes/levels/total/entities/enemies/foe/spikes.tscn" type="PackedScene" id=5]
-[ext_resource path="res://assets/scenes/levels/total/items/bonuses/pill/up.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/scripts/levels/prefabs/spawn.gd" type="Script" id=6]
+[ext_resource path="res://assets/scenes/levels/total/items/bonuses/pills/buffs/health.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/scenes/levels/total/items/bonuses/pills/refill.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/scenes/levels/total/items/bonuses/pills/buffs/power.tscn" type="PackedScene" id=9]
 [ext_resource path="res://assets/resources/media/ost/music/game/play.ogg" type="AudioStream" id=10]
+[ext_resource path="res://assets/scenes/levels/total/items/bonuses/pills/buffs/sanity.tscn" type="PackedScene" id=11]
 [ext_resource path="res://assets/scenes/levels/total/entities/enemies/foe/slime/vertical.tscn" type="PackedScene" id=12]
 [ext_resource path="res://assets/scenes/levels/total/entities/enemies/foe/slime/horizontal.tscn" type="PackedScene" id=13]
+[ext_resource path="res://assets/scenes/levels/total/items/bonuses/pills/buffs/speed.tscn" type="PackedScene" id=14]
 
 [node name="distortion" type="Node2D"]
+
+[node name="pool" type="Node" parent="."]
+
+[node name="pills" type="Node" parent="pool"]
+script = ExtResource( 6 )
+prefab = ExtResource( 8 )
 
 [node name="map" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
@@ -142,47 +153,61 @@ position = Vector2( -747, -269 )
 [node name="pills" type="Node2D" parent="map"]
 position = Vector2( -7, -67 )
 
-[node name="up" parent="map/pills" instance=ExtResource( 7 )]
+[node name="health" type="Node2D" parent="map/pills"]
+
+[node name="up" parent="map/pills/health" instance=ExtResource( 7 )]
 position = Vector2( -224, -288 )
 
-[node name="up2" parent="map/pills" instance=ExtResource( 7 )]
+[node name="up2" parent="map/pills/health" instance=ExtResource( 7 )]
 position = Vector2( 813, 114 )
 
-[node name="up3" parent="map/pills" instance=ExtResource( 7 )]
+[node name="up3" parent="map/pills/health" instance=ExtResource( 7 )]
 position = Vector2( -536, 88 )
 
-[node name="up4" parent="map/pills" instance=ExtResource( 7 )]
+[node name="up4" parent="map/pills/health" instance=ExtResource( 7 )]
 position = Vector2( 606, 105 )
 
-[node name="up5" parent="map/pills" instance=ExtResource( 7 )]
+[node name="up5" parent="map/pills/health" instance=ExtResource( 7 )]
 position = Vector2( 740, 336 )
 
-[node name="up6" parent="map/pills" instance=ExtResource( 7 )]
-position = Vector2( -1008, -272 )
+[node name="power" type="Node2D" parent="map/pills"]
 
-[node name="up7" parent="map/pills" instance=ExtResource( 7 )]
-position = Vector2( 544, -432 )
+[node name="pill" parent="map/pills/power" instance=ExtResource( 9 )]
+position = Vector2( -399, -142 )
 
-[node name="up8" parent="map/pills" instance=ExtResource( 7 )]
-position = Vector2( 1000, 96 )
+[node name="pill2" parent="map/pills/power" instance=ExtResource( 9 )]
+position = Vector2( -69, 37 )
 
-[node name="up9" parent="map/pills" instance=ExtResource( 7 )]
-position = Vector2( 1346, -224 )
+[node name="pill3" parent="map/pills/power" instance=ExtResource( 9 )]
+position = Vector2( -244, 119 )
 
-[node name="up10" parent="map/pills" instance=ExtResource( 7 )]
-position = Vector2( -992, -856 )
+[node name="speed" type="Node2D" parent="map/pills"]
 
-[node name="up11" parent="map/pills" instance=ExtResource( 7 )]
-position = Vector2( 1320, -840 )
+[node name="pill" parent="map/pills/speed" instance=ExtResource( 14 )]
+position = Vector2( 761, 832 )
 
-[node name="up12" parent="map/pills" instance=ExtResource( 7 )]
-position = Vector2( 120, -680 )
+[node name="pill2" parent="map/pills/speed" instance=ExtResource( 14 )]
+position = Vector2( 1001, 763 )
 
-[node name="up14" parent="map/pills" instance=ExtResource( 7 )]
-position = Vector2( -1014, 240 )
+[node name="pill3" parent="map/pills/speed" instance=ExtResource( 14 )]
+position = Vector2( 941, 939 )
 
-[node name="up13" parent="map/pills" instance=ExtResource( 7 )]
-position = Vector2( -342, 536 )
+[node name="sanity" type="Node2D" parent="map/pills"]
+
+[node name="pill4" parent="map/pills/sanity" instance=ExtResource( 11 )]
+position = Vector2( -1815, -674 )
+
+[node name="pill5" parent="map/pills/sanity" instance=ExtResource( 11 )]
+position = Vector2( -841, -544 )
+
+[node name="pill6" parent="map/pills/sanity" instance=ExtResource( 11 )]
+position = Vector2( -448, -1337 )
+
+[node name="pill7" parent="map/pills/sanity" instance=ExtResource( 11 )]
+position = Vector2( 566, -1379 )
+
+[node name="pill" parent="map/pills/sanity" instance=ExtResource( 11 )]
+position = Vector2( 1780, -608 )
 
 [node name="audio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 10 )
@@ -201,3 +226,14 @@ editor_draw_drag_margin = true
 [node name="boss" parent="." instance=ExtResource( 4 )]
 position = Vector2( 64, 829 )
 scene = "res://assets/scenes/levels/boss/bananos/1.tscn"
+
+[connection signal="trophy" from="map/enemies/slimes/vertical/1" to="pool/pills" method="_spawn"]
+[connection signal="trophy" from="map/enemies/slimes/vertical/2" to="pool/pills" method="_spawn"]
+[connection signal="trophy" from="map/enemies/slimes/vertical/3" to="pool/pills" method="_spawn"]
+[connection signal="trophy" from="map/enemies/slimes/vertical/4" to="pool/pills" method="_spawn"]
+[connection signal="trophy" from="map/enemies/slimes/vertical/5" to="pool/pills" method="_spawn"]
+[connection signal="trophy" from="map/enemies/slimes/vertical/6" to="pool/pills" method="_spawn"]
+[connection signal="trophy" from="map/enemies/slimes/vertical/7" to="pool/pills" method="_spawn"]
+[connection signal="trophy" from="map/enemies/slimes/vertical/8" to="pool/pills" method="_spawn"]
+[connection signal="trophy" from="map/enemies/slimes/vertical/9" to="pool/pills" method="_spawn"]
+[connection signal="trophy" from="map/enemies/slimes/vertical/10" to="pool/pills" method="_spawn"]
