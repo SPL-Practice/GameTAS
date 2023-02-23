@@ -429,7 +429,7 @@ input_4/auto_advance = false
 [sub_resource type="AnimationNodeTransition" id=105]
 input_count = 2
 input_0/name = "run"
-input_0/auto_advance = true
+input_0/auto_advance = false
 input_1/name = "idle"
 input_1/auto_advance = false
 
@@ -458,6 +458,7 @@ blend_point_3/node = SubResource( 138 )
 blend_point_3/pos = Vector2( 0, -1.1 )
 min_space = Vector2( -1, -1.1 )
 max_space = Vector2( 1, 1.1 )
+blend_mode = 1
 
 [sub_resource type="AnimationNodeTransition" id=108]
 input_count = 2
@@ -478,7 +479,7 @@ input_1/auto_advance = false
 [sub_resource type="AnimationNodeAnimation" id=102]
 
 [sub_resource type="AnimationNodeBlendTree" id=3]
-graph_offset = Vector2( -381.865, 636 )
+graph_offset = Vector2( -144.694, 696 )
 nodes/actions/node = SubResource( 37 )
 nodes/actions/position = Vector2( 660, 160 )
 nodes/attack/node = SubResource( 100 )
@@ -514,7 +515,7 @@ nodes/speed/node = SubResource( 25 )
 nodes/speed/position = Vector2( 880, 480 )
 nodes/swing/node = SubResource( 102 )
 nodes/swing/position = Vector2( -440, 200 )
-node_connections = [ "speed", 0, "character", "idle", 0, "idle-1", "output", 0, "speed", "character", 0, "dangerous", "character", 1, "passive", "attack", 0, "slashes", "attack", 1, "shooting", "shooting", 0, "projectiles", "shooting", 1, "charge", "passive", 0, "run", "passive", 1, "idle", "slashes", 0, "combo", "slashes", 1, "swing", "dangerous", 0, "attack", "dangerous", 1, "dash" ]
+node_connections = [ "speed", 0, "character", "idle", 0, "idle-1", "output", 0, "speed", "character", 0, "dangerous", "character", 1, "passive", "slashes", 0, "combo", "slashes", 1, "swing", "attack", 0, "slashes", "attack", 1, "shooting", "shooting", 0, "projectiles", "shooting", 1, "charge", "dangerous", 0, "attack", "dangerous", 1, "dash", "passive", 0, "run", "passive", 1, "idle" ]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=52]
 
@@ -538,7 +539,7 @@ tracks/0/keys = {
 [node name="look" type="AnimatedSprite"]
 frames = ExtResource( 4 )
 animation = "idle_1"
-frame = 4
+frame = 1
 script = ExtResource( 2 )
 
 [node name="tree" type="AnimationTree" parent="."]

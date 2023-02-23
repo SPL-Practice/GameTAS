@@ -3,15 +3,16 @@ extends "res://addons/godot-behavior-tree-plugin/action.gd"
 var velocity: Vector2 = Vector2.ZERO
 
 func redirect(look, direction: Vector2):
-	if direction == Vector2.ZERO:
-		#look.perform_passion(1)
+	if direction == velocity:
 		return FAILED
-	elif direction == velocity:
+	elif direction == Vector2.ZERO:
+		velocity = direction
+		look.perform_passion(1)
 		return FAILED
-	
+		
 	velocity = direction
-	look.move(velocity)
 	look.perform_passion(0)
+	look.move(direction)
 	return OK
 
 func tick(tick: Tick) -> int:
