@@ -9,7 +9,7 @@
 [ext_resource path="res://addons/godot-behavior-tree-plugin/blackboard.gd" type="Script" id=13]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 41, 84 )
+extents = Vector2( 41, 90.0576 )
 
 [node name="player" type="KinematicBody2D"]
 scale = Vector2( 0.431562, 0.405763 )
@@ -18,10 +18,11 @@ collision_mask = 5
 script = ExtResource( 2 )
 
 [node name="shape" type="CollisionShape2D" parent="."]
-position = Vector2( -13, -33 )
+scale = Vector2( 1, 1 )
 shape = SubResource( 1 )
 
 [node name="look" parent="shape" instance=ExtResource( 1 )]
+frame = 1
 
 [node name="behaviour" type="Node" parent="."]
 script = ExtResource( 8 )

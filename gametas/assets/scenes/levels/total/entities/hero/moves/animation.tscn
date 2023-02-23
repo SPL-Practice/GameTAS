@@ -1,4 +1,4 @@
-[gd_scene load_steps=80 format=2]
+[gd_scene load_steps=94 format=2]
 
 [ext_resource path="res://assets/resources/media/animations/entities/player/actions.tres" type="AnimationNodeStateMachinePlayback" id=1]
 [ext_resource path="res://assets/scripts/levels/prefabs/entities/player/moves/animation.gd" type="Script" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://assets/resources/media/animations/entities/player/frames.tres" type="SpriteFrames" id=4]
 [ext_resource path="res://assets/resources/media/animations/entities/player/down/run_down.tres" type="Animation" id=5]
 [ext_resource path="res://assets/resources/themes/frames/player/damage.tres" type="Animation" id=6]
+[ext_resource path="res://assets/resources/media/animations/entities/player/idle/1.tres" type="Animation" id=7]
 [ext_resource path="res://assets/resources/media/animations/entities/player/right/run_right.tres" type="Animation" id=8]
 [ext_resource path="res://assets/resources/media/animations/entities/player/up/run_up.tres" type="Animation" id=9]
 [ext_resource path="res://assets/resources/media/animations/entities/player/down/attack/slash/base_downside_combo3.tres" type="Animation" id=10]
@@ -20,18 +21,6 @@
 [ext_resource path="res://assets/resources/media/animations/entities/player/right/attack/slash/base_rightside_combo1.tres" type="Animation" id=21]
 [ext_resource path="res://assets/resources/media/animations/entities/player/right/attack/slash/base_rightside_combo2.tres" type="Animation" id=22]
 [ext_resource path="res://assets/resources/media/animations/entities/player/right/attack/slash/base_rightside_combo3.tres" type="Animation" id=23]
-
-[sub_resource type="AnimationNodeBlend2" id=92]
-
-[sub_resource type="AnimationNodeAnimation" id=16]
-animation = "damage"
-
-[sub_resource type="AnimationNodeTransition" id=93]
-input_count = 2
-input_0/name = "attacking"
-input_0/auto_advance = true
-input_1/name = "running"
-input_1/auto_advance = false
 
 [sub_resource type="AnimationNodeAnimation" id=43]
 animation = "base_leftside_attack"
@@ -154,7 +143,7 @@ states/RESET/position = Vector2( 486, 197 )
 transitions = [ "1", "2", SubResource( 68 ), "2", "3", SubResource( 69 ), "1", "RESET", SubResource( 97 ), "2", "RESET", SubResource( 98 ), "3", "RESET", SubResource( 99 ) ]
 start_node = "1"
 end_node = "RESET"
-graph_offset = Vector2( 42, 13 )
+graph_offset = Vector2( -351, -222 )
 
 [sub_resource type="AnimationNodeAnimation" id=73]
 animation = "base_leftside_combo1"
@@ -292,26 +281,125 @@ states/run/node = SubResource( 42 )
 states/run/position = Vector2( 492, 72 )
 transitions = [ "run", "base_combo", SubResource( 94 ), "base_combo", "run", SubResource( 95 ) ]
 start_node = "run"
-graph_offset = Vector2( 285, -28 )
+graph_offset = Vector2( -7, -23 )
+
+[sub_resource type="AnimationNodeTransition" id=100]
+input_count = 2
+input_0/name = "slashes"
+input_0/auto_advance = false
+input_1/name = "shooting"
+input_1/auto_advance = false
+
+[sub_resource type="AnimationNodeTransition" id=93]
+input_count = 2
+input_0/name = "dangerous"
+input_0/auto_advance = true
+input_1/name = "passive"
+input_1/auto_advance = false
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=101]
+
+[sub_resource type="AnimationNodeStateMachine" id=103]
+
+[sub_resource type="AnimationNodeAnimation" id=16]
+animation = "damage"
+
+[sub_resource type="AnimationNodeTransition" id=104]
+input_count = 2
+input_0/name = "attack"
+input_0/auto_advance = false
+input_1/name = "dash"
+input_1/auto_advance = false
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=111]
+
+[sub_resource type="AnimationNodeAnimation" id=113]
+animation = "idle-1"
+
+[sub_resource type="AnimationNodeTransition" id=112]
+input_count = 5
+input_0/name = "1"
+input_0/auto_advance = false
+input_1/name = "2"
+input_1/auto_advance = false
+input_2/name = "3"
+input_2/auto_advance = false
+input_3/name = "4"
+input_3/auto_advance = false
+input_4/name = "5"
+input_4/auto_advance = false
+
+[sub_resource type="AnimationNodeTransition" id=105]
+input_count = 2
+input_0/name = "run"
+input_0/auto_advance = false
+input_1/name = "idle"
+input_1/auto_advance = false
+
+[sub_resource type="AnimationNodeStateMachine" id=106]
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=107]
+
+[sub_resource type="AnimationNodeTransition" id=108]
+input_count = 2
+input_0/name = "projectiles"
+input_0/auto_advance = false
+input_1/name = "charge"
+input_1/auto_advance = false
+
+[sub_resource type="AnimationNodeTransition" id=109]
+input_count = 2
+input_0/name = "combo"
+input_0/auto_advance = false
+input_1/name = "swing"
+input_1/auto_advance = false
 
 [sub_resource type="AnimationNodeTimeScale" id=25]
 
+[sub_resource type="AnimationNodeAnimation" id=102]
+
 [sub_resource type="AnimationNodeBlendTree" id=3]
-graph_offset = Vector2( 355.908, 266.355 )
-nodes/Blend2/node = SubResource( 92 )
-nodes/Blend2/position = Vector2( 80, 320 )
+graph_offset = Vector2( -665.798, -36.0195 )
+nodes/actions/node = SubResource( 37 )
+nodes/actions/position = Vector2( 660, 160 )
+nodes/attack/node = SubResource( 100 )
+nodes/attack/position = Vector2( 80, 280 )
+nodes/character/node = SubResource( 93 )
+nodes/character/position = Vector2( 640, 480 )
+nodes/charge/node = SubResource( 101 )
+nodes/charge/position = Vector2( -480, 500 )
+nodes/combo/node = SubResource( 103 )
+nodes/combo/position = Vector2( -480, 60 )
 nodes/damage/node = SubResource( 16 )
-nodes/damage/position = Vector2( 760, 560 )
-nodes/dangerous/node = SubResource( 93 )
-nodes/dangerous/position = Vector2( 420, 340 )
-nodes/down_actions/node = SubResource( 37 )
-nodes/down_actions/position = Vector2( 720, 280 )
-nodes/output/position = Vector2( 1240, 260 )
+nodes/damage/position = Vector2( 960, -40 )
+nodes/dangerous/node = SubResource( 104 )
+nodes/dangerous/position = Vector2( 360, 360 )
+nodes/dash/node = SubResource( 111 )
+nodes/dash/position = Vector2( 60, 460 )
+nodes/idle/node = SubResource( 112 )
+nodes/idle/position = Vector2( 120, 820 )
+nodes/idle-1/node = SubResource( 113 )
+nodes/idle-1/position = Vector2( -140, 820 )
+nodes/output/position = Vector2( 1100, 500 )
+nodes/passive/node = SubResource( 105 )
+nodes/passive/position = Vector2( 360, 720 )
+nodes/projectiles/node = SubResource( 106 )
+nodes/projectiles/position = Vector2( -480, 340 )
+nodes/run/node = SubResource( 107 )
+nodes/run/position = Vector2( 80, 640 )
+nodes/shooting/node = SubResource( 108 )
+nodes/shooting/position = Vector2( -200, 440 )
+nodes/slashes/node = SubResource( 109 )
+nodes/slashes/position = Vector2( -200, 140 )
 nodes/speed/node = SubResource( 25 )
-nodes/speed/position = Vector2( 1020, 260 )
-node_connections = [ "speed", 0, "down_actions", "output", 0, "speed" ]
+nodes/speed/position = Vector2( 880, 480 )
+nodes/swing/node = SubResource( 102 )
+nodes/swing/position = Vector2( -440, 200 )
+node_connections = [ "speed", 0, "character", "idle", 0, "idle-1", "output", 0, "speed", "character", 0, "dangerous", "character", 1, "passive", "attack", 0, "slashes", "attack", 1, "shooting", "shooting", 0, "projectiles", "shooting", 1, "charge", "passive", 0, "run", "passive", 1, "idle", "slashes", 0, "combo", "slashes", 1, "swing", "dangerous", 0, "attack", "dangerous", 1, "dash" ]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=52]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=110]
 
 [sub_resource type="Animation" id=32]
 length = 0.001
@@ -330,27 +418,37 @@ tracks/0/keys = {
 
 [node name="look" type="AnimatedSprite"]
 frames = ExtResource( 4 )
-animation = "run_left"
-frame = 1
+animation = "idle_1"
+frame = 3
 script = ExtResource( 2 )
 
 [node name="tree" type="AnimationTree" parent="."]
 tree_root = SubResource( 3 )
 anim_player = NodePath("animation")
 active = true
-parameters/Blend2/blend_amount = 0
+parameters/actions/playback = ExtResource( 1 )
+parameters/actions/base_attack/blend_position = Vector2( 0, 0 )
+parameters/actions/base_combo/playback = SubResource( 52 )
+parameters/actions/base_combo/1/blend_position = Vector2( 0, 0 )
+parameters/actions/base_combo/2/blend_position = Vector2( 0, 0 )
+parameters/actions/base_combo/3/blend_position = Vector2( 0, 0 )
+parameters/actions/base_combo2/1/blend_position = Vector2( 0, 0 )
+parameters/actions/base_combo2/2/blend_position = Vector2( 0, 0 )
+parameters/actions/base_combo2/3/blend_position = Vector2( 0, 0 )
+parameters/actions/base_combo2/combo/current = 0
+parameters/actions/run/blend_position = Vector2( 0, 0 )
+parameters/attack/current = 0
+parameters/character/current = 1
+parameters/charge/blend_position = Vector2( 0, 0 )
+parameters/combo/playback = SubResource( 110 )
 parameters/dangerous/current = 0
-parameters/down_actions/playback = ExtResource( 1 )
-parameters/down_actions/base_attack/blend_position = Vector2( 0, 0 )
-parameters/down_actions/base_combo/playback = SubResource( 52 )
-parameters/down_actions/base_combo/1/blend_position = Vector2( 0, 0 )
-parameters/down_actions/base_combo/2/blend_position = Vector2( 0, 0 )
-parameters/down_actions/base_combo/3/blend_position = Vector2( 0, 0 )
-parameters/down_actions/base_combo2/1/blend_position = Vector2( 0, 0 )
-parameters/down_actions/base_combo2/2/blend_position = Vector2( 0, 0 )
-parameters/down_actions/base_combo2/3/blend_position = Vector2( 0, 0 )
-parameters/down_actions/base_combo2/combo/current = 0
-parameters/down_actions/run/blend_position = Vector2( 0, 0 )
+parameters/dash/blend_position = Vector2( 0, 0 )
+parameters/idle/current = 0
+parameters/passive/current = 1
+parameters/projectiles/playback = SubResource( 110 )
+parameters/run/blend_position = Vector2( 0, 0 )
+parameters/shooting/current = 0
+parameters/slashes/current = 0
 parameters/speed/scale = 1.0
 
 [node name="animation" type="AnimationPlayer" parent="tree"]
@@ -369,6 +467,7 @@ anims/base_upside_combo1 = ExtResource( 13 )
 anims/base_upside_combo2 = ExtResource( 14 )
 anims/base_upside_combo3 = ExtResource( 15 )
 anims/damage = ExtResource( 6 )
+anims/idle-1 = ExtResource( 7 )
 anims/run_down = ExtResource( 5 )
 anims/run_left = ExtResource( 3 )
 anims/run_right = ExtResource( 8 )

@@ -388,8 +388,6 @@ points = PoolVector2Array( 4, 6.41666, 43.5834, 7.11111, 44.9722, 104.333, 4.694
 
 [node name="game" type="Node2D"]
 position = Vector2( -154, 26 )
-script = ExtResource( 2 )
-scene = "menu/authors/ending/good.tscn"
 
 [node name="floor" type="TileMap" parent="."]
 tile_set = SubResource( 33 )
@@ -459,10 +457,12 @@ editor_draw_drag_margin = true
 wait_time = 10.0
 one_shot = true
 autostart = true
+script = ExtResource( 2 )
+scene = "res://assets/scenes/menu/authors/ending/good.tscn"
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
 [node name="transition" parent="HUD" instance=ExtResource( 3 )]
 script = ExtResource( 1 )
 
-[connection signal="timeout" from="choice/timer" to="." method="_change_scene"]
+[connection signal="timeout" from="choice/timer" to="choice/timer" method="_change_scene"]

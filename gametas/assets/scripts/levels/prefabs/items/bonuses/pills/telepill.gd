@@ -1,4 +1,4 @@
-extends Node2D
+extends Node
 
 export var scene = "res://assets/scenes/levels/office/distorted/1.tscn"
 
