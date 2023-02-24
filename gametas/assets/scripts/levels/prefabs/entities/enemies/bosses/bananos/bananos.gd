@@ -1,20 +1,16 @@
 extends KinematicBody2D
 
-var velocity = Vector2()
-
-export (Vector2) var speed = Vector2(500, 500)
-var maxed = Vector2(45000, 22500)
-var current = Vector2(0, 0)
-var state = 1
+var velocity = Vector2(0, 0)
 
 onready var behavior = $behavior
 onready var blackboard = $blackboard
+onready var look = $shape/look
 onready var animation = $animation
 onready var health = $health
 onready var power = $power
 
 func _ready():
-	blackboard.set("position", current)
+	blackboard.set("position", velocity)
 	var phases = behavior.get_child(0)
 	for phase in phases.get_children():
 		for turn in phase.get_children():
@@ -25,6 +21,7 @@ func kill():
 	get_tree().change_scene("res://assets/scenes/menu/authors/ending/bad.tscn")
 
 func move(speed: Vector2):
+	look.move(speed)
 	move_and_slide(speed)
 
 func move_partial(x, y):
