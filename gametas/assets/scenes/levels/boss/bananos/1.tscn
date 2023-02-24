@@ -64,6 +64,6 @@ scale = Vector2( 2.31716, 2.46449 )
 current = true
 
 [node name="boss" parent="." instance=ExtResource( 2 )]
-position = Vector2( 95, 151 )
+position = Vector2( 95, 107 )
 
 [node name="HUD" parent="." instance=ExtResource( 3 )]

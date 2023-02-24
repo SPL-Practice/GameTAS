@@ -21,7 +21,7 @@ script = ExtResource( 2 )
 shape = SubResource( 1 )
 
 [node name="look" parent="shape" instance=ExtResource( 1 )]
-frame = 7
+frame = 6
 
 [node name="behaviour" type="Node" parent="."]
 script = ExtResource( 8 )
