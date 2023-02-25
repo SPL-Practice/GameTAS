@@ -6,8 +6,8 @@
 [ext_resource path="res://assets/scenes/levels/total/behavior/stats/health/vulnerability.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/scenes/levels/total/behavior/stats/value/stat.tscn" type="PackedScene" id=5]
 [ext_resource path="res://addons/godot-behavior-tree-plugin/blackboard.gd" type="Script" id=6]
-[ext_resource path="res://addons/godot-behavior-tree-plugin/behavior_tree.gd" type="Script" id=7]
-[ext_resource path="res://assets/scenes/levels/total/entities/enemies/boss/appearance/1.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/scripts/levels/behavior/phase_root.gd" type="Script" id=7]
+[ext_resource path="res://assets/scenes/levels/total/behavior/tracking/boss/bananos.tscn" type="PackedScene" id=8]
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 25.5, 37.75 )
@@ -24,7 +24,7 @@ script = ExtResource( 2 )
 shape = SubResource( 3 )
 
 [node name="look" parent="shape" instance=ExtResource( 1 )]
-frame = 2
+frame = 3
 
 [node name="pulp" type="Area2D" parent="shape"]
 collision_mask = 2
@@ -45,11 +45,10 @@ anims/damage = ExtResource( 3 )
 [node name="behavior" type="Node" parent="."]
 script = ExtResource( 7 )
 
-[node name="phases" parent="behavior" instance=ExtResource( 8 )]
+[node name="battle" parent="behavior" instance=ExtResource( 8 )]
 
 [node name="blackboard" type="Node" parent="."]
 script = ExtResource( 6 )
 
 [connection signal="body_entered" from="shape/pulp" to="." method="_on_slug_body_entered"]
 [connection signal="body_exited" from="shape/pulp" to="." method="_on_slug_body_exited"]
-[connection signal="killed" from="health" to="." method="kill"]

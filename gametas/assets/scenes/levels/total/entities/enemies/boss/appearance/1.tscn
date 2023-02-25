@@ -1,65 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=3 format=2]
 
+[ext_resource path="res://assets/scenes/levels/total/behavior/tracking/boss/bananos.tscn" type="PackedScene" id=1]
 [ext_resource path="res://addons/godot-behavior-tree-plugin/selector.gd" type="Script" id=2]
-[ext_resource path="res://assets/scripts/levels/prefabs/entities/enemies/bosses/bananos/1/1/death.gd" type="Script" id=3]
-[ext_resource path="res://assets/scripts/levels/prefabs/entities/enemies/bosses/bananos/change_phase.gd" type="Script" id=4]
-[ext_resource path="res://assets/scripts/levels/prefabs/entities/enemies/bosses/bananos/1/1/run_right.gd" type="Script" id=5]
-[ext_resource path="res://assets/scripts/levels/prefabs/entities/enemies/bosses/bananos/1/1/run_down.gd" type="Script" id=6]
-[ext_resource path="res://assets/scripts/levels/prefabs/entities/enemies/bosses/bananos/1/1/spin_right.gd" type="Script" id=7]
 
 [node name="phases" type="Node"]
 script = ExtResource( 2 )
 
-[node name="1" type="Node" parent="."]
-script = ExtResource( 2 )
-
-[node name="calm" type="Node" parent="1"]
-script = ExtResource( 4 )
-
-[node name="run_right" type="Node" parent="1"]
-script = ExtResource( 5 )
-next = "run_down"
-
-[node name="run_down" type="Node" parent="1"]
-script = ExtResource( 6 )
-speed = 250
-finish = 25000
-next = "run_left"
-
-[node name="run_left" type="Node" parent="1"]
-script = ExtResource( 5 )
-speed = -500
-finish = 0
-next = "spin_right"
-
-[node name="spin_right" type="Node" parent="1"]
-script = ExtResource( 7 )
-speed = Vector2( 500, -250 )
-finish = Vector2( 50000, 0 )
-next = "return_left"
-
-[node name="return_left" type="Node" parent="1"]
-script = ExtResource( 5 )
-speed = -500
-finish = 0
-next = "return_down"
-
-[node name="return_down" type="Node" parent="1"]
-script = ExtResource( 6 )
-speed = 250
-finish = 25000
-next = "return_right"
-
-[node name="return_right" type="Node" parent="1"]
-script = ExtResource( 5 )
-next = "spin_left"
-
-[node name="spin_left" type="Node" parent="1"]
-script = ExtResource( 7 )
-speed = Vector2( -500, -250 )
-finish = Vector2( 0, 0 )
-next = "run_right"
-breakdown = 0
-
-[node name="death" type="Node" parent="."]
-script = ExtResource( 3 )
+[node name="phases" parent="." instance=ExtResource( 1 )]

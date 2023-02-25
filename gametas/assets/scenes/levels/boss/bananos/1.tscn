@@ -1,12 +1,15 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://assets/resources/media/ost/music/boss.ogg" type="AudioStream" id=1]
 [ext_resource path="res://assets/scenes/levels/total/entities/enemies/boss/bananos.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/scenes/total/ui/hud/levels/boss.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/scenes/levels/total/entities/hero/man.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/resources/media/ost/music/boss/2.ogg" type="AudioStream" id=5]
 [ext_resource path="res://assets/resources/media/images/levels/map/office/atlas.tres" type="TileSet" id=6]
 [ext_resource path="res://assets/scenes/levels/total/entities/enemies/foe/spikes.tscn" type="PackedScene" id=7]
 [ext_resource path="res://assets/scenes/levels/total/items/bonuses/pills/buffs/health.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/resources/media/ost/music/boss/3.ogg" type="AudioStream" id=9]
+[ext_resource path="res://assets/scripts/levels/prefabs/entities/enemies/bosses/phaser_audio.gd" type="Script" id=10]
 
 [node name="boss" type="Node2D"]
 
@@ -51,9 +54,17 @@ position = Vector2( 537, 885 )
 rotation = 1.57079
 scale = Vector2( 16.0495, 13.2121 )
 
-[node name="audio" type="AudioStreamPlayer" parent="."]
+[node name="audio" type="Node" parent="."]
+script = ExtResource( 10 )
+
+[node name="1" type="AudioStreamPlayer" parent="audio"]
 stream = ExtResource( 1 )
-autoplay = true
+
+[node name="2" type="AudioStreamPlayer" parent="audio"]
+stream = ExtResource( 5 )
+
+[node name="3" type="AudioStreamPlayer" parent="audio"]
+stream = ExtResource( 9 )
 
 [node name="player" parent="." instance=ExtResource( 4 )]
 position = Vector2( 509, 329 )
@@ -67,3 +78,5 @@ current = true
 position = Vector2( 95, 107 )
 
 [node name="HUD" parent="." instance=ExtResource( 3 )]
+
+[connection signal="phase_updated" from="boss" to="audio" method="_change_pattern"]

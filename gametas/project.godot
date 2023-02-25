@@ -9,13 +9,43 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Node",
+"class": "Leaf",
+"language": "GDScript",
+"path": "res://assets/scripts/levels/behavior/leaf.gd"
+}, {
 "base": "AnimatedSprite",
 "class": "Look",
 "language": "GDScript",
 "path": "res://assets/scripts/levels/prefabs/entities/player/moves/animation.gd"
+}, {
+"base": "Node",
+"class": "Point",
+"language": "GDScript",
+"path": "res://assets/scripts/levels/behavior/tracking/positioning/point.gd"
+}, {
+"base": "Node",
+"class": "Point_X",
+"language": "GDScript",
+"path": "res://assets/scripts/levels/behavior/tracking/positioning/point_x.gd"
+}, {
+"base": "Node",
+"class": "Point_Y",
+"language": "GDScript",
+"path": "res://assets/scripts/levels/behavior/tracking/positioning/point_y.gd"
+}, {
+"base": "Node",
+"class": "Positioner",
+"language": "GDScript",
+"path": "res://assets/scripts/levels/behavior/tracking/positioning/positioner.gd"
 } ]
 _global_script_class_icons={
-"Look": ""
+"Leaf": "",
+"Look": "",
+"Point": "",
+"Point_X": "",
+"Point_Y": "",
+"Positioner": ""
 }
 
 [application]
