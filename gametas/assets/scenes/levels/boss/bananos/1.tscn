@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://assets/resources/media/ost/music/boss.ogg" type="AudioStream" id=1]
 [ext_resource path="res://assets/scenes/levels/total/entities/enemies/boss/bananos.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://assets/scenes/levels/total/items/bonuses/pills/buffs/health.tscn" type="PackedScene" id=8]
 [ext_resource path="res://assets/resources/media/ost/music/boss/3.ogg" type="AudioStream" id=9]
 [ext_resource path="res://assets/scripts/levels/prefabs/entities/enemies/bosses/phaser_audio.gd" type="Script" id=10]
+[ext_resource path="res://assets/resources/media/ost/music/boss/end.wav" type="AudioStream" id=11]
 
 [node name="boss" type="Node2D"]
 
@@ -65,6 +66,9 @@ stream = ExtResource( 5 )
 
 [node name="3" type="AudioStreamPlayer" parent="audio"]
 stream = ExtResource( 9 )
+
+[node name="4" type="AudioStreamPlayer" parent="audio"]
+stream = ExtResource( 11 )
 
 [node name="player" parent="." instance=ExtResource( 4 )]
 position = Vector2( 509, 329 )

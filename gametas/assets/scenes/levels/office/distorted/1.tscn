@@ -225,7 +225,7 @@ editor_draw_drag_margin = true
 
 [node name="boss" parent="." instance=ExtResource( 4 )]
 position = Vector2( 64, 829 )
-scene = "res://assets/scenes/levels/boss/bananos/1.tscn"
+scene = "res://assets/scenes/menu/vs/vs_bananos.tscn"
 
 [connection signal="trophy" from="map/enemies/slimes/vertical/1" to="pool/pills" method="_spawn"]
 [connection signal="trophy" from="map/enemies/slimes/vertical/2" to="pool/pills" method="_spawn"]

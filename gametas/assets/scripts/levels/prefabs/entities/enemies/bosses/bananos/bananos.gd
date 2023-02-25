@@ -17,12 +17,16 @@ func _ready():
 	behavior.state(blackboard)
 
 func kill():
+	look.scene()
+	
+func death():
 	queue_free()
 	get_tree().change_scene("res://assets/scenes/menu/authors/ending/bad.tscn")
 
 func new_phase(no):
 	emit_signal("phase_updated", no)
-	self.position = initial
+	if (no < behavior.phase_count):
+		self.position = initial
 
 func move(speed: Vector2):
 	look.move(speed)

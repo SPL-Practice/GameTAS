@@ -1,6 +1,7 @@
 extends AnimatedSprite
 
 onready var tree = $tree
+onready var character = get_parent().get_parent()
 
 enum behavior { MOVES, SCENE }
 
@@ -17,3 +18,7 @@ func move(velocity):
 func scene():
 	
 	tree.set("parameters/character/current", behavior.SCENE)
+
+func death():
+	
+	character.death()

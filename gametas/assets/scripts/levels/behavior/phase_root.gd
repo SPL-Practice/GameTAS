@@ -1,5 +1,7 @@
 extends "res://addons/godot-behavior-tree-plugin/behavior_tree.gd"
 
+export (int) var phase_count = 3 
+
 func _recurse_group(parent, name):
 	
 	for child in parent.get_children():

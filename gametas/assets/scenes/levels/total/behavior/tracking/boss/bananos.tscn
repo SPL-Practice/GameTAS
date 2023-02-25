@@ -75,7 +75,7 @@ script = ExtResource( 1 )
 [node name="dance" type="Node" parent="phases/2"]
 script = ExtResource( 7 )
 next_phase = 2
-next_hp = 96
+next_hp = 36
 
 [node name="moveset" type="Node" parent="phases/2"]
 script = ExtResource( 2 )
@@ -170,7 +170,7 @@ script = ExtResource( 1 )
 
 [node name="anger" type="Node" parent="phases/3"]
 script = ExtResource( 7 )
-next_phase = 0
+next_phase = 3
 next_hp = 0
 
 [node name="moveset" type="Node" parent="phases/3"]
@@ -232,6 +232,7 @@ next = "return_left"
 
 [node name="return_left" type="Node" parent="phases/3/moveset"]
 script = ExtResource( 6 )
+speed = -500
 finish = 0
 next = "spin_down_1"
 
