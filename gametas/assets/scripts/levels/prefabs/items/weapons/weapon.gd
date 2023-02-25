@@ -14,6 +14,8 @@ func move(velocity):
 		attack.move(velocity)
 
 func attack():
+	#print_debug(get_local_mouse_position().normalized())
+	base_slash.move_side(get_local_mouse_position())
 	base_slash.attack()
 	
 func _physics_process(_delta):

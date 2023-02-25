@@ -14,7 +14,7 @@ func _damage():
 
 func move():
 	var velocity = .move()
-	weapon.move(velocity)
+	#weapon.move(velocity)
 	return velocity
 
 func _kill():

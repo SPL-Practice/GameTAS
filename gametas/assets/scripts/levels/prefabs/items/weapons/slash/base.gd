@@ -15,6 +15,13 @@ func move(velocity):
 	for tact in power.size():
 		tree.set("parameters/base_melee_combo/%s/blend_position" % (tact + 1), velocity.normalized())
 
+func move_side(velocity):
+	var pose = combo + 1
+	var direction = velocity.normalized()
+	
+	tree.set("parameters/base_melee_combo/%s/blend_position" % pose, direction)
+	wielder.look.attack_direction(pose, direction)
+
 func stop_combo():
 	combo = 0
 	combos.stop()
