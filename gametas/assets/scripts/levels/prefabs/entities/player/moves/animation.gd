@@ -24,7 +24,6 @@ func _run_direction(direction):
 func attack_direction(current, direction):
 	
 	tree.set("parameters/combo/%s/blend_position" % current, direction)
-	print_debug("parameters/combo/%s/blend_position" % current)
 	
 func _attacks_direction(direction):
 	
@@ -59,7 +58,6 @@ func _do_slash(kind):
 func _slash_combo(pose):
 	
 	tree.get("parameters/combo/playback").travel(str(pose))
-	print_debug(pose)
 
 
 func slashing():

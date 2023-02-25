@@ -11,10 +11,6 @@ onready var last = power.size() - 1
 func set_wielder(wields):
 	wielder = wields
 
-func move(velocity):
-	for tact in power.size():
-		tree.set("parameters/base_melee_combo/%s/blend_position" % (tact + 1), velocity.normalized())
-
 func move_side(velocity):
 	var pose = combo + 1
 	var direction = velocity.normalized()

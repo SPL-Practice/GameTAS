@@ -12,11 +12,6 @@ func _heal():
 func _damage():
 	animation.play("damage")
 
-func move():
-	var velocity = .move()
-	#weapon.move(velocity)
-	return velocity
-
 func _kill():
 	queue_free()
 	get_tree().change_scene("res://assets/scenes/menu/authors/logo.tscn")

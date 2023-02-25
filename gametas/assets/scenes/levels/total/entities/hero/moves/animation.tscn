@@ -548,7 +548,7 @@ tracks/0/keys = {
 [node name="look" type="AnimatedSprite"]
 frames = ExtResource( 4 )
 animation = "idle_1"
-frame = 7
+frame = 6
 script = ExtResource( 2 )
 
 [node name="tree" type="AnimationTree" parent="."]

@@ -2,7 +2,6 @@ extends "res://addons/godot-behavior-tree-plugin/action.gd"
 
 export (int) var next_phase = 1
 export (int) var next_hp = 200
-var position = "position"
 
 var leaf = Leaf.new()
 
@@ -11,9 +10,6 @@ func _ready():
 
 func health_check(tick: Tick) -> int:
 	
-	#if (self.name == "dance"):
-		#print_debug(leaf.full_name)
-	
 	if (tick.blackboard.get(leaf.full_name)):
 		return FAILED
 	
@@ -21,7 +17,7 @@ func health_check(tick: Tick) -> int:
 		tick.actor.health.max_health = next_hp
 		tick.actor.health.value = next_hp
 		tick.actor.new_phase(next_phase)
-		tick.blackboard.set(position, Vector2(0, 0))
+		tick.blackboard.set(Positioner.position, Vector2(0, 0))
 		tick.blackboard.set(leaf.full_name, true)
 		return FAILED
 	
