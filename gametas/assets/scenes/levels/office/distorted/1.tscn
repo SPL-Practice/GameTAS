@@ -241,9 +241,9 @@ editor_draw_drag_margin = true
 
 [node name="HUD" parent="." instance=ExtResource( 3 )]
 
-[node name="boss" parent="." instance=ExtResource( 4 )]
+[node name="next" parent="." instance=ExtResource( 4 )]
 position = Vector2( 64, 829 )
-scene = "res://assets/scenes/menu/vs/vs_bananos.tscn"
+scene = "res://assets/scenes/levels/forest/1.tscn"
 
 [connection signal="trophy" from="map/enemies/slimes/vertical/1" to="pool/pills" method="_spawn"]
 [connection signal="trophy" from="map/enemies/slimes/vertical/2" to="pool/pills" method="_spawn"]
