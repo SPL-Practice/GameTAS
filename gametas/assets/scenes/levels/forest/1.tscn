@@ -6,7 +6,7 @@
 [ext_resource path="res://assets/resources/media/images/levels/map/nature/trees/trees.tres" type="TileSet" id=4]
 [ext_resource path="res://assets/resources/media/images/levels/map/nature/pines/pines.tres" type="TileSet" id=5]
 [ext_resource path="res://assets/resources/media/images/levels/map/nature/rocks/rocks.tres" type="TileSet" id=6]
-[ext_resource path="res://assets/resources/media/ost/music/game/play.ogg" type="AudioStream" id=7]
+[ext_resource path="res://assets/resources/media/ost/music/game/play/forest.ogg" type="AudioStream" id=7]
 
 [node name="forest" type="Node2D"]
 

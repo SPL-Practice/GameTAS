@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/fun.ogg-c2ee23b6ec6651903923a6fd6eecf782.oggstr"
+
+[deps]
+
+source_file="res://assets/resources/media/ost/music/game/play/fun.ogg"
+dest_files=[ "res://.import/fun.ogg-c2ee23b6ec6651903923a6fd6eecf782.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
