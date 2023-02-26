@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://assets/scenes/levels/total/entities/hero/moves/animation.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/scripts/levels/prefabs/entities/player/man.gd" type="Script" id=2]
@@ -12,6 +12,8 @@
 [ext_resource path="res://assets/resources/media/animations/entities/total/heal.tres" type="Animation" id=10]
 [ext_resource path="res://addons/godot-behavior-tree-plugin/blackboard.gd" type="Script" id=11]
 [ext_resource path="res://assets/scenes/levels/total/behavior/stats/value/level.tscn" type="PackedScene" id=12]
+[ext_resource path="res://assets/scenes/levels/total/behavior/stats/health/spare.tscn" type="PackedScene" id=13]
+[ext_resource path="res://assets/scenes/levels/total/behavior/stats/health/damage.tscn" type="PackedScene" id=14]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 41, 84 )
@@ -26,7 +28,7 @@ position = Vector2( -13, -33 )
 shape = SubResource( 1 )
 
 [node name="look" parent="shape" instance=ExtResource( 1 )]
-frame = 1
+frame = 4
 
 [node name="ailments" type="AnimationPlayer" parent="shape"]
 anims/damage = ExtResource( 5 )
@@ -35,28 +37,35 @@ anims/heal = ExtResource( 10 )
 [node name="weapon" parent="." instance=ExtResource( 6 )]
 position = Vector2( -13.903, -24.6449 )
 
-[node name="health" parent="." instance=ExtResource( 4 )]
+[node name="stats" type="Node" parent="."]
+
+[node name="health" parent="stats" instance=ExtResource( 4 )]
 max_health = 25
 
-[node name="power" parent="." instance=ExtResource( 3 )]
+[node name="spare" parent="stats/health" instance=ExtResource( 13 )]
+value = 10
+maximum = 50
+
+[node name="damage" parent="stats/health" instance=ExtResource( 14 )]
+value = 1
+
+[node name="level" parent="stats/health/damage" instance=ExtResource( 12 )]
+values = [ 1, 2, 3, 4 ]
+next = [ 5, 13, 20 ]
+
+[node name="power" parent="stats" instance=ExtResource( 3 )]
 value = 5
 
-[node name="level" parent="power" instance=ExtResource( 12 )]
+[node name="level" parent="stats/power" instance=ExtResource( 12 )]
 values = [ 1, 2, 3, 5 ]
 next = [ 3, 8, 17 ]
 
-[node name="speed" parent="." instance=ExtResource( 3 )]
+[node name="speed" parent="stats" instance=ExtResource( 3 )]
 value = 400
 
-[node name="level" parent="speed" instance=ExtResource( 12 )]
+[node name="level" parent="stats/speed" instance=ExtResource( 12 )]
 values = [ 400, 425, 450, 500 ]
 next = [ 3, 7, 16 ]
-
-[node name="sanity" parent="." instance=ExtResource( 3 )]
-
-[node name="level" parent="sanity" instance=ExtResource( 12 )]
-values = [ 0, 1, 2, 3 ]
-next = [ 5, 13, 20 ]
 
 [node name="blackboard" type="Node" parent="."]
 script = ExtResource( 11 )
@@ -69,7 +78,11 @@ script = ExtResource( 8 )
 
 [node name="move" parent="behaviour/selector" instance=ExtResource( 7 )]
 
-[connection signal="damage" from="health" to="." method="_damage"]
-[connection signal="heal" from="health" to="." method="_heal"]
-[connection signal="killed" from="health" to="." method="_kill"]
-[connection signal="value_updated" from="sanity" to="health" method="boost_sanity_time"]
+[connection signal="damage" from="stats/health" to="." method="_damage"]
+[connection signal="damage" from="stats/health" to="stats/health/spare" method="_on_damage"]
+[connection signal="heal" from="stats/health" to="." method="_heal"]
+[connection signal="killed" from="stats/health" to="." method="_kill"]
+[connection signal="killed" from="stats/health" to="stats/health/damage" method="_dead"]
+[connection signal="spare_ended" from="stats/health/spare" to="stats/health" method="_on_invulnerability_ended"]
+[connection signal="spare_started" from="stats/health/spare" to="stats/health" method="_on_invulnerability_started"]
+[connection signal="sanity_sap" from="stats/health/damage" to="stats/health" method="_on_sap"]

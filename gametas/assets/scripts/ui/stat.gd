@@ -3,20 +3,20 @@ extends Control
 onready var level = $level
 onready var xp = $xp
 
-export (String) var node_name = "player"
-export (String) var stat_name
-
 export (int) var depth = 5
+export (Array, String) var nodes
 
-onready var stat
+var stat
 
 func _search(child):
 	for node in depth:
 		child = child.get_parent()
+	for node in nodes:
+		child = child.get_node(node)
 	return child
 
 func _ready():
-	stat = _search(self).get_node(node_name).get_node(stat_name).get_node("level")
+	stat = _search(self).get_node("level")
 	stat.connect("advance", self, "_on_advance")
 	stat.connect("increase_experience", self, "_on_increase_experience")
 	_on_increase_experience(stat.xp)

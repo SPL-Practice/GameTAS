@@ -23,5 +23,4 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 
 [node name="transition" parent="." instance=ExtResource( 3 )]
-visible = false
 script = ExtResource( 1 )

@@ -40,7 +40,7 @@ anchor_bottom = 0.0
 margin_bottom = 29.0
 grow_horizontal = 0
 grow_vertical = 0
-stat_name = "sanity"
+nodes = [ "player", "stats", "health", "damage" ]
 
 [node name="icon" type="TextureRect" parent="stats/health"]
 margin_right = 30.0
@@ -56,7 +56,7 @@ margin_right = 32.0
 margin_bottom = 29.0
 grow_horizontal = 0
 grow_vertical = 0
-stat_name = "speed"
+nodes = [ "player", "stats", "speed" ]
 
 [node name="TextureRect" type="TextureRect" parent="stats/speed"]
 margin_right = 30.0
@@ -72,7 +72,7 @@ margin_right = 64.0
 margin_bottom = 29.0
 grow_horizontal = 0
 grow_vertical = 0
-stat_name = "power"
+nodes = [ "player", "stats", "power" ]
 
 [node name="TextureRect" type="TextureRect" parent="stats/power"]
 margin_right = 30.0

@@ -6,7 +6,7 @@
 
 [node name="pill" type="Area2D"]
 script = ExtResource( 3 )
-node = "power"
+nodes = [ "stats", "power" ]
 
 [node name="shape" type="CollisionShape2D" parent="."]
 shape = ExtResource( 2 )
@@ -14,7 +14,7 @@ shape = ExtResource( 2 )
 [node name="look" type="AnimatedSprite" parent="shape"]
 scale = Vector2( 0.7875, 0.7875 )
 frames = ExtResource( 1 )
-frame = 1
+frame = 2
 playing = true
 
 [connection signal="body_entered" from="." to="." method="_on_pill_body_entered"]

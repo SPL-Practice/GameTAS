@@ -21,7 +21,12 @@ script = ExtResource( 2 )
 shape = SubResource( 1 )
 
 [node name="look" parent="shape" instance=ExtResource( 1 )]
-frame = 2
+frame = 5
+
+[node name="stats" type="Node" parent="."]
+
+[node name="speed" parent="stats" instance=ExtResource( 3 )]
+value = 400
 
 [node name="behaviour" type="Node" parent="."]
 script = ExtResource( 8 )
@@ -33,6 +38,3 @@ script = ExtResource( 6 )
 
 [node name="blackboard" type="Node" parent="."]
 script = ExtResource( 13 )
-
-[node name="speed" parent="." instance=ExtResource( 3 )]
-value = 400

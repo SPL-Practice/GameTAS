@@ -1,6 +1,6 @@
 extends Area2D
 
-export (int) var value = 1
+export (int) var value = 5
 export (Array, String) var nodes
 
 func _search(current):
@@ -11,5 +11,5 @@ func _search(current):
 func _on_pill_body_entered(body):
 	var stat = _search(body)
 	if (is_instance_valid(stat)):
-		stat.up(value)
+		stat.increase(value)
 	queue_free()

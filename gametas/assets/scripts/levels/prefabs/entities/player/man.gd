@@ -1,7 +1,7 @@
 extends "res://assets/scripts/levels/prefabs/entities/player/noman.gd"
 
-onready var health = $health
-onready var power = $power
+onready var health = $stats/health
+onready var power = $stats/power
 onready var weapon = $weapon
 onready var torso = $shape
 onready var animation = $shape/ailments

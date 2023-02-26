@@ -5,7 +5,7 @@ onready var blackboard = $blackboard
 onready var behaviour = $behaviour
 onready var look = $shape/look
 
-onready var speed = $speed
+onready var speed = $stats/speed
 
 func press_power(main, alternate):
 	return Input.get_action_strength(main) - Input.get_action_strength(alternate)

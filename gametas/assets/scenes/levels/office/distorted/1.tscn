@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://assets/resources/media/images/levels/map/office/atlas.tres" type="TileSet" id=1]
 [ext_resource path="res://assets/scenes/levels/total/entities/hero/man.tscn" type="PackedScene" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://assets/scenes/levels/total/entities/enemies/foe/slime/vertical.tscn" type="PackedScene" id=12]
 [ext_resource path="res://assets/scenes/levels/total/entities/enemies/foe/slime/horizontal.tscn" type="PackedScene" id=13]
 [ext_resource path="res://assets/scenes/levels/total/items/bonuses/pills/buffs/speed.tscn" type="PackedScene" id=14]
+[ext_resource path="res://assets/scenes/levels/total/items/bonuses/pills/buffs/spare.tscn" type="PackedScene" id=15]
 
 [node name="distortion" type="Node2D"]
 
@@ -208,6 +209,23 @@ position = Vector2( 566, -1379 )
 
 [node name="pill" parent="map/pills/sanity" instance=ExtResource( 11 )]
 position = Vector2( 1780, -608 )
+
+[node name="spare" type="Node2D" parent="map/pills"]
+
+[node name="pill" parent="map/pills/spare" instance=ExtResource( 15 )]
+position = Vector2( 677, -275 )
+
+[node name="pill2" parent="map/pills/spare" instance=ExtResource( 15 )]
+position = Vector2( 842, -156 )
+
+[node name="pill3" parent="map/pills/spare" instance=ExtResource( 15 )]
+position = Vector2( 534, -258 )
+
+[node name="pill4" parent="map/pills/spare" instance=ExtResource( 15 )]
+position = Vector2( 325, -176 )
+
+[node name="pill5" parent="map/pills/spare" instance=ExtResource( 15 )]
+position = Vector2( 336, -54 )
 
 [node name="audio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 10 )
