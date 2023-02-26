@@ -7,7 +7,7 @@
 [ext_resource path="res://assets/scenes/levels/total/entities/enemies/foe/spikes.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/scripts/levels/prefabs/spawn.gd" type="Script" id=6]
 [ext_resource path="res://assets/scenes/levels/total/items/bonuses/pills/buffs/health.tscn" type="PackedScene" id=7]
-[ext_resource path="res://assets/scenes/levels/total/items/bonuses/pills/refill.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/scenes/levels/total/items/bonuses/pills/aid/1.tscn" type="PackedScene" id=8]
 [ext_resource path="res://assets/scenes/levels/total/items/bonuses/pills/buffs/power.tscn" type="PackedScene" id=9]
 [ext_resource path="res://assets/resources/media/ost/music/game/play/distorted.ogg" type="AudioStream" id=10]
 [ext_resource path="res://assets/scenes/levels/total/items/bonuses/pills/buffs/sanity.tscn" type="PackedScene" id=11]
@@ -61,7 +61,7 @@ rotation = -1.57079
 scale = Vector2( 3.24872, 3.80886 )
 
 [node name="6" parent="map/enemies/spikes" instance=ExtResource( 5 )]
-position = Vector2( 758, 521 )
+position = Vector2( 656, 889 )
 rotation = -1.57079
 scale = Vector2( 3.24872, 3.80886 )
 
@@ -96,7 +96,7 @@ position = Vector2( -189, 587 )
 position = Vector2( -933, 212 )
 
 [node name="3" parent="map/enemies/slimes/vertical" instance=ExtResource( 12 )]
-position = Vector2( 813, 258 )
+position = Vector2( 1105, 559 )
 
 [node name="4" parent="map/enemies/slimes/vertical" instance=ExtResource( 12 )]
 position = Vector2( 436, 712 )
@@ -114,7 +114,7 @@ position = Vector2( -607, -909 )
 position = Vector2( -284, -1446 )
 
 [node name="9" parent="map/enemies/slimes/vertical" instance=ExtResource( 12 )]
-position = Vector2( 288, -535 )
+position = Vector2( 183, -535 )
 
 [node name="10" parent="map/enemies/slimes/vertical" instance=ExtResource( 12 )]
 position = Vector2( 1485, -423 )
@@ -131,7 +131,7 @@ position = Vector2( 657, -1352 )
 position = Vector2( 347, 173 )
 
 [node name="4" parent="map/enemies/slimes/horizontal" instance=ExtResource( 13 )]
-position = Vector2( 213, 573 )
+position = Vector2( 732, -730 )
 
 [node name="5" parent="map/enemies/slimes/horizontal" instance=ExtResource( 13 )]
 position = Vector2( 1105, 113 )
@@ -149,38 +149,32 @@ position = Vector2( 212, -1021 )
 position = Vector2( -1370, -457 )
 
 [node name="10" parent="map/enemies/slimes/horizontal" instance=ExtResource( 13 )]
-position = Vector2( -747, -269 )
+position = Vector2( -747, -342 )
 
 [node name="pills" type="Node2D" parent="map"]
 position = Vector2( -7, -67 )
 
-[node name="health" type="Node2D" parent="map/pills"]
+[node name="sanity" type="Node2D" parent="map/pills"]
 
-[node name="up" parent="map/pills/health" instance=ExtResource( 7 )]
-position = Vector2( -224, -288 )
+[node name="up" parent="map/pills/sanity" instance=ExtResource( 7 )]
+position = Vector2( -348, -502 )
 
-[node name="up2" parent="map/pills/health" instance=ExtResource( 7 )]
-position = Vector2( 813, 114 )
+[node name="up2" parent="map/pills/sanity" instance=ExtResource( 7 )]
+position = Vector2( 1421, 417 )
 
-[node name="up3" parent="map/pills/health" instance=ExtResource( 7 )]
+[node name="up3" parent="map/pills/sanity" instance=ExtResource( 7 )]
 position = Vector2( -536, 88 )
 
-[node name="up4" parent="map/pills/health" instance=ExtResource( 7 )]
+[node name="up4" parent="map/pills/sanity" instance=ExtResource( 7 )]
 position = Vector2( 606, 105 )
 
-[node name="up5" parent="map/pills/health" instance=ExtResource( 7 )]
-position = Vector2( 740, 336 )
+[node name="up5" parent="map/pills/sanity" instance=ExtResource( 7 )]
+position = Vector2( 190, -1799 )
 
 [node name="power" type="Node2D" parent="map/pills"]
 
 [node name="pill" parent="map/pills/power" instance=ExtResource( 9 )]
-position = Vector2( -399, -142 )
-
-[node name="pill2" parent="map/pills/power" instance=ExtResource( 9 )]
-position = Vector2( -69, 37 )
-
-[node name="pill3" parent="map/pills/power" instance=ExtResource( 9 )]
-position = Vector2( -244, 119 )
+position = Vector2( 480, -663 )
 
 [node name="speed" type="Node2D" parent="map/pills"]
 
@@ -188,44 +182,23 @@ position = Vector2( -244, 119 )
 position = Vector2( 761, 832 )
 
 [node name="pill2" parent="map/pills/speed" instance=ExtResource( 14 )]
-position = Vector2( 1001, 763 )
+position = Vector2( -1614, -33 )
 
-[node name="pill3" parent="map/pills/speed" instance=ExtResource( 14 )]
-position = Vector2( 941, 939 )
+[node name="time" type="Node2D" parent="map/pills"]
 
-[node name="sanity" type="Node2D" parent="map/pills"]
-
-[node name="pill4" parent="map/pills/sanity" instance=ExtResource( 11 )]
-position = Vector2( -1815, -674 )
-
-[node name="pill5" parent="map/pills/sanity" instance=ExtResource( 11 )]
-position = Vector2( -841, -544 )
-
-[node name="pill6" parent="map/pills/sanity" instance=ExtResource( 11 )]
-position = Vector2( -448, -1337 )
-
-[node name="pill7" parent="map/pills/sanity" instance=ExtResource( 11 )]
-position = Vector2( 566, -1379 )
-
-[node name="pill" parent="map/pills/sanity" instance=ExtResource( 11 )]
+[node name="pill" parent="map/pills/time" instance=ExtResource( 11 )]
 position = Vector2( 1780, -608 )
+
+[node name="pill2" parent="map/pills/time" instance=ExtResource( 11 )]
+position = Vector2( -997, -580 )
+
+[node name="pill3" parent="map/pills/time" instance=ExtResource( 11 )]
+position = Vector2( -448, -1337 )
 
 [node name="spare" type="Node2D" parent="map/pills"]
 
 [node name="pill" parent="map/pills/spare" instance=ExtResource( 15 )]
-position = Vector2( 677, -275 )
-
-[node name="pill2" parent="map/pills/spare" instance=ExtResource( 15 )]
-position = Vector2( 842, -156 )
-
-[node name="pill3" parent="map/pills/spare" instance=ExtResource( 15 )]
-position = Vector2( 534, -258 )
-
-[node name="pill4" parent="map/pills/spare" instance=ExtResource( 15 )]
-position = Vector2( 325, -176 )
-
-[node name="pill5" parent="map/pills/spare" instance=ExtResource( 15 )]
-position = Vector2( 336, -54 )
+position = Vector2( 190, -2554 )
 
 [node name="audio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 10 )

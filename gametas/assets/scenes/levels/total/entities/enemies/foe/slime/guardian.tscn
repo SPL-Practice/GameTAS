@@ -27,7 +27,8 @@ shape = SubResource( 3 )
 position = Vector2( 3, -24.5 )
 scale = Vector2( 0.570313, 0.570313 )
 frames = ExtResource( 1 )
-frame = 13
+animation = "green"
+frame = 4
 playing = true
 
 [node name="slug" type="Area2D" parent="."]
@@ -52,6 +53,8 @@ value = 1
 value = 400
 
 [node name="guarding" parent="." instance=ExtResource( 6 )]
+collision_layer = 0
+collision_mask = 2
 
 [node name="mover" parent="guarding" instance=ExtResource( 7 )]
 

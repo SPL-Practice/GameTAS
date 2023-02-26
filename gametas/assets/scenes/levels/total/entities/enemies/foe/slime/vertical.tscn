@@ -27,7 +27,8 @@ shape = SubResource( 2 )
 position = Vector2( 3, -24.5 )
 scale = Vector2( 0.570313, 0.570313 )
 frames = ExtResource( 1 )
-frame = 17
+animation = "blue"
+frame = 16
 playing = true
 
 [node name="slug" type="Area2D" parent="."]

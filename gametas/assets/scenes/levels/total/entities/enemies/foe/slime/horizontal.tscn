@@ -27,6 +27,7 @@ shape = SubResource( 3 )
 position = Vector2( 3, -24.5 )
 scale = Vector2( 0.570313, 0.570313 )
 frames = ExtResource( 1 )
+animation = "blue"
 frame = 2
 playing = true
 

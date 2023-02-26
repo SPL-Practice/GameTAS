@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://assets/scenes/levels/total/entities/hero/man.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/scenes/total/ui/hud/levels/usual.tscn" type="PackedScene" id=2]
@@ -9,6 +9,15 @@
 [ext_resource path="res://assets/resources/media/ost/music/game/play/forest.ogg" type="AudioStream" id=7]
 [ext_resource path="res://assets/scripts/levels/prefabs/spawn.gd" type="Script" id=8]
 [ext_resource path="res://assets/scenes/levels/total/entities/enemies/foe/slime/guardian.tscn" type="PackedScene" id=9]
+[ext_resource path="res://assets/scenes/levels/total/items/bonuses/pills/aid/2.tscn" type="PackedScene" id=10]
+[ext_resource path="res://assets/scenes/levels/total/entities/enemies/foe/slime/vertical.tscn" type="PackedScene" id=11]
+[ext_resource path="res://assets/scenes/levels/total/entities/enemies/foe/slime/horizontal.tscn" type="PackedScene" id=12]
+[ext_resource path="res://assets/scenes/levels/total/items/bonuses/pills/telepill.tscn" type="PackedScene" id=13]
+[ext_resource path="res://assets/scenes/levels/total/items/bonuses/pills/buffs/spare.tscn" type="PackedScene" id=14]
+[ext_resource path="res://assets/scenes/levels/total/items/bonuses/pills/buffs/power.tscn" type="PackedScene" id=15]
+[ext_resource path="res://assets/scenes/levels/total/items/bonuses/pills/buffs/sanity.tscn" type="PackedScene" id=16]
+[ext_resource path="res://assets/scenes/levels/total/items/bonuses/pills/buffs/speed.tscn" type="PackedScene" id=17]
+[ext_resource path="res://assets/scenes/levels/total/items/bonuses/pills/buffs/health.tscn" type="PackedScene" id=18]
 
 [node name="forest" type="Node2D"]
 
@@ -16,28 +25,35 @@
 
 [node name="pills" type="Node" parent="pool"]
 script = ExtResource( 8 )
+prefab = ExtResource( 10 )
 
 [node name="map" type="TileMap" parent="."]
 tile_set = ExtResource( 3 )
+cell_size = Vector2( 128, 128 )
+collision_mask = 0
 format = 1
+tile_data = PoolIntArray( -4915117, 1, 0, -4915116, 1, 0, -4915115, 1, 0, -4915114, 1, 0, -4849581, 1, 0, -4784053, 1, 0, -4784052, 1, 0, -4784051, 1, 0, -4784046, 1, 0, -4784027, 1, 0, -4784026, 1, 0, -4718514, 1, 0, -4718513, 1, 0, -4718490, 1, 0, -4652953, 1, 0, -4587425, 1, 0, -4587424, 1, 0, -4587423, 1, 0, -4587417, 1, 0, -4521886, 1, 0, -4521880, 1, 0, -4521879, 1, 0, -4456380, 1, 0, -4456343, 1, 0, -4390844, 1, 0, -4390807, 1, 0, -4390806, 1, 0, -4325307, 1, 0, -4325306, 1, 0, -4325270, 1, 0, -4259770, 1, 0, -4259769, 1, 0, -4128673, 1, 0, -4128672, 1, 0, -4063160, 1, 0, -4063159, 1, 0, -4063137, 1, 0, -3997647, 1, 0, -3997646, 1, 0, -3997634, 1, 0, -3997633, 1, 0, -3997623, 1, 0, -3997622, 1, 0, -3997601, 1, 0, -3932102, 1, 0, -3932101, 1, 0, -3932077, 0, 0, -3866568, 1, 0, -3866567, 1, 0, -3866548, 1, 0, -3866547, 1, 0, -3866523, 1, 0, -3866518, 1, 0, -3801043, 1, 0, -3801032, 1, 0, -3801012, 1, 0, -3800987, 1, 0, -3800982, 1, 0, -3735508, 1, 0, -3735476, 1, 0, -3669973, 1, 0, -3669936, 1, 0, -3604437, 1, 0, -3604400, 1, 0, -3604399, 1, 0, -3604393, 1, 0, -3604392, 1, 0, -3538903, 1, 0, -3538902, 1, 0, -3538882, 10, 0, -3538881, 10, 0, -3538880, 10, 0, -3538859, 1, 0, -3538858, 1, 0, -3538855, 1, 0, -3473369, 1, 0, -3473368, 1, 0, -3473344, 10, 0, -3473343, 10, 0, -3407834, 1, 0, -3407806, 10, 0, -3407805, 10, 0, -3342302, 1, 0, -3342301, 1, 0, -3342300, 1, 0, -3342299, 1, 0, -3342270, 10, 0, -3342269, 10, 0, -3342232, 1, 0, -3276693, 1, 0, -3276692, 1, 0, -3211157, 1, 0, -3211156, 1, 0, -3080162, 1, 0, -3080128, 3, 0, -3080127, 5, 0, -3014626, 1, 0, -3014592, 4, 0, -3014591, 2, 0, -2949090, 1, 0, -2883554, 1, 0, -2883553, 1, 0, -2818017, 1, 0, -2818016, 1, 0, -2752428, 0, 0, -2686926, 3, 0, -2686925, 5, 0, -2686906, 1, 0, -2686905, 1, 0, -2555914, 1, 0, -2621422, 1, 0, -2621421, 1, 0, -2621390, 4, 0, -2621389, 2, 0, -2621372, 1, 0, -2621371, 1, 0, -2621364, 1, 0, -2490378, 1, 0, -2490377, 1, 0, -2555870, 6, 0, -2555828, 1, 0, -2555827, 1, 0, -2490336, 6, 0, -2490335, 6, 0, -2490334, 6, 0, -2490333, 6, 0, -2490292, 1, 0, -2424775, 6, 0, -2424754, 10, 0, -2424753, 10, 0, -2424752, 10, 0, -2424751, 10, 0, -2424750, 10, 0, -2359294, 1, 0, -2359281, 1, 0, -2359239, 6, 0, -2359218, 10, 0, -2293746, 1, 0, -2293702, 6, 0, -2293701, 6, 0, -2293682, 10, 0, -2293681, 10, 0, -2293639, 3, 0, -2293638, 5, 0, -2162692, 1, 0, -2162691, 1, 0, -2228211, 1, 0, -2228210, 1, 0, -2228164, 6, 0, -2228163, 6, 0, -2228157, 1, 0, -2228156, 1, 0, -2228103, 4, 0, -2228102, 2, 0, -2097160, 1, 0, -2097154, 1, 0, -2097153, 1, 0, -2162676, 1, 0, -2162626, 6, 0, -2162625, 6, 0, -2162622, 1, 0, -2031623, 1, 0, -2097152, 1, 0, -2097151, 1, 0, -2097144, 1, 0, -2097143, 1, 0, -2097142, 1, 0, -2097141, 1, 0, -2097116, 6, 0, -2097089, 6, 0, -2097088, 1, 0, -2097087, 1, 0, -2031581, 6, 0, -2031580, 6, 0, -2031553, 6, 0, -2031552, 1, 0, -1966046, 6, 0, -1966017, 1, 0, -1966016, 6, 0, -1966004, 3, 0, -1966003, 5, 0, -1900537, 1, 0, -1900511, 6, 0, -1900481, 1, 0, -1900468, 4, 0, -1900467, 2, 0, -1834989, 3, 0, -1834988, 5, 0, -1769471, 6, 0, -1769470, 6, 0, -1769468, 6, 0, -1769453, 4, 0, -1769452, 2, 0, -1769439, 6, 0, -1638412, 1, 0, -1703935, 6, 0, -1703932, 6, 0, -1703931, 6, 0, -1703902, 6, 0, -1703901, 6, 0, -1703850, 0, 0, -1572877, 1, 0, -1638395, 6, 0, -1638365, 6, 0, -1638313, 0, 0, -1507341, 1, 0, -1572859, 6, 0, -1572848, 1, 0, -1572828, 6, 0, -1441802, 1, 0, -1441801, 1, 0, -1441798, 1, 0, -1507311, 1, 0, -1376262, 1, 0, -1441785, 1, 0, -1441778, 1, 0, -1441776, 1, 0, -1441735, 1, 0, -1310726, 1, 0, -1376249, 1, 0, -1376243, 1, 0, -1376242, 1, 0, -1245191, 1, 0, -1245190, 1, 0, -1310713, 1, 0, -1310640, 6, 0, -1310639, 6, 0, -1310638, 6, 0, -1310637, 6, 0, -1310636, 6, 0, -1179655, 1, 0, -1245179, 1, 0, -1245177, 1, 0, -1245086, 6, 0, -1245085, 6, 0, -1114120, 1, 0, -1114119, 1, 0, -1179641, 1, 0, -1179597, 1, 0, -1179596, 1, 0, -1179595, 1, 0, -1179573, 6, 0, -1179551, 6, 0, -1179550, 6, 0, -1048584, 1, 0, -1114105, 1, 0, -1114061, 1, 0, -1114037, 6, 0, -1114017, 6, 0, -1114016, 6, 0, -983051, 1, 0, -983050, 1, 0, -1048525, 1, 0, -1048501, 6, 0, -1048481, 6, 0, -1048475, 3, 0, -1048474, 5, 0, -917513, 1, 0, -983036, 3, 0, -983035, 2, 0, -982939, 4, 0, -982938, 2, 0, -851972, 6, 0, -786459, 3, 0, -786458, 5, 0, -851940, 8, 0, -851939, 8, 0, -720923, 4, 0, -720922, 2, 0, -720897, 6, 0, -786432, 6, 0, -786431, 6, 0, -786430, 6, 0, -786429, 6, 0, -786410, 1, 0, -786409, 1, 0, -786403, 8, 0, -786391, 1, 0, -786390, 1, 0, -786389, 1, 0, -655364, 6, 0, -655363, 6, 0, -720872, 1, 0, -720867, 8, 0, -720852, 1, 0, -655335, 1, 0, -655331, 8, 0, -655330, 8, 0, -655290, 10, 0, -655289, 10, 0, -655288, 10, 0, -589812, 6, 0, -589811, 6, 0, -589810, 6, 0, -589809, 6, 0, -589808, 6, 0, -589807, 6, 0, -589794, 8, 0, -589793, 8, 0, -589773, 1, 0, -589772, 1, 0, -589771, 1, 0, -589769, 1, 0, -589768, 1, 0, -589767, 1, 0, -589766, 1, 0, -589755, 10, 0, -589752, 10, 0, -458768, 1, 0, -524276, 6, 0, -524264, 1, 0, -524263, 1, 0, -524229, 1, 0, -524219, 10, 0, -393232, 1, 0, -458731, 1, 0, -458730, 1, 0, -458729, 1, 0, -458684, 10, 0, -458682, 10, 0, -327696, 1, 0, -393196, 1, 0, -393148, 10, 0, -393146, 10, 0, -262161, 1, 0, -327665, 3, 0, -327664, 5, 0, -327661, 1, 0, -327610, 10, 0, -196625, 1, 0, -262129, 4, 0, -262128, 2, 0, -262125, 1, 0, -262106, 1, 0, -262105, 1, 0, -131088, 1, 0, -196590, 1, 0, -196569, 1, 0, -196492, 1, 0, -196491, 1, 0, -196490, 1, 0, -65552, 1, 0, -131055, 1, 0, -130988, 0, 0, -130954, 1, 0, -130953, 1, 0, -15, 1, 0, -65520, 1, 0, -65487, 1, 0, -65486, 1, 0, -65485, 1, 0, -65453, 0, 0, 67, 1, 0, 131052, 1, 0, 65585, 1, 0, 65586, 1, 0, 196587, 1, 0, 131086, 1, 0, 131115, 1, 0, 131117, 1, 0, 131118, 1, 0, 131119, 1, 0, 131120, 1, 0, 131143, 1, 0, 131144, 1, 0, 131166, 1, 0, 262122, 1, 0, 262131, 3, 0, 196622, 1, 0, 196650, 1, 0, 196651, 1, 0, 196652, 1, 0, 196654, 3, 0, 196655, 5, 0, 196681, 1, 0, 196702, 1, 0, 196703, 1, 0, 196722, 1, 0, 327658, 1, 0, 327678, 0, 0, 262159, 1, 0, 262190, 4, 0, 262191, 2, 0, 262217, 1, 0, 262258, 1, 0, 393214, 0, 0, 327695, 1, 0, 327736, 3, 0, 327737, 5, 0, 327754, 1, 0, 327755, 1, 0, 327764, 10, 0, 327794, 1, 0, 458748, 0, 0, 458750, 0, 0, 393216, 0, 0, 393232, 1, 0, 393233, 1, 0, 393272, 4, 0, 393273, 2, 0, 393292, 1, 0, 393293, 1, 0, 393298, 10, 0, 393299, 10, 0, 393330, 1, 0, 524270, 1, 0, 524271, 1, 0, 524275, 1, 0, 524285, 0, 0, 524286, 0, 0, 524287, 0, 0, 458770, 1, 0, 458771, 1, 0, 458828, 1, 0, 458833, 10, 0, 458866, 1, 0, 589808, 1, 0, 589809, 1, 0, 589810, 1, 0, 589822, 0, 0, 524308, 1, 0, 524309, 1, 0, 524310, 1, 0, 524364, 1, 0, 524369, 10, 0, 524402, 1, 0, 589891, 6, 0, 589900, 1, 0, 589905, 10, 0, 655388, 1, 0, 655428, 6, 0, 655440, 10, 0, 655461, 10, 0, 655462, 10, 0, 655467, 1, 0, 655468, 1, 0, 720964, 6, 0, 720972, 1, 0, 720976, 10, 0, 720998, 10, 0, 786462, 1, 0, 786463, 1, 0, 786468, 9, 0, 786469, 9, 0, 786471, 9, 0, 786472, 9, 0, 786501, 6, 0, 786507, 10, 0, 786508, 1, 0, 786511, 10, 0, 786534, 10, 0, 786535, 10, 0, 851977, 3, 0, 851978, 5, 0, 852003, 9, 0, 852004, 9, 0, 852005, 9, 0, 852033, 6, 0, 852037, 6, 0, 852045, 1, 0, 852046, 1, 0, 852047, 10, 0, 852082, 1, 0, 983027, 1, 0, 983028, 1, 0, 917568, 6, 0, 917569, 6, 0, 917573, 6, 0, 917582, 10, 0, 917618, 1, 0, 1048562, 1, 0, 983105, 6, 0, 983106, 6, 0, 983107, 6, 0, 983108, 6, 0, 983117, 10, 0, 983119, 1, 0, 983120, 10, 0, 983154, 1, 0, 983155, 1, 0, 1114097, 1, 0, 1114098, 1, 0, 1048605, 1, 0, 1048606, 1, 0, 1048653, 10, 0, 1048657, 10, 0, 1048672, 1, 0, 1048692, 1, 0, 1048693, 1, 0, 1179590, 1, 0, 1179591, 1, 0, 1179594, 1, 0, 1179595, 1, 0, 1179596, 1, 0, 1179597, 1, 0, 1179598, 1, 0, 1179599, 1, 0, 1179600, 1, 0, 1179601, 1, 0, 1179602, 1, 0, 1179647, 1, 0, 1114112, 1, 0, 1114113, 1, 0, 1114114, 1, 0, 1114115, 1, 0, 1114138, 1, 0, 1114141, 1, 0, 1114166, 1, 0, 1114188, 10, 0, 1114194, 1, 0, 1114195, 1, 0, 1114208, 1, 0, 1114230, 1, 0, 1245123, 1, 0, 1245124, 1, 0, 1245125, 1, 0, 1245126, 1, 0, 1245168, 3, 0, 1245183, 1, 0, 1179650, 1, 0, 1179652, 1, 0, 1179673, 1, 0, 1179674, 1, 0, 1179689, 8, 0, 1179690, 8, 0, 1179691, 8, 0, 1179703, 1, 0, 1179704, 1, 0, 1179705, 1, 0, 1179724, 10, 0, 1179732, 1, 0, 1179733, 1, 0, 1179736, 0, 0, 1179744, 1, 0, 1179766, 1, 0, 1310649, 1, 0, 1310650, 1, 0, 1310651, 1, 0, 1310652, 1, 0, 1310653, 1, 0, 1310654, 1, 0, 1310655, 1, 0, 1310656, 1, 0, 1310657, 1, 0, 1310658, 1, 0, 1310719, 1, 0, 1245223, 8, 0, 1245224, 8, 0, 1245270, 1, 0, 1245271, 1, 0, 1245272, 1, 0, 1245273, 1, 0, 1245280, 1, 0, 1376181, 1, 0, 1376182, 1, 0, 1376183, 1, 0, 1310720, 1, 0, 1310730, 1, 0, 1310731, 1, 0, 1310758, 8, 0, 1310781, 1, 0, 1310810, 1, 0, 1310816, 1, 0, 1441712, 1, 0, 1441713, 1, 0, 1441714, 1, 0, 1441780, 1, 0, 1376256, 1, 0, 1376257, 1, 0, 1376268, 6, 0, 1376277, 10, 0, 1376316, 1, 0, 1376317, 1, 0, 1376352, 1, 0, 1507317, 1, 0, 1441792, 1, 0, 1441793, 1, 0, 1441804, 6, 0, 1441805, 6, 0, 1441813, 10, 0, 1441836, 8, 0, 1441837, 8, 0, 1441851, 1, 0, 1441888, 1, 0, 1572854, 1, 0, 1507348, 10, 0, 1507373, 8, 0, 1507386, 1, 0, 1507425, 1, 0, 1638391, 1, 0, 1638392, 1, 0, 1638393, 1, 0, 1572909, 8, 0, 1572921, 1, 0, 1572961, 1, 0, 1572967, 3, 0, 1572968, 5, 0, 1638443, 8, 0, 1638444, 8, 0, 1638445, 8, 0, 1638457, 1, 0, 1638503, 4, 0, 1638504, 2, 0, 1638514, 1, 0, 1769467, 6, 0, 1769468, 6, 0, 1703937, 4, 0, 1703938, 2, 0, 1703958, 1, 0, 1703959, 1, 0, 1703977, 8, 0, 1703978, 8, 0, 1703979, 8, 0, 1703992, 1, 0, 1704049, 1, 0, 1704050, 1, 0, 1835005, 6, 0, 1835006, 6, 0, 1769479, 6, 0, 1769528, 1, 0, 1769541, 0, 0, 1769584, 1, 0, 1900541, 6, 0, 1900542, 6, 0, 1835031, 1, 0, 1835032, 1, 0, 1835043, 5, 0, 1835046, 8, 0, 1835064, 1, 0, 1835065, 1, 0, 1835078, 0, 0, 1966077, 6, 0, 1900567, 1, 0, 1900579, 2, 0, 1900582, 8, 0, 1900615, 0, 0, 1966103, 1, 0, 1966118, 8, 0, 1966119, 8, 0, 1966150, 0, 0, 2097130, 3, 0, 2097131, 5, 0, 2097142, 1, 0, 2031630, 3, 0, 2031631, 5, 0, 2031639, 1, 0, 2031647, 6, 0, 2031648, 6, 0, 2031649, 6, 0, 2031650, 6, 0, 2031685, 0, 0, 2162666, 4, 0, 2162667, 2, 0, 2162676, 1, 0, 2162678, 1, 0, 2097166, 4, 0, 2097167, 2, 0, 2097175, 1, 0, 2097176, 1, 0, 2097182, 6, 0, 2097202, 0, 0, 2162696, 8, 0, 2162697, 8, 0, 2162705, 8, 0, 2162706, 8, 0, 2162712, 1, 0, 2162713, 1, 0, 2162720, 6, 0, 2162721, 6, 0, 2162739, 0, 0, 2293747, 1, 0, 2293748, 1, 0, 2228232, 8, 0, 2228242, 8, 0, 2228250, 1, 0, 2228251, 1, 0, 2228276, 0, 0, 2359283, 1, 0, 2293768, 8, 0, 2293777, 8, 0, 2293778, 8, 0, 2293807, 0, 0, 2293813, 0, 0, 2359313, 8, 0, 2359323, 5, 0, 2359348, 0, 0, 2359375, 1, 0, 2359377, 1, 0, 2359378, 1, 0, 2424859, 2, 0, 2424883, 0, 0, 2424897, 3, 0, 2424898, 5, 0, 2424910, 1, 0, 2424914, 1, 0, 2424915, 1, 0, 2424935, 3, 0, 2424936, 5, 0, 2555890, 1, 0, 2555891, 1, 0, 2490418, 0, 0, 2490433, 4, 0, 2490434, 2, 0, 2490446, 1, 0, 2490450, 1, 0, 2490471, 4, 0, 2490472, 2, 0, 2555909, 8, 0, 2555982, 1, 0, 2555985, 1, 0, 2686959, 1, 0, 2686960, 1, 0, 2621445, 8, 0, 2621521, 1, 0, 2752495, 1, 0, 2752499, 1, 0, 2752509, 3, 0, 2752510, 5, 0, 2686989, 0, 0, 2687057, 1, 0, 2687081, 1, 0, 2687082, 1, 0, 2687083, 1, 0, 2687084, 1, 0, 2687085, 1, 0, 2818033, 1, 0, 2818034, 1, 0, 2818045, 4, 0, 2818046, 2, 0, 2752519, 8, 0, 2752526, 0, 0, 2752533, 3, 0, 2752534, 5, 0, 2752593, 1, 0, 2752616, 1, 0, 2752624, 1, 0, 2818058, 0, 0, 2818060, 0, 0, 2818062, 0, 0, 2818063, 0, 0, 2818069, 4, 0, 2818070, 2, 0, 2818101, 1, 0, 2818102, 1, 0, 2818123, 1, 0, 2818124, 1, 0, 2818152, 1, 0, 2818159, 1, 0, 2883598, 0, 0, 2883611, 1, 0, 2883637, 1, 0, 2883661, 1, 0, 2883688, 1, 0, 2883694, 1, 0, 2949133, 0, 0, 2949146, 1, 0, 2949197, 1, 0, 2949224, 1, 0, 2949229, 1, 0, 2949230, 1, 0, 3014681, 1, 0, 3014686, 1, 0, 3014717, 1, 0, 3014733, 1, 0, 3014759, 1, 0, 3080216, 1, 0, 3080222, 1, 0, 3080253, 1, 0, 3080268, 1, 0, 3080295, 1, 0, 3080309, 3, 0, 3080310, 5, 0, 3211260, 1, 0, 3211261, 1, 0, 3145728, 1, 0, 3145752, 1, 0, 3145789, 1, 0, 3145830, 1, 0, 3145845, 4, 0, 3145846, 2, 0, 3276796, 1, 0, 3211264, 1, 0, 3211265, 1, 0, 3211266, 1, 0, 3211287, 1, 0, 3211319, 1, 0, 3211320, 1, 0, 3211321, 1, 0, 3211325, 1, 0, 3211326, 1, 0, 3211338, 1, 0, 3211339, 1, 0, 3342332, 1, 0, 3276803, 1, 0, 3276822, 1, 0, 3276862, 1, 0, 3407843, 3, 0, 3407844, 5, 0, 3342358, 1, 0, 3342397, 1, 0, 3342417, 3, 0, 3342418, 5, 0, 3473379, 4, 0, 3473380, 2, 0, 3473397, 1, 0, 3407893, 1, 0, 3407894, 1, 0, 3407931, 1, 0, 3407936, 1, 0, 3407937, 1, 0, 3407953, 4, 0, 3407954, 2, 0, 3407972, 1, 0, 3538934, 1, 0, 3538935, 1, 0, 3473425, 1, 0, 3473426, 1, 0, 3473427, 1, 0, 3473428, 1, 0, 3473429, 1, 0, 3473457, 1, 0, 3473458, 1, 0, 3473467, 1, 0, 3473468, 1, 0, 3473508, 1, 0, 3538950, 1, 0, 3538961, 1, 0, 3538987, 1, 0, 3538991, 1, 0, 3538992, 1, 0, 3539044, 1, 0, 3670009, 1, 0, 3604485, 1, 0, 3604522, 1, 0, 3604523, 1, 0, 3604526, 1, 0, 3604535, 6, 0, 3735546, 1, 0, 3670021, 1, 0, 3670026, 6, 0, 3670027, 6, 0, 3670028, 6, 0, 3670029, 6, 0, 3670030, 6, 0, 3670031, 6, 0, 3670045, 3, 0, 3670046, 5, 0, 3670061, 1, 0, 3670070, 6, 0, 3670071, 6, 0, 3670074, 1, 0, 3670075, 1, 0, 3670076, 1, 0, 3735581, 4, 0, 3735582, 2, 0, 3735589, 1, 0, 3735602, 6, 0, 3735603, 6, 0, 3735615, 1, 0, 3735616, 1, 0, 3735636, 6, 0, 3735637, 6, 0, 3801094, 1, 0, 3801125, 1, 0, 3801129, 1, 0, 3801130, 1, 0, 3801131, 1, 0, 3801138, 6, 0, 3801146, 6, 0, 3801153, 1, 0, 3801154, 1, 0, 3801173, 6, 0, 3866631, 1, 0, 3866661, 1, 0, 3866664, 1, 0, 3866665, 1, 0, 3866674, 6, 0, 3866683, 6, 0, 3866691, 1, 0, 3866692, 1, 0, 3932167, 1, 0, 3997704, 1, 0, 3997778, 6, 0, 3997779, 6, 0, 4063240, 1, 0, 4063287, 3, 0, 4063288, 5, 0, 4063295, 6, 0, 4063296, 6, 0, 4063297, 6, 0, 4063312, 6, 0, 4063313, 6, 0, 4063314, 6, 0, 4063331, 1, 0, 4063332, 1, 0, 4128804, 1, 0, 4128805, 1, 0, 4128823, 4, 0, 4128824, 2, 0, 4128867, 1, 0, 4128877, 1, 0, 4194339, 1, 0, 4194394, 3, 0, 4194395, 5, 0, 4194404, 1, 0, 4194414, 1, 0, 4259873, 1, 0, 4259874, 1, 0, 4259930, 4, 0, 4259931, 2, 0, 4259940, 1, 0, 4390903, 1, 0, 4325385, 1, 0, 4325407, 1, 0, 4325408, 1, 0, 4325476, 1, 0, 4390922, 1, 0, 4390942, 1, 0, 4456451, 1, 0, 4456452, 1, 0, 4456458, 1, 0, 4456556, 1, 0, 4456557, 1, 0, 4521989, 1, 0, 4521990, 1, 0, 4522094, 1, 0, 4522095, 1, 0, 4522097, 1, 0, 4522098, 1, 0, 4522099, 1, 0, 4522100, 1, 0, 4522101, 1, 0 )
 
 [node name="trees" type="TileMap" parent="map"]
 tile_set = ExtResource( 4 )
 cell_size = Vector2( 256, 256 )
+collision_mask = 0
 format = 1
 tile_data = PoolIntArray( -2228189, 2, 0, -2228180, 2, 0, -2162652, 2, 0, -2097121, 2, 0, -2097120, 2, 0, -2097119, 2, 0, -2097118, 2, 0, -2097117, 2, 0, -2097116, 2, 0, -2097115, 2, 0, -2097111, 2, 0, -2097105, 2, 0, -2031580, 2, 0, -1966045, 2, 0, -1966036, 2, 0, -1769428, 0, 0, -1638401, 4, 0, -1703893, 0, 0, -1703892, 0, 0, -1703891, 0, 0, -1638378, 3, 0, -1638358, 0, 0, -1638356, 0, 0, -1638354, 0, 0, -1572857, 1, 0, -1572836, 4, 0, -1572826, 1, 0, -1572820, 0, 0, -1572816, 1, 0, -1507317, 4, 0, -1507284, 0, 0, -1507270, 4, 0, -1376267, 3, 0, -1376257, 1, 0, -1441753, 4, 0, -1376226, 1, 0, -1245197, 1, 0, -1310687, 3, 0, -1310667, 1, 0, -1179650, 3, 0, -1245173, 1, 0, -1245165, 1, 0, -1179606, 1, 0, -1114106, 3, 0, -1114049, 4, 0, -1114045, 1, 0, -917521, 3, 0, -917514, 1, 0, -917507, 4, 0, -983015, 1, 0, -982994, 4, 0, -982987, 1, 0, -917499, 1, 0, -917491, 4, 0, -917485, 1, 0, -917469, 1, 0, -655366, 1, 0, -720893, 0, 0, -720861, 2, 0, -720851, 0, 0, -655338, 0, 0, -655302, 2, 0, -524303, 0, 0, -589817, 1, 0, -589810, 3, 0, -589796, 0, 0, -458755, 2, 0, -524245, 1, 0, -393224, 3, 0, -458736, 2, 0, -458732, 3, 0, -458716, 2, 0, -458705, 2, 0, -393207, 0, 0, -393156, 0, 0, -262169, 0, 0, -262155, 1, 0, -327677, 3, 0, -327662, 1, 0, -327648, 0, 0, -327629, 1, 0, -262122, 0, 0, -262103, 0, 0, -131089, 3, 0, -131079, 0, 0, -196605, 1, 0, -196552, 3, 0, -65548, 4, 0, -131060, 3, 0, -131042, 2, 0, -131020, 0, 0, -3, 1, 0, -65515, 3, 0, -65510, 3, 0, -65474, 2, 0, -65469, 0, 0, 65521, 1, 0, 17, 1, 0, 27, 3, 0, 35, 0, 0, 43, 2, 0, 131051, 0, 0, 65545, 4, 0, 196590, 4, 0, 196599, 3, 0, 131106, 3, 0, 131111, 3, 0, 131122, 1, 0, 131129, 2, 0, 196610, 2, 0, 196620, 0, 0, 196633, 0, 0, 327661, 3, 0, 262149, 1, 0, 262175, 1, 0, 262183, 3, 0, 262188, 2, 0, 262199, 0, 0, 393203, 0, 0, 327689, 4, 0, 327703, 3, 0, 327725, 0, 0, 458744, 2, 0, 393237, 2, 0, 393249, 2, 0, 524255, 4, 0, 458760, 3, 0, 458768, 1, 0, 458796, 2, 0, 589776, 0, 0, 589811, 4, 0, 524313, 3, 0, 524322, 2, 0, 524350, 0, 0, 589827, 2, 0, 720845, 0, 0, 720852, 0, 0, 720876, 0, 0, 720887, 3, 0, 655372, 0, 0, 655381, 2, 0, 655395, 0, 0, 655407, 0, 0, 655419, 2, 0, 720898, 4, 0, 720925, 0, 0, 851920, 0, 0, 851952, 0, 0, 851960, 0, 0, 917545, 3, 0, 917562, 0, 0, 983062, 3, 0, 1048579, 3, 0, 1048587, 3, 0, 1048606, 3, 0, 1048614, 0, 0, 1048629, 3, 0, 1179644, 3, 0, 1114160, 0, 0, 1179653, 0, 0, 1179663, 3, 0, 1310704, 0, 0, 1310710, 3, 0, 1245243, 1, 0, 1310742, 0, 0, 1310754, 3, 0, 1376298, 1, 0, 1376305, 3, 0, 1507324, 0, 0, 1441810, 1, 0, 1441846, 0, 0, 1507340, 0, 0, 1507359, 3, 0, 1572890, 3, 0, 1638446, 3, 0, 1769462, 0, 0, 1703946, 3, 0, 1703956, 3, 0, 1769475, 3, 0, 1835039, 3, 0, 1835055, 0, 0, 1966079, 1, 0, 1900602, 0, 0, 1966103, 3, 0, 2162673, 1, 0, 2097190, 3, 0, 2162705, 1, 0, 2162721, 1, 0, 2293751, 0, 0, 2228278, 1, 0, 2293770, 3, 0 )
 
 [node name="pines" type="TileMap" parent="map"]
 tile_set = ExtResource( 5 )
 cell_size = Vector2( 256, 256 )
+collision_mask = 0
 format = 1
 tile_data = PoolIntArray( -2818004, 0, 0, -2818003, 0, 0, -2752478, 0, 0, -2752476, 0, 0, -2752471, 0, 0, -2752470, 0, 0, -2752469, 0, 0, -2752468, 0, 0, -2686939, 0, 0, -2686936, 0, 0, -2686931, 0, 0, -2686930, 0, 0, -2686929, 0, 0, -2686928, 0, 0, -2686927, 0, 0, -2621402, 3, 0, -2621394, 2, 0, -2621392, 3, 0, -2621391, 0, 0, -2621390, 0, 0, -2555872, 3, 0, -2555847, 3, 0, -2490338, 0, 0, -2424802, 0, 0, -2424797, 2, 0, -2424784, 2, 0, -2359255, 3, 0, -2293709, 3, 0, -2293702, 1, 0, -2228170, 3, 0, -2228167, 1, 0, -2162636, 1, 0, -2162631, 2, 0, -2097126, 1, 0, -2031565, 2, 0, -2031564, 2, 0, -2031562, 2, 0, -1966030, 2, 0, -1966028, 2, 0, -1900492, 2, 0, -1900489, 1, 0, -1834953, 1, 0, -1769446, 1, 0, -1769445, 1, 0, -1769438, 3, 0, -1703883, 3, 0, -1507275, 3, 0, -1441775, 1, 0, -1245133, 3, 0, -1114119, 1, 0, -1179612, 3, 0, -1048546, 1, 0, -589792, 1, 0, -458740, 1, 0, -327635, 3, 0, -262100, 3, 0, -262099, 3, 0, -262098, 3, 0, -196565, 3, 0, -196564, 3, 0, -196563, 3, 0, -196562, 3, 0, -196561, 3, 0, -131027, 3, 0, -65491, 3, 0, 45, 3, 0, 393213, 3, 0, 458749, 3, 0, 524283, 3, 0, 524285, 3, 0, 524287, 3, 0, 589820, 3, 0, 589821, 3, 0, 589822, 3, 0, 655357, 3, 0, 786427, 1, 0, 852014, 3, 0, 917549, 3, 0, 917550, 3, 0, 917551, 3, 0, 983084, 3, 0, 983086, 3, 0, 983088, 3, 0, 1048622, 3, 0, 1114158, 3, 0, 1179676, 3, 0, 1179694, 3, 0, 1245213, 3, 0, 1310745, 3, 0, 1310746, 3, 0, 1310747, 3, 0, 1310748, 3, 0, 1310749, 3, 0, 1310750, 3, 0, 1376285, 3, 0, 1441793, 3, 0, 1441820, 3, 0, 1507330, 3, 0, 1638397, 3, 0, 1638398, 3, 0, 1638399, 3, 0, 1572864, 3, 0, 1572865, 3, 0, 1572866, 3, 0, 1572867, 3, 0, 1638402, 3, 0, 1703937, 3, 0 )
 
 [node name="rocks" type="TileMap" parent="map"]
 tile_set = ExtResource( 6 )
 cell_size = Vector2( 256, 256 )
+collision_mask = 0
 format = 1
-tile_data = PoolIntArray( -2490328, 2, 0, -2293713, 2, 0, -1834960, 1, 0, -1769435, 1, 0, -1441771, 0, 0, -1310715, 2, 0, -1048561, 2, 0, -917504, 0, 0, -917463, 0, 0, -917457, 1, 0, -720911, 0, 0, -786401, 1, 0, -720885, 0, 0, -720874, 0, 0, -720839, 2, 0, -458698, 1, 0, -393188, 3, 0, -262165, 0, 0, -262148, 2, 0, -131057, 3, 0, 65526, 2, 0, 327668, 3, 0, 262152, 3, 0, 262206, 2, 0, 458713, 0, 0, 458726, 0, 0, 524237, 0, 0, 458801, 2, 0, 524325, 1, 0, 524341, 2, 0, 655378, 0, 0, 851935, 0, 0, 786439, 0, 0, 786457, 3, 0, 982993, 0, 0, 917517, 3, 0, 1114105, 3, 0, 1179703, 2, 0, 1441836, 0, 0, 1572848, 3, 0, 1572899, 3, 0, 1638454, 2, 0, 1703954, 3, 0, 1900583, 2, 0, 1900597, 0, 0, 1966089, 3, 0, 1966094, 3, 0, 2097145, 3, 0, 2162689, 2, 0, 2228268, 3, 0, 2293787, 3, 0, 2293810, 2, 0 )
+tile_data = PoolIntArray( -2490328, 2, 0, -2293713, 2, 0, -1834960, 1, 0, -1769435, 1, 0, -1441771, 0, 0, -1310715, 2, 0, -1048561, 2, 0, -917504, 0, 0, -917463, 0, 0, -917457, 1, 0, -720911, 0, 0, -786401, 1, 0, -720885, 0, 0, -720874, 0, 0, -720839, 2, 0, -458698, 1, 0, -393210, 2, 0, -393188, 3, 0, -262165, 0, 0, -262148, 2, 0, -196583, 2, 0, -131057, 3, 0, -20, 2, 0, 65526, 2, 0, 131084, 2, 0, 327668, 3, 0, 262152, 3, 0, 262206, 2, 0, 327708, 2, 0, 458713, 0, 0, 458726, 0, 0, 524237, 0, 0, 458801, 2, 0, 524325, 1, 0, 524341, 2, 0, 655374, 2, 0, 655378, 0, 0, 720901, 2, 0, 851935, 0, 0, 786439, 0, 0, 786457, 3, 0, 982993, 0, 0, 917517, 3, 0, 1048557, 2, 0, 1114105, 3, 0, 1179703, 2, 0, 1310729, 2, 0, 1441782, 2, 0, 1441836, 0, 0, 1572848, 3, 0, 1572899, 3, 0, 1638454, 2, 0, 1703954, 3, 0, 1835019, 2, 0, 1966067, 2, 0, 1900583, 2, 0, 1900597, 0, 0, 1966089, 3, 0, 1966094, 3, 0, 2097145, 3, 0, 2162689, 2, 0, 2162710, 2, 0, 2228268, 3, 0, 2293787, 3, 0, 2293810, 2, 0 )
 
 [node name="enemies" type="Node2D" parent="map"]
 
@@ -47,6 +63,582 @@ tile_data = PoolIntArray( -2490328, 2, 0, -2293713, 2, 0, -1834960, 1, 0, -17694
 
 [node name="guardian" parent="map/enemies/slimes/gurdians" instance=ExtResource( 9 )]
 position = Vector2( 163, -275 )
+
+[node name="guardian2" parent="map/enemies/slimes/gurdians" instance=ExtResource( 9 )]
+position = Vector2( 3880, 690 )
+
+[node name="guardian3" parent="map/enemies/slimes/gurdians" instance=ExtResource( 9 )]
+position = Vector2( 46, 4350 )
+
+[node name="guardian4" parent="map/enemies/slimes/gurdians" instance=ExtResource( 9 )]
+position = Vector2( -12157, 2883 )
+
+[node name="guardian5" parent="map/enemies/slimes/gurdians" instance=ExtResource( 9 )]
+position = Vector2( 4889, 4888 )
+
+[node name="guardian6" parent="map/enemies/slimes/gurdians" instance=ExtResource( 9 )]
+position = Vector2( 9868, 3583 )
+
+[node name="guardian7" parent="map/enemies/slimes/gurdians" instance=ExtResource( 9 )]
+position = Vector2( 9827, -427 )
+
+[node name="guardian8" parent="map/enemies/slimes/gurdians" instance=ExtResource( 9 )]
+position = Vector2( 12841, -3171 )
+
+[node name="guardian9" parent="map/enemies/slimes/gurdians" instance=ExtResource( 9 )]
+position = Vector2( 5616, -3965 )
+
+[node name="vertical" type="Node2D" parent="map/enemies/slimes"]
+
+[node name="1" type="Node2D" parent="map/enemies/slimes/vertical"]
+
+[node name="entity" parent="map/enemies/slimes/vertical/1" instance=ExtResource( 11 )]
+position = Vector2( 327, 1560 )
+
+[node name="entity2" parent="map/enemies/slimes/vertical/1" instance=ExtResource( 11 )]
+position = Vector2( 4727, 1000 )
+
+[node name="entity3" parent="map/enemies/slimes/vertical/1" instance=ExtResource( 11 )]
+position = Vector2( 7495, 344 )
+
+[node name="entity4" parent="map/enemies/slimes/vertical/1" instance=ExtResource( 11 )]
+position = Vector2( 10855, 1384 )
+
+[node name="entity5" parent="map/enemies/slimes/vertical/1" instance=ExtResource( 11 )]
+position = Vector2( 13383, 696 )
+
+[node name="entity6" parent="map/enemies/slimes/vertical/1" instance=ExtResource( 11 )]
+position = Vector2( 16807, 1336 )
+
+[node name="entity7" parent="map/enemies/slimes/vertical/1" instance=ExtResource( 11 )]
+position = Vector2( -2425, 936 )
+
+[node name="entity8" parent="map/enemies/slimes/vertical/1" instance=ExtResource( 11 )]
+position = Vector2( -4793, 1768 )
+
+[node name="entity9" parent="map/enemies/slimes/vertical/1" instance=ExtResource( 11 )]
+position = Vector2( -6537, 744 )
+
+[node name="2" type="Node2D" parent="map/enemies/slimes/vertical"]
+
+[node name="entity" parent="map/enemies/slimes/vertical/2" instance=ExtResource( 11 )]
+position = Vector2( 326, -1969 )
+
+[node name="entity2" parent="map/enemies/slimes/vertical/2" instance=ExtResource( 11 )]
+position = Vector2( 4726, -2529 )
+
+[node name="entity3" parent="map/enemies/slimes/vertical/2" instance=ExtResource( 11 )]
+position = Vector2( 7494, -3185 )
+
+[node name="entity4" parent="map/enemies/slimes/vertical/2" instance=ExtResource( 11 )]
+position = Vector2( 10220, -1983 )
+
+[node name="entity5" parent="map/enemies/slimes/vertical/2" instance=ExtResource( 11 )]
+position = Vector2( 11498, -4485 )
+
+[node name="entity6" parent="map/enemies/slimes/vertical/2" instance=ExtResource( 11 )]
+position = Vector2( 16150, -2495 )
+
+[node name="entity7" parent="map/enemies/slimes/vertical/2" instance=ExtResource( 11 )]
+position = Vector2( -2426, -2593 )
+
+[node name="entity8" parent="map/enemies/slimes/vertical/2" instance=ExtResource( 11 )]
+position = Vector2( -4794, -1761 )
+
+[node name="entity9" parent="map/enemies/slimes/vertical/2" instance=ExtResource( 11 )]
+position = Vector2( -6538, -2785 )
+
+[node name="horizontal" type="Node2D" parent="map/enemies/slimes"]
+
+[node name="1" type="Node2D" parent="map/enemies/slimes/horizontal"]
+
+[node name="horizontal" parent="map/enemies/slimes/horizontal/1" instance=ExtResource( 12 )]
+position = Vector2( -3041, 2701 )
+
+[node name="horizontal2" parent="map/enemies/slimes/horizontal/1" instance=ExtResource( 12 )]
+position = Vector2( 1611, 2629 )
+
+[node name="horizontal3" parent="map/enemies/slimes/horizontal/1" instance=ExtResource( 12 )]
+position = Vector2( 4305, 3293 )
+
+[node name="horizontal4" parent="map/enemies/slimes/horizontal/1" instance=ExtResource( 12 )]
+position = Vector2( 6999, 1803 )
+
+[node name="horizontal5" parent="map/enemies/slimes/horizontal/1" instance=ExtResource( 12 )]
+position = Vector2( 8543, 3203 )
+
+[node name="horizontal6" parent="map/enemies/slimes/horizontal/1" instance=ExtResource( 12 )]
+position = Vector2( 11165, 2862 )
+
+[node name="horizontal7" parent="map/enemies/slimes/horizontal/1" instance=ExtResource( 12 )]
+position = Vector2( 14057, 2844 )
+
+[node name="horizontal8" parent="map/enemies/slimes/horizontal/1" instance=ExtResource( 12 )]
+position = Vector2( 15817, 3186 )
+
+[node name="horizontal9" parent="map/enemies/slimes/horizontal/1" instance=ExtResource( 12 )]
+position = Vector2( -5268, 3778 )
+
+[node name="2" type="Node2D" parent="map/enemies/slimes/horizontal"]
+
+[node name="horizontal" parent="map/enemies/slimes/horizontal/2" instance=ExtResource( 12 )]
+position = Vector2( -2872, 6481 )
+
+[node name="horizontal2" parent="map/enemies/slimes/horizontal/2" instance=ExtResource( 12 )]
+position = Vector2( 2015, 6725 )
+
+[node name="horizontal3" parent="map/enemies/slimes/horizontal/2" instance=ExtResource( 12 )]
+position = Vector2( 4709, 7389 )
+
+[node name="horizontal4" parent="map/enemies/slimes/horizontal/2" instance=ExtResource( 12 )]
+position = Vector2( 9827, 5288 )
+
+[node name="horizontal5" parent="map/enemies/slimes/horizontal/2" instance=ExtResource( 12 )]
+position = Vector2( 8947, 7299 )
+
+[node name="horizontal6" parent="map/enemies/slimes/horizontal/2" instance=ExtResource( 12 )]
+position = Vector2( 11569, 6958 )
+
+[node name="horizontal7" parent="map/enemies/slimes/horizontal/2" instance=ExtResource( 12 )]
+position = Vector2( 14461, 6940 )
+
+[node name="horizontal8" parent="map/enemies/slimes/horizontal/2" instance=ExtResource( 12 )]
+position = Vector2( 16221, 7282 )
+
+[node name="horizontal9" parent="map/enemies/slimes/horizontal/2" instance=ExtResource( 12 )]
+position = Vector2( -4864, 7874 )
+
+[node name="pills" type="Node2D" parent="map"]
+
+[node name="sanity" type="Node2D" parent="map/pills"]
+
+[node name="up" parent="map/pills/sanity" instance=ExtResource( 18 )]
+position = Vector2( 74, 530 )
+
+[node name="up2" parent="map/pills/sanity" instance=ExtResource( 18 )]
+position = Vector2( -97, 1236 )
+
+[node name="up3" parent="map/pills/sanity" instance=ExtResource( 18 )]
+position = Vector2( 477, 2103 )
+
+[node name="up4" parent="map/pills/sanity" instance=ExtResource( 18 )]
+position = Vector2( -138, 2879 )
+
+[node name="up5" parent="map/pills/sanity" instance=ExtResource( 18 )]
+position = Vector2( -7, 3867 )
+
+[node name="up6" parent="map/pills/sanity" instance=ExtResource( 18 )]
+position = Vector2( -178, 4955 )
+
+[node name="up7" parent="map/pills/sanity" instance=ExtResource( 18 )]
+position = Vector2( 1233, 5631 )
+
+[node name="up8" parent="map/pills/sanity" instance=ExtResource( 18 )]
+position = Vector2( 3582, 5449 )
+
+[node name="up9" parent="map/pills/sanity" instance=ExtResource( 18 )]
+position = Vector2( 6373, 4693 )
+
+[node name="up10" parent="map/pills/sanity" instance=ExtResource( 18 )]
+position = Vector2( 9538, 4119 )
+
+[node name="up11" parent="map/pills/sanity" instance=ExtResource( 18 )]
+position = Vector2( 11816, 2597 )
+
+[node name="up12" parent="map/pills/sanity" instance=ExtResource( 18 )]
+position = Vector2( 10818, 682 )
+
+[node name="up13" parent="map/pills/sanity" instance=ExtResource( 18 )]
+position = Vector2( 11040, -3280 )
+
+[node name="up14" parent="map/pills/sanity" instance=ExtResource( 18 )]
+position = Vector2( 10829, -5306 )
+
+[node name="up15" parent="map/pills/sanity" instance=ExtResource( 18 )]
+position = Vector2( 10667, -7664 )
+
+[node name="up16" parent="map/pills/sanity" instance=ExtResource( 18 )]
+position = Vector2( -1196, 1095 )
+
+[node name="up17" parent="map/pills/sanity" instance=ExtResource( 18 )]
+position = Vector2( 2977, 127 )
+
+[node name="up18" parent="map/pills/sanity" instance=ExtResource( 18 )]
+position = Vector2( 2886, 1851 )
+
+[node name="up19" parent="map/pills/sanity" instance=ExtResource( 18 )]
+position = Vector2( -3262, 4240 )
+
+[node name="up20" parent="map/pills/sanity" instance=ExtResource( 18 )]
+position = Vector2( -4341, 2375 )
+
+[node name="up21" parent="map/pills/sanity" instance=ExtResource( 18 )]
+position = Vector2( -4492, -1213 )
+
+[node name="up22" parent="map/pills/sanity" instance=ExtResource( 18 )]
+position = Vector2( -2527, -1949 )
+
+[node name="up23" parent="map/pills/sanity" instance=ExtResource( 18 )]
+position = Vector2( -743, -3138 )
+
+[node name="up24" parent="map/pills/sanity" instance=ExtResource( 18 )]
+position = Vector2( 628, -4812 )
+
+[node name="up25" parent="map/pills/sanity" instance=ExtResource( 18 )]
+position = Vector2( 3954, -3169 )
+
+[node name="up26" parent="map/pills/sanity" instance=ExtResource( 18 )]
+position = Vector2( 6595, -4590 )
+
+[node name="up27" parent="map/pills/sanity" instance=ExtResource( 18 )]
+position = Vector2( 6686, -6122 )
+
+[node name="up28" parent="map/pills/sanity" instance=ExtResource( 18 )]
+position = Vector2( 6323, 8201 )
+
+[node name="up29" parent="map/pills/sanity" instance=ExtResource( 18 )]
+position = Vector2( 8752, 8040 )
+
+[node name="up30" parent="map/pills/sanity" instance=ExtResource( 18 )]
+position = Vector2( 2009, 8352 )
+
+[node name="up31" parent="map/pills/sanity" instance=ExtResource( 18 )]
+position = Vector2( -743, 8312 )
+
+[node name="up32" parent="map/pills/sanity" instance=ExtResource( 18 )]
+position = Vector2( -3131, 8070 )
+
+[node name="up33" parent="map/pills/sanity" instance=ExtResource( 18 )]
+position = Vector2( -1912, 6255 )
+
+[node name="up34" parent="map/pills/sanity" instance=ExtResource( 18 )]
+position = Vector2( 13357, 7074 )
+
+[node name="up35" parent="map/pills/sanity" instance=ExtResource( 18 )]
+position = Vector2( 12074, 5905 )
+
+[node name="up36" parent="map/pills/sanity" instance=ExtResource( 18 )]
+position = Vector2( 13799, 3467 )
+
+[node name="up37" parent="map/pills/sanity" instance=ExtResource( 18 )]
+position = Vector2( 8382, 3895 )
+
+[node name="up38" parent="map/pills/sanity" instance=ExtResource( 18 )]
+position = Vector2( 10663, 2355 )
+
+[node name="up39" parent="map/pills/sanity" instance=ExtResource( 18 )]
+position = Vector2( 12060, 688 )
+
+[node name="up40" parent="map/pills/sanity" instance=ExtResource( 18 )]
+position = Vector2( 7755, 2298 )
+
+[node name="up41" parent="map/pills/sanity" instance=ExtResource( 18 )]
+position = Vector2( 8026, 32 )
+
+[node name="up42" parent="map/pills/sanity" instance=ExtResource( 18 )]
+position = Vector2( 4847, 2156 )
+
+[node name="up43" parent="map/pills/sanity" instance=ExtResource( 18 )]
+position = Vector2( -8362, 2416 )
+
+[node name="up44" parent="map/pills/sanity" instance=ExtResource( 18 )]
+position = Vector2( -10583, 3740 )
+
+[node name="up45" parent="map/pills/sanity" instance=ExtResource( 18 )]
+position = Vector2( 5820, 6538 )
+
+[node name="up46" parent="map/pills/sanity" instance=ExtResource( 18 )]
+position = Vector2( 9643, 6751 )
+
+[node name="up47" parent="map/pills/sanity" instance=ExtResource( 18 )]
+position = Vector2( 1399, -596 )
+
+[node name="up48" parent="map/pills/sanity" instance=ExtResource( 18 )]
+position = Vector2( 4154, -1215 )
+
+[node name="up49" parent="map/pills/sanity" instance=ExtResource( 18 )]
+position = Vector2( 6482, -1343 )
+
+[node name="up50" parent="map/pills/sanity" instance=ExtResource( 18 )]
+position = Vector2( 8788, -2155 )
+
+[node name="time" type="Node2D" parent="map/pills"]
+
+[node name="pill" parent="map/pills/time" instance=ExtResource( 16 )]
+position = Vector2( 14961, 7952 )
+
+[node name="pill2" parent="map/pills/time" instance=ExtResource( 16 )]
+position = Vector2( 12157, 7717 )
+
+[node name="pill3" parent="map/pills/time" instance=ExtResource( 16 )]
+position = Vector2( 13988, 6165 )
+
+[node name="pill4" parent="map/pills/time" instance=ExtResource( 16 )]
+position = Vector2( 12427, 4900 )
+
+[node name="pill5" parent="map/pills/time" instance=ExtResource( 16 )]
+position = Vector2( 14963, 4154 )
+
+[node name="pill6" parent="map/pills/time" instance=ExtResource( 16 )]
+position = Vector2( 9837, 4651 )
+
+[node name="pill7" parent="map/pills/time" instance=ExtResource( 16 )]
+position = Vector2( 9104, 3131 )
+
+[node name="pill8" parent="map/pills/time" instance=ExtResource( 16 )]
+position = Vector2( 7536, 3353 )
+
+[node name="pill9" parent="map/pills/time" instance=ExtResource( 16 )]
+position = Vector2( 11660, 1826 )
+
+[node name="pill10" parent="map/pills/time" instance=ExtResource( 16 )]
+position = Vector2( 12151, 3124 )
+
+[node name="pill11" parent="map/pills/time" instance=ExtResource( 16 )]
+position = Vector2( 16019, 2620 )
+
+[node name="pill12" parent="map/pills/time" instance=ExtResource( 16 )]
+position = Vector2( 17277, 265 )
+
+[node name="pill13" parent="map/pills/time" instance=ExtResource( 16 )]
+position = Vector2( 14203, 1557 )
+
+[node name="pill14" parent="map/pills/time" instance=ExtResource( 16 )]
+position = Vector2( 13423, 30 )
+
+[node name="pill15" parent="map/pills/time" instance=ExtResource( 16 )]
+position = Vector2( 15474, -993 )
+
+[node name="pill16" parent="map/pills/time" instance=ExtResource( 16 )]
+position = Vector2( 10597, -461 )
+
+[node name="pill17" parent="map/pills/time" instance=ExtResource( 16 )]
+position = Vector2( 11640, -2271 )
+
+[node name="pill18" parent="map/pills/time" instance=ExtResource( 16 )]
+position = Vector2( 9097, 561 )
+
+[node name="pill19" parent="map/pills/time" instance=ExtResource( 16 )]
+position = Vector2( 8317, -730 )
+
+[node name="pill20" parent="map/pills/time" instance=ExtResource( 16 )]
+position = Vector2( 5754, -495 )
+
+[node name="pill21" parent="map/pills/time" instance=ExtResource( 16 )]
+position = Vector2( 5720, -2029 )
+
+[node name="pill22" parent="map/pills/time" instance=ExtResource( 16 )]
+position = Vector2( 2404, -1006 )
+
+[node name="pill23" parent="map/pills/time" instance=ExtResource( 16 )]
+position = Vector2( 883, -2264 )
+
+[node name="pill24" parent="map/pills/time" instance=ExtResource( 16 )]
+position = Vector2( -1666, -219 )
+
+[node name="pill25" parent="map/pills/time" instance=ExtResource( 16 )]
+position = Vector2( -3214, 1819 )
+
+[node name="pill26" parent="map/pills/time" instance=ExtResource( 16 )]
+position = Vector2( -3987, 3636 )
+
+[node name="pill27" parent="map/pills/time" instance=ExtResource( 16 )]
+position = Vector2( -1902, 3595 )
+
+[node name="pill28" parent="map/pills/time" instance=ExtResource( 16 )]
+position = Vector2( -5030, 3118 )
+
+[node name="pill29" parent="map/pills/time" instance=ExtResource( 16 )]
+position = Vector2( -5292, 824 )
+
+[node name="pill30" parent="map/pills/time" instance=ExtResource( 16 )]
+position = Vector2( -6322, -724 )
+
+[node name="pill31" parent="map/pills/time" instance=ExtResource( 16 )]
+position = Vector2( -3698, -1760 )
+
+[node name="pill32" parent="map/pills/time" instance=ExtResource( 16 )]
+position = Vector2( 7284, -1772 )
+
+[node name="pill33" parent="map/pills/time" instance=ExtResource( 16 )]
+position = Vector2( -3976, 5402 )
+
+[node name="pill34" parent="map/pills/time" instance=ExtResource( 16 )]
+position = Vector2( -909, 6156 )
+
+[node name="pill35" parent="map/pills/time" instance=ExtResource( 16 )]
+position = Vector2( -2443, 7185 )
+
+[node name="pill36" parent="map/pills/time" instance=ExtResource( 16 )]
+position = Vector2( -2167, 9237 )
+
+[node name="pill37" parent="map/pills/time" instance=ExtResource( 16 )]
+position = Vector2( 5744, 5678 )
+
+[node name="pill38" parent="map/pills/time" instance=ExtResource( 16 )]
+position = Vector2( 3202, 6438 )
+
+[node name="power" type="Node2D" parent="map/pills"]
+
+[node name="pill" parent="map/pills/power" instance=ExtResource( 15 )]
+position = Vector2( 13304, 3202 )
+
+[node name="pill2" parent="map/pills/power" instance=ExtResource( 15 )]
+position = Vector2( 15098, 6135 )
+
+[node name="pill3" parent="map/pills/power" instance=ExtResource( 15 )]
+position = Vector2( 10502, 6659 )
+
+[node name="pill4" parent="map/pills/power" instance=ExtResource( 15 )]
+position = Vector2( 8446, 4845 )
+
+[node name="pill5" parent="map/pills/power" instance=ExtResource( 15 )]
+position = Vector2( 3830, 7294 )
+
+[node name="pill6" parent="map/pills/power" instance=ExtResource( 15 )]
+position = Vector2( -273, 5349 )
+
+[node name="pill7" parent="map/pills/power" instance=ExtResource( 15 )]
+position = Vector2( -3609, 6629 )
+
+[node name="pill8" parent="map/pills/power" instance=ExtResource( 15 )]
+position = Vector2( -2682, 4099 )
+
+[node name="pill9" parent="map/pills/power" instance=ExtResource( 15 )]
+position = Vector2( 1915, 4059 )
+
+[node name="pill10" parent="map/pills/power" instance=ExtResource( 15 )]
+position = Vector2( 2802, 5490 )
+
+[node name="pill11" parent="map/pills/power" instance=ExtResource( 15 )]
+position = Vector2( 2039, -507 )
+
+[node name="pill12" parent="map/pills/power" instance=ExtResource( 15 )]
+position = Vector2( 5990, 489 )
+
+[node name="pill13" parent="map/pills/power" instance=ExtResource( 15 )]
+position = Vector2( 7274, 768 )
+
+[node name="pill14" parent="map/pills/power" instance=ExtResource( 15 )]
+position = Vector2( 13048, -1944 )
+
+[node name="pill15" parent="map/pills/power" instance=ExtResource( 15 )]
+position = Vector2( 9833, -3722 )
+
+[node name="pill16" parent="map/pills/power" instance=ExtResource( 15 )]
+position = Vector2( 8307, -5913 )
+
+[node name="pill17" parent="map/pills/power" instance=ExtResource( 15 )]
+position = Vector2( 6493, -5132 )
+
+[node name="pill18" parent="map/pills/power" instance=ExtResource( 15 )]
+position = Vector2( 2533, -3480 )
+
+[node name="pill19" parent="map/pills/power" instance=ExtResource( 15 )]
+position = Vector2( 7149, 8041 )
+
+[node name="pill20" parent="map/pills/power" instance=ExtResource( 15 )]
+position = Vector2( 11629, 8311 )
+
+[node name="pill21" parent="map/pills/power" instance=ExtResource( 15 )]
+position = Vector2( 13282, 4845 )
+
+[node name="pill22" parent="map/pills/power" instance=ExtResource( 15 )]
+position = Vector2( 15589, -4369 )
+
+[node name="pill23" parent="map/pills/power" instance=ExtResource( 15 )]
+position = Vector2( -3330, -1534 )
+
+[node name="speed" type="Node2D" parent="map/pills"]
+
+[node name="pill" parent="map/pills/speed" instance=ExtResource( 17 )]
+position = Vector2( 1520, -5134 )
+
+[node name="pill2" parent="map/pills/speed" instance=ExtResource( 17 )]
+position = Vector2( 4067, -4100 )
+
+[node name="pill3" parent="map/pills/speed" instance=ExtResource( 17 )]
+position = Vector2( 12300, -8938 )
+
+[node name="pill4" parent="map/pills/speed" instance=ExtResource( 17 )]
+position = Vector2( 10479, -9723 )
+
+[node name="pill5" parent="map/pills/speed" instance=ExtResource( 17 )]
+position = Vector2( 14852, -2771 )
+
+[node name="pill6" parent="map/pills/speed" instance=ExtResource( 17 )]
+position = Vector2( 16080, 1004 )
+
+[node name="pill7" parent="map/pills/speed" instance=ExtResource( 17 )]
+position = Vector2( 13843, 2034 )
+
+[node name="pill8" parent="map/pills/speed" instance=ExtResource( 17 )]
+position = Vector2( 12765, 1821 )
+
+[node name="pill9" parent="map/pills/speed" instance=ExtResource( 17 )]
+position = Vector2( 14324, 4587 )
+
+[node name="pill10" parent="map/pills/speed" instance=ExtResource( 17 )]
+position = Vector2( 14073, 6397 )
+
+[node name="pill11" parent="map/pills/speed" instance=ExtResource( 17 )]
+position = Vector2( 13074, 8933 )
+
+[node name="pill12" parent="map/pills/speed" instance=ExtResource( 17 )]
+position = Vector2( 10303, 7401 )
+
+[node name="pill13" parent="map/pills/speed" instance=ExtResource( 17 )]
+position = Vector2( 447, 8431 )
+
+[node name="pill14" parent="map/pills/speed" instance=ExtResource( 17 )]
+position = Vector2( -1040, -1043 )
+
+[node name="pill15" parent="map/pills/speed" instance=ExtResource( 17 )]
+position = Vector2( 5819, 8766 )
+
+[node name="pill16" parent="map/pills/speed" instance=ExtResource( 17 )]
+position = Vector2( 3060, 7434 )
+
+[node name="pill17" parent="map/pills/speed" instance=ExtResource( 17 )]
+position = Vector2( -3542, 7586 )
+
+[node name="pill18" parent="map/pills/speed" instance=ExtResource( 17 )]
+position = Vector2( 3431, 646 )
+
+[node name="pill19" parent="map/pills/speed" instance=ExtResource( 17 )]
+position = Vector2( 3848, 2857 )
+
+[node name="pill20" parent="map/pills/speed" instance=ExtResource( 17 )]
+position = Vector2( 2214, 5024 )
+
+[node name="pill21" parent="map/pills/speed" instance=ExtResource( 17 )]
+position = Vector2( 7115, 1191 )
+
+[node name="pill22" parent="map/pills/speed" instance=ExtResource( 17 )]
+position = Vector2( 6699, -774 )
+
+[node name="pill23" parent="map/pills/speed" instance=ExtResource( 17 )]
+position = Vector2( -4787, -335 )
+
+[node name="pill24" parent="map/pills/speed" instance=ExtResource( 17 )]
+position = Vector2( -2253, 5570 )
+
+[node name="pill25" parent="map/pills/speed" instance=ExtResource( 17 )]
+position = Vector2( -2750, 117 )
+
+[node name="spare" type="Node2D" parent="map/pills"]
+
+[node name="pill" parent="map/pills/spare" instance=ExtResource( 14 )]
+position = Vector2( -11842, 2883 )
+
+[node name="pill2" parent="map/pills/spare" instance=ExtResource( 14 )]
+position = Vector2( 6544, 2912 )
+
+[node name="pill3" parent="map/pills/spare" instance=ExtResource( 14 )]
+position = Vector2( 15746, 9540 )
+
+[node name="teleport" parent="map/pills" instance=ExtResource( 13 )]
+position = Vector2( 11399, -8045 )
 
 [node name="player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 511, 306 )
@@ -60,3 +652,13 @@ stream = ExtResource( 7 )
 autoplay = true
 
 [node name="HUD" parent="." instance=ExtResource( 2 )]
+
+[connection signal="trophy" from="map/enemies/slimes/gurdians/guardian" to="pool/pills" method="_spawn"]
+[connection signal="trophy" from="map/enemies/slimes/gurdians/guardian2" to="pool/pills" method="_spawn"]
+[connection signal="trophy" from="map/enemies/slimes/gurdians/guardian3" to="pool/pills" method="_spawn"]
+[connection signal="trophy" from="map/enemies/slimes/gurdians/guardian4" to="pool/pills" method="_spawn"]
+[connection signal="trophy" from="map/enemies/slimes/gurdians/guardian5" to="pool/pills" method="_spawn"]
+[connection signal="trophy" from="map/enemies/slimes/gurdians/guardian6" to="pool/pills" method="_spawn"]
+[connection signal="trophy" from="map/enemies/slimes/gurdians/guardian7" to="pool/pills" method="_spawn"]
+[connection signal="trophy" from="map/enemies/slimes/gurdians/guardian8" to="pool/pills" method="_spawn"]
+[connection signal="trophy" from="map/enemies/slimes/gurdians/guardian9" to="pool/pills" method="_spawn"]
