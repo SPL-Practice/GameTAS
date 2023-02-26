@@ -11,13 +11,22 @@ export (Array, int) onready var next
 var level: int = 0 setget _set_level
 var xp: int = 0 setget _set_experience
 
+func destroy():
+	emit_signal("increase_experience", next[level-1])
+	queue_free()
+
 func setup():
 	_set_level(Manager.character[stat.name]["level"])
 	experience(Manager.character[stat.name]["xp"])
 
 func _increase():
 	stat.value = values[level]
-	emit_signal("advance", level, next[level])
+	
+	if level == next.size():
+		emit_signal("advance", level, 0)
+		destroy()
+	else:
+		emit_signal("advance", level, next[level])
 
 func _ready():
 	setup()
@@ -30,15 +39,15 @@ func _set_level(value):
 func _level_up():
 	_set_level(level + 1)
 	if level == next.size():
-		emit_signal("increase_experience", next[level-1])
-		queue_free()
+		destroy()
 	Manager.character[stat.name]["level"] = level
 
 func _set_experience(amount):
 	xp += amount
-	while xp >= next[level]:
+	while level < next.size() and xp >= next[level]:
 		xp -= next[level]
 		_level_up()
+		
 	emit_signal("increase_experience", xp)
 
 func experience(amount):

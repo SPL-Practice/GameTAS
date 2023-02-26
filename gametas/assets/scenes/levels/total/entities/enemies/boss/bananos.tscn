@@ -24,7 +24,7 @@ script = ExtResource( 2 )
 shape = SubResource( 3 )
 
 [node name="look" parent="shape" instance=ExtResource( 1 )]
-frame = 4
+frame = 5
 
 [node name="pulp" type="Area2D" parent="shape"]
 collision_mask = 2

@@ -14,8 +14,8 @@ func health_check(tick: Tick) -> int:
 		return FAILED
 	
 	if (tick.actor.health.is_killed()):
-		tick.actor.health.get_node("max").value = next_hp
 		tick.actor.new_phase(next_phase)
+		tick.actor.health.get_node("max").value = next_hp
 		tick.blackboard.set(Positioner.position, Vector2(0, 0))
 		tick.blackboard.set(leaf.full_name, true)
 		return FAILED

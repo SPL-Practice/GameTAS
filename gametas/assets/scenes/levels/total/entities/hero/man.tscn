@@ -29,7 +29,6 @@ position = Vector2( -13, -33 )
 shape = SubResource( 1 )
 
 [node name="look" parent="shape" instance=ExtResource( 1 )]
-frame = 2
 
 [node name="ailments" type="AnimationPlayer" parent="shape"]
 anims/damage = ExtResource( 5 )
@@ -42,6 +41,7 @@ position = Vector2( -13.903, -24.6449 )
 
 [node name="health" parent="stats" instance=ExtResource( 4 )]
 value = 25
+vulnerable = false
 
 [node name="max" parent="stats/health" instance=ExtResource( 15 )]
 value = 25
@@ -53,6 +53,7 @@ maximum = 50
 
 [node name="damage" parent="stats/health" instance=ExtResource( 14 )]
 value = 1
+vulnerable = false
 
 [node name="level" parent="stats/health/damage" instance=ExtResource( 12 )]
 values = [ 1, 2, 3, 4 ]
