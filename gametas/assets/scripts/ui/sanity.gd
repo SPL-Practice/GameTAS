@@ -21,6 +21,7 @@ func _ready():
 	health.connect("value_updated", self, "_on_health_updated")
 	health.connect("max_health_updated", self, "_on_max_health_updated")
 	health.connect("damage", self, "_on_damage")
+	
 	_on_max_health_updated(health.max_health)
 	_on_health_updated(health.max_health)
 

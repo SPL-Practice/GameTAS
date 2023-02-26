@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 signal phase_updated(number)
+signal defeat()
 
 var velocity = Vector2(0, 0)
 onready var initial = self.position
@@ -17,6 +18,7 @@ func _ready():
 	behavior.state(blackboard)
 
 func kill():
+	emit_signal("defeat")
 	look.scene()
 	
 func death():

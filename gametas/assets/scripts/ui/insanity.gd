@@ -11,5 +11,4 @@ func _on_spare_time_increased(value):
 	invincibility.max_value = value
 
 func _on_spare_invulnerability(value):
-	#print_debug(value)
 	invincibility.value = value

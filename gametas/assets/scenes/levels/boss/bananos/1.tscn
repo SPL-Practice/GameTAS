@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://assets/resources/media/ost/music/boss.ogg" type="AudioStream" id=1]
+[ext_resource path="res://assets/resources/media/ost/music/boss/1.ogg" type="AudioStream" id=1]
 [ext_resource path="res://assets/scenes/levels/total/entities/enemies/boss/bananos.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/scenes/total/ui/hud/levels/boss.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/scenes/levels/total/entities/hero/man.tscn" type="PackedScene" id=4]
@@ -78,9 +78,9 @@ position = Vector2( -13.903, -32.0385 )
 scale = Vector2( 2.31716, 2.46449 )
 current = true
 
-[node name="boss" parent="." instance=ExtResource( 2 )]
+[node name="bananos" parent="." instance=ExtResource( 2 )]
 position = Vector2( 95, 107 )
 
 [node name="HUD" parent="." instance=ExtResource( 3 )]
 
-[connection signal="phase_updated" from="boss" to="audio" method="_change_pattern"]
+[connection signal="phase_updated" from="bananos" to="audio" method="_change_pattern"]

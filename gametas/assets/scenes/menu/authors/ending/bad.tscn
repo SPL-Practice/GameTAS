@@ -44,7 +44,7 @@ text = "Menu"
 
 [node name="authors" parent="." instance=ExtResource( 1 )]
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="audio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 4 )
 autoplay = true
 
