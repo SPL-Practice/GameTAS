@@ -355,7 +355,7 @@ autoplay = true
 
 [node name="door" parent="choice" instance=ExtResource( 7 )]
 position = Vector2( 185, -91 )
-scene = "res://assets/scenes/menu/authors/ending/good.tscn"
+scene = "res://assets/scenes/levels/office/1.tscn"
 
 [node name="pill" parent="choice" instance=ExtResource( 21 )]
 position = Vector2( -4, 13 )
