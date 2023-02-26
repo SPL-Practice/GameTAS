@@ -27,7 +27,7 @@ shape = SubResource( 2 )
 position = Vector2( 3, -24.5 )
 scale = Vector2( 0.570313, 0.570313 )
 frames = ExtResource( 1 )
-frame = 3
+frame = 17
 playing = true
 
 [node name="slug" type="Area2D" parent="."]
@@ -37,14 +37,18 @@ collision_mask = 2
 position = Vector2( -0.75, -13.5 )
 shape = SubResource( 1 )
 
-[node name="health" parent="." instance=ExtResource( 5 )]
-value = 4
-max_health = 4
+[node name="stats" type="Node" parent="."]
 
-[node name="power" parent="." instance=ExtResource( 4 )]
+[node name="health" parent="stats" instance=ExtResource( 5 )]
+value = 4
+
+[node name="max" parent="stats/health" instance=ExtResource( 4 )]
+value = 4
+
+[node name="power" parent="stats" instance=ExtResource( 4 )]
 value = 1
 
-[node name="speed" parent="." instance=ExtResource( 4 )]
+[node name="speed" parent="stats" instance=ExtResource( 4 )]
 value = 300
 
 [node name="vertical" parent="." instance=ExtResource( 6 )]
@@ -56,5 +60,6 @@ anims/damage = ExtResource( 3 )
 
 [connection signal="body_entered" from="slug" to="." method="_on_slug_body_entered"]
 [connection signal="body_exited" from="slug" to="." method="_on_slug_body_exited"]
-[connection signal="damage" from="health" to="." method="_damage"]
-[connection signal="killed" from="health" to="." method="_kill"]
+[connection signal="damage" from="stats/health" to="." method="_damage"]
+[connection signal="killed" from="stats/health" to="." method="_kill"]
+[connection signal="value_updated" from="stats/health/max" to="stats/health" method="_set_maximum"]

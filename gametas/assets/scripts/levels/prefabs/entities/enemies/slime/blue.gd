@@ -2,9 +2,9 @@ extends KinematicBody2D
 
 signal trophy(position)
 
-onready var health = $health
-onready var power = $power
-onready var speed = $speed
+onready var health = $stats/health
+onready var power = $stats/power
+onready var speed = $stats/speed
 onready var animation = $ailments
 
 func _damage():

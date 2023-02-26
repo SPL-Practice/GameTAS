@@ -16,7 +16,7 @@ margin_left = -250.0
 margin_top = -42.0
 theme = ExtResource( 4 )
 script = ExtResource( 3 )
-node_name = "bananos"
+path = "bananos"
 
 [node name="fill" type="MarginContainer" parent="."]
 anchor_right = 1.0

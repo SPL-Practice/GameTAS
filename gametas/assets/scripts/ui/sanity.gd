@@ -6,7 +6,7 @@ onready var updater = $updater
 
 onready var shaker = $shaker
 
-export (String) var node_name = "player"
+export (String) var path = "player"
 export (int) var depth = 4
 
 var health
@@ -17,13 +17,13 @@ func _search(child):
 	return child
 
 func _ready():
-	health = _search(self).get_node(node_name).health
+	health = _search(self).get_node(path).health
 	health.connect("value_updated", self, "_on_health_updated")
-	health.connect("max_health_updated", self, "_on_max_health_updated")
+	health.get_node("max").connect("value_updated", self, "_on_max_health_updated")
 	health.connect("damage", self, "_on_damage")
 	
-	_on_max_health_updated(health.max_health)
-	_on_health_updated(health.max_health)
+	_on_max_health_updated(health.maximum)
+	_on_health_updated(health.maximum)
 
 func _on_health_updated(value):
 	sanity_over.value = value

@@ -40,7 +40,7 @@ anchor_bottom = 0.0
 margin_bottom = 29.0
 grow_horizontal = 0
 grow_vertical = 0
-nodes = [ "player", "stats", "health", "damage" ]
+path = "player/stats/health/damage/level"
 
 [node name="icon" type="TextureRect" parent="stats/health"]
 margin_right = 30.0
@@ -56,7 +56,7 @@ margin_right = 32.0
 margin_bottom = 29.0
 grow_horizontal = 0
 grow_vertical = 0
-nodes = [ "player", "stats", "speed" ]
+path = "player/stats/speed/level"
 
 [node name="TextureRect" type="TextureRect" parent="stats/speed"]
 margin_right = 30.0
@@ -72,7 +72,7 @@ margin_right = 64.0
 margin_bottom = 29.0
 grow_horizontal = 0
 grow_vertical = 0
-nodes = [ "player", "stats", "power" ]
+path = "player/stats/power/level"
 
 [node name="TextureRect" type="TextureRect" parent="stats/power"]
 margin_right = 30.0

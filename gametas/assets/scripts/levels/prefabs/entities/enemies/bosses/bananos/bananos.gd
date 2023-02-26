@@ -10,8 +10,8 @@ onready var behavior = $behavior
 onready var blackboard = $blackboard
 onready var look = $shape/look
 onready var animation = $animation
-onready var health = $health
-onready var power = $power
+onready var health = $stats/health
+onready var power = $stats/power
 
 func _ready():
 	blackboard.set("position", velocity)

@@ -1,15 +1,10 @@
 extends Area2D
 
 export (int) var value = 1
-export (Array, String) var nodes
-
-func _search(current):
-	for node in nodes:
-		current = current.get_node(node)
-	return current
+export (String) var path
 
 func _on_pill_body_entered(body):
-	var stat = _search(body)
+	var stat = body.get_node(path)
 	if (is_instance_valid(stat)):
-		stat.up(value)
+		stat.increase(value)
 	queue_free()

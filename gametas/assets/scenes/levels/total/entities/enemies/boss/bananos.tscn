@@ -24,7 +24,7 @@ script = ExtResource( 2 )
 shape = SubResource( 3 )
 
 [node name="look" parent="shape" instance=ExtResource( 1 )]
-frame = 1
+frame = 4
 
 [node name="pulp" type="Area2D" parent="shape"]
 collision_mask = 2
@@ -32,11 +32,15 @@ collision_mask = 2
 [node name="danger" type="CollisionShape2D" parent="shape/pulp"]
 shape = SubResource( 2 )
 
-[node name="health" parent="." instance=ExtResource( 4 )]
-value = 24
-max_health = 24
+[node name="stats" type="Node" parent="."]
 
-[node name="power" parent="." instance=ExtResource( 5 )]
+[node name="health" parent="stats" instance=ExtResource( 4 )]
+value = 24
+
+[node name="max" parent="stats/health" instance=ExtResource( 5 )]
+value = 24
+
+[node name="power" parent="stats" instance=ExtResource( 5 )]
 value = 5
 
 [node name="animation" type="AnimationPlayer" parent="."]
@@ -52,3 +56,4 @@ script = ExtResource( 6 )
 
 [connection signal="body_entered" from="shape/pulp" to="." method="_on_slug_body_entered"]
 [connection signal="body_exited" from="shape/pulp" to="." method="_on_slug_body_exited"]
+[connection signal="value_updated" from="stats/health/max" to="stats/health" method="_set_maximum"]
