@@ -93,7 +93,7 @@ scale = Vector2( 3.24872, 3.80886 )
 position = Vector2( -189, 587 )
 
 [node name="2" parent="map/enemies/slimes/vertical" instance=ExtResource( 12 )]
-position = Vector2( -363, -45 )
+position = Vector2( -933, 212 )
 
 [node name="3" parent="map/enemies/slimes/vertical" instance=ExtResource( 12 )]
 position = Vector2( 813, 258 )
@@ -102,22 +102,22 @@ position = Vector2( 813, 258 )
 position = Vector2( 436, 712 )
 
 [node name="5" parent="map/enemies/slimes/vertical" instance=ExtResource( 13 )]
-position = Vector2( 348, -345 )
+position = Vector2( 835, -134 )
 
 [node name="6" parent="map/enemies/slimes/vertical" instance=ExtResource( 12 )]
-position = Vector2( -485, 225 )
+position = Vector2( -1216, -1094 )
 
 [node name="7" parent="map/enemies/slimes/vertical" instance=ExtResource( 12 )]
-position = Vector2( -536, -399 )
+position = Vector2( -607, -909 )
 
 [node name="8" parent="map/enemies/slimes/vertical" instance=ExtResource( 12 )]
-position = Vector2( -189, -767 )
+position = Vector2( -284, -1446 )
 
 [node name="9" parent="map/enemies/slimes/vertical" instance=ExtResource( 12 )]
-position = Vector2( 473, -733 )
+position = Vector2( 288, -535 )
 
 [node name="10" parent="map/enemies/slimes/vertical" instance=ExtResource( 12 )]
-position = Vector2( 888, -345 )
+position = Vector2( 1485, -423 )
 
 [node name="horizontal" type="Node2D" parent="map/enemies/slimes"]
 
@@ -125,7 +125,7 @@ position = Vector2( 888, -345 )
 position = Vector2( -213, -184 )
 
 [node name="2" parent="map/enemies/slimes/horizontal" instance=ExtResource( 13 )]
-position = Vector2( -52, 391 )
+position = Vector2( 657, -1352 )
 
 [node name="3" parent="map/enemies/slimes/horizontal" instance=ExtResource( 13 )]
 position = Vector2( 347, 173 )
@@ -137,16 +137,16 @@ position = Vector2( 213, 573 )
 position = Vector2( 1105, 113 )
 
 [node name="6" parent="map/enemies/slimes/horizontal" instance=ExtResource( 13 )]
-position = Vector2( 1073, -157 )
+position = Vector2( 1661, 64 )
 
 [node name="7" parent="map/enemies/slimes/horizontal" instance=ExtResource( 13 )]
-position = Vector2( 617, -514 )
+position = Vector2( 1073, -947 )
 
 [node name="8" parent="map/enemies/slimes/horizontal" instance=ExtResource( 13 )]
-position = Vector2( 23, -584 )
+position = Vector2( 212, -1021 )
 
 [node name="9" parent="map/enemies/slimes/horizontal" instance=ExtResource( 13 )]
-position = Vector2( -288, -480 )
+position = Vector2( -1370, -457 )
 
 [node name="10" parent="map/enemies/slimes/horizontal" instance=ExtResource( 13 )]
 position = Vector2( -747, -269 )

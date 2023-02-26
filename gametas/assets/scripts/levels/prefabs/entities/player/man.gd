@@ -14,4 +14,4 @@ func _damage():
 
 func _kill():
 	queue_free()
-	get_tree().change_scene("res://assets/scenes/menu/authors/logo.tscn")
+	print_debug(get_tree().change_scene("res://assets/scenes/menu/authors/logo.tscn"))

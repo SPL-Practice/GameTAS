@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/scenes/levels/total/entities/hero/man.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/scenes/total/ui/hud/levels/usual.tscn" type="PackedScene" id=2]
@@ -7,8 +7,15 @@
 [ext_resource path="res://assets/resources/media/images/levels/map/nature/pines/pines.tres" type="TileSet" id=5]
 [ext_resource path="res://assets/resources/media/images/levels/map/nature/rocks/rocks.tres" type="TileSet" id=6]
 [ext_resource path="res://assets/resources/media/ost/music/game/play/forest.ogg" type="AudioStream" id=7]
+[ext_resource path="res://assets/scripts/levels/prefabs/spawn.gd" type="Script" id=8]
+[ext_resource path="res://assets/scenes/levels/total/entities/enemies/foe/slime/guardian.tscn" type="PackedScene" id=9]
 
 [node name="forest" type="Node2D"]
+
+[node name="pool" type="Node" parent="."]
+
+[node name="pills" type="Node" parent="pool"]
+script = ExtResource( 8 )
 
 [node name="map" type="TileMap" parent="."]
 tile_set = ExtResource( 3 )
@@ -31,6 +38,15 @@ tile_set = ExtResource( 6 )
 cell_size = Vector2( 256, 256 )
 format = 1
 tile_data = PoolIntArray( -2490328, 2, 0, -2293713, 2, 0, -1834960, 1, 0, -1769435, 1, 0, -1441771, 0, 0, -1310715, 2, 0, -1048561, 2, 0, -917504, 0, 0, -917463, 0, 0, -917457, 1, 0, -720911, 0, 0, -786401, 1, 0, -720885, 0, 0, -720874, 0, 0, -720839, 2, 0, -458698, 1, 0, -393188, 3, 0, -262165, 0, 0, -262148, 2, 0, -131057, 3, 0, 65526, 2, 0, 327668, 3, 0, 262152, 3, 0, 262206, 2, 0, 458713, 0, 0, 458726, 0, 0, 524237, 0, 0, 458801, 2, 0, 524325, 1, 0, 524341, 2, 0, 655378, 0, 0, 851935, 0, 0, 786439, 0, 0, 786457, 3, 0, 982993, 0, 0, 917517, 3, 0, 1114105, 3, 0, 1179703, 2, 0, 1441836, 0, 0, 1572848, 3, 0, 1572899, 3, 0, 1638454, 2, 0, 1703954, 3, 0, 1900583, 2, 0, 1900597, 0, 0, 1966089, 3, 0, 1966094, 3, 0, 2097145, 3, 0, 2162689, 2, 0, 2228268, 3, 0, 2293787, 3, 0, 2293810, 2, 0 )
+
+[node name="enemies" type="Node2D" parent="map"]
+
+[node name="slimes" type="Node2D" parent="map/enemies"]
+
+[node name="gurdians" type="Node2D" parent="map/enemies/slimes"]
+
+[node name="guardian" parent="map/enemies/slimes/gurdians" instance=ExtResource( 9 )]
+position = Vector2( 163, -275 )
 
 [node name="player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 511, 306 )

@@ -15,7 +15,7 @@ func move():
 	velocity.y = press_power("ui_down", "ui_up")
 	return velocity
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	behaviour.tick(self, blackboard)
-	move_and_slide(velocity * speed.value)
-	velocity = Vector2.ZERO
+	
+	velocity = move_and_slide(velocity * speed.value)#Vector2.ZERO
