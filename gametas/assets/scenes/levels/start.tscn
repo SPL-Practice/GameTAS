@@ -1,14 +1,12 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://assets/scripts/ui/load.gd" type="Script" id=1]
 [ext_resource path="res://assets/scripts/levels/prefabs/items/bonuses/pills/telepill.gd" type="Script" id=2]
 [ext_resource path="res://assets/scenes/levels/total/transition.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/resources/media/images/levels/map/office/shelves/cases/1.png" type="Texture" id=4]
-[ext_resource path="res://assets/resources/media/images/levels/map/office/beanbags/2.png" type="Texture" id=5]
+[ext_resource path="res://assets/resources/media/images/levels/map/office/beanbags/beanbags.tres" type="TileSet" id=5]
 [ext_resource path="res://assets/resources/media/images/levels/map/office/cabinets/1/1.png" type="Texture" id=6]
 [ext_resource path="res://assets/scenes/levels/total/items/bonuses/doors/door.tscn" type="PackedScene" id=7]
-[ext_resource path="res://assets/resources/media/images/levels/map/office/beanbags/3.png" type="Texture" id=8]
-[ext_resource path="res://assets/resources/media/images/levels/map/office/beanbags/1.png" type="Texture" id=9]
 [ext_resource path="res://assets/resources/media/images/levels/map/office/desks/1/2.png" type="Texture" id=10]
 [ext_resource path="res://assets/resources/media/images/levels/map/office/cabinets/2/1.png" type="Texture" id=11]
 [ext_resource path="res://assets/resources/media/images/levels/map/office/cabinets/1/2.png" type="Texture" id=12]
@@ -214,80 +212,6 @@ points = PoolVector2Array( 42.7778, 74.7222, 97.6389, 42.7778, 234.444, 123.778,
 } ]
 1/z_index = 0
 
-[sub_resource type="ConvexPolygonShape2D" id=24]
-points = PoolVector2Array( 38.0176, 79.7408, 71.1952, 48.6368, 108.52, 11.312, 133.403, 17.5328, 147.918, 96.3297, 131.33, 135.728, 77.416, 144.022, 38.0176, 117.066 )
-
-[sub_resource type="ConvexPolygonShape2D" id=25]
-points = PoolVector2Array( 54.9009, 62.9313, 102.594, 21.4592, 129.55, 31.8273, 139.918, 106.477, 125.403, 141.728, 67.3424, 152.096, 23.7969, 116.845 )
-
-[sub_resource type="ConvexPolygonShape2D" id=26]
-points = PoolVector2Array( 25.0176, 80.8881, 51.9744, 53.9313, 91.3728, 10.3856, 110.035, 14.5328, 128.698, 51.8577, 134.918, 103.698, 101.741, 130.654, 72.7104, 138.949, 22.944, 109.918 )
-
-[sub_resource type="TileSet" id=27]
-0/name = "beanbag-3.png 0"
-0/texture = ExtResource( 8 )
-0/tex_offset = Vector2( 0, 0 )
-0/modulate = Color( 1, 1, 1, 1 )
-0/region = Rect2( 37, 72, 188, 165 )
-0/tile_mode = 0
-0/occluder_offset = Vector2( 0, 0 )
-0/navigation_offset = Vector2( 0, 0 )
-0/shape_offset = Vector2( 0, 0 )
-0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-0/shape = SubResource( 24 )
-0/shape_one_way = false
-0/shape_one_way_margin = 1.0
-0/shapes = [ {
-"autotile_coord": Vector2( 0, 0 ),
-"one_way": false,
-"one_way_margin": 1.0,
-"shape": SubResource( 24 ),
-"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
-} ]
-0/z_index = 0
-1/name = "beanbag-2.png 1"
-1/texture = ExtResource( 5 )
-1/tex_offset = Vector2( 0, 0 )
-1/modulate = Color( 1, 1, 1, 1 )
-1/region = Rect2( 45, 66, 178, 178 )
-1/tile_mode = 0
-1/occluder_offset = Vector2( 0, 0 )
-1/navigation_offset = Vector2( 0, 0 )
-1/shape_offset = Vector2( 0, 0 )
-1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-1/shape = SubResource( 25 )
-1/shape_one_way = false
-1/shape_one_way_margin = 1.0
-1/shapes = [ {
-"autotile_coord": Vector2( 0, 0 ),
-"one_way": false,
-"one_way_margin": 1.0,
-"shape": SubResource( 25 ),
-"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
-} ]
-1/z_index = 0
-2/name = "beanbag-1.png 2"
-2/texture = ExtResource( 9 )
-2/tex_offset = Vector2( 0, 0 )
-2/modulate = Color( 1, 1, 1, 1 )
-2/region = Rect2( 50, 75, 161, 163 )
-2/tile_mode = 0
-2/occluder_offset = Vector2( 0, 0 )
-2/navigation_offset = Vector2( 0, 0 )
-2/shape_offset = Vector2( 0, 0 )
-2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-2/shape = SubResource( 26 )
-2/shape_one_way = false
-2/shape_one_way_margin = 1.0
-2/shapes = [ {
-"autotile_coord": Vector2( 0, 0 ),
-"one_way": false,
-"one_way_margin": 1.0,
-"shape": SubResource( 26 ),
-"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
-} ]
-2/z_index = 0
-
 [sub_resource type="ConvexPolygonShape2D" id=28]
 points = PoolVector2Array( 32.9445, 86.4167, 44.0556, 78.0833, 46.1389, 26, 71.1389, 12.1111, 97.5278, 28.0833, 96.8334, 107.25, 57.25, 124.611, 32.25, 106.556 )
 
@@ -413,7 +337,7 @@ tile_data = PoolIntArray( -131075, 0, 0, 262123, 1, 0, 327677, 1, 0 )
 [node name="beanbags" type="TileMap" parent="floor"]
 position = Vector2( 150, -126 )
 scale = Vector2( 0.472189, 0.414342 )
-tile_set = SubResource( 27 )
+tile_set = ExtResource( 5 )
 format = 1
 tile_data = PoolIntArray( -131070, 0, 0, 196599, 2, 0, 196600, 536870913, 0, 196615, 1, 0, 458755, 536870914, 0, 589823, 1, 0, 524289, 536870912, 0 )
 
@@ -454,7 +378,7 @@ drag_margin_bottom = 0.4
 editor_draw_drag_margin = true
 
 [node name="timer" type="Timer" parent="choice"]
-wait_time = 10.0
+wait_time = 30.0
 one_shot = true
 autostart = true
 script = ExtResource( 2 )

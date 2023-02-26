@@ -639,6 +639,7 @@ position = Vector2( 15746, 9540 )
 
 [node name="teleport" parent="map/pills" instance=ExtResource( 13 )]
 position = Vector2( 11399, -8045 )
+scene = "res://assets/scenes/levels/forest/2.tscn"
 
 [node name="player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 511, 306 )
@@ -647,11 +648,11 @@ position = Vector2( 511, 306 )
 current = true
 editor_draw_drag_margin = true
 
+[node name="HUD" parent="." instance=ExtResource( 2 )]
+
 [node name="audio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
 autoplay = true
-
-[node name="HUD" parent="." instance=ExtResource( 2 )]
 
 [connection signal="trophy" from="map/enemies/slimes/gurdians/guardian" to="pool/pills" method="_spawn"]
 [connection signal="trophy" from="map/enemies/slimes/gurdians/guardian2" to="pool/pills" method="_spawn"]
