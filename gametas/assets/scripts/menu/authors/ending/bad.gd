@@ -7,4 +7,4 @@ func _ready():
 	player.play("end")
 
 func _on_menu_pressed():
-	get_tree().change_scene("res://assets/scenes/menu/authors/logo.tscn")
+	print_debug(get_tree().change_scene("res://assets/scenes/menu/authors/logo.tscn"))

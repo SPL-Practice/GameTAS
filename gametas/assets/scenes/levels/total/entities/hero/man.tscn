@@ -29,7 +29,6 @@ position = Vector2( -13, -33 )
 shape = SubResource( 1 )
 
 [node name="look" parent="shape" instance=ExtResource( 1 )]
-frame = 1
 
 [node name="ailments" type="AnimationPlayer" parent="shape"]
 anims/damage = ExtResource( 5 )

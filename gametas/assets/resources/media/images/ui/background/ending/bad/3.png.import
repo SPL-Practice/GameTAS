@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tiles.png-5dda1fdd19e70b858a741126a92f9da2.stex"
+path="res://.import/3.png-9d4333d35fa0089a0e0c56072382723a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/resources/media/images/levels/map/office/tiles.png"
-dest_files=[ "res://.import/tiles.png-5dda1fdd19e70b858a741126a92f9da2.stex" ]
+source_file="res://assets/resources/media/images/ui/background/ending/bad/3.png"
+dest_files=[ "res://.import/3.png-9d4333d35fa0089a0e0c56072382723a.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

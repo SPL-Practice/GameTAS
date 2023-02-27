@@ -1,26 +1,9 @@
-[gd_scene load_steps=119 format=2]
+[gd_scene load_steps=101 format=2]
 
 [ext_resource path="res://assets/resources/media/animations/entities/player/actions.tres" type="AnimationNodeStateMachinePlayback" id=1]
 [ext_resource path="res://assets/scripts/levels/prefabs/entities/player/moves/animation.gd" type="Script" id=2]
-[ext_resource path="res://assets/resources/media/animations/entities/player/left/run_left.tres" type="Animation" id=3]
+[ext_resource path="res://assets/resources/media/animations/entities/player/animation.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/resources/media/animations/entities/player/frames.tres" type="SpriteFrames" id=4]
-[ext_resource path="res://assets/resources/media/animations/entities/player/down/run_down.tres" type="Animation" id=5]
-[ext_resource path="res://assets/resources/themes/frames/player/damage.tres" type="Animation" id=6]
-[ext_resource path="res://assets/resources/media/animations/entities/player/idle/1.tres" type="Animation" id=7]
-[ext_resource path="res://assets/resources/media/animations/entities/player/right/run_right.tres" type="Animation" id=8]
-[ext_resource path="res://assets/resources/media/animations/entities/player/up/run_up.tres" type="Animation" id=9]
-[ext_resource path="res://assets/resources/media/animations/entities/player/down/attack/slash/base_downside_combo3.tres" type="Animation" id=10]
-[ext_resource path="res://assets/resources/media/animations/entities/player/up/attack/slash/base_upside_combo1.tres" type="Animation" id=13]
-[ext_resource path="res://assets/resources/media/animations/entities/player/up/attack/slash/base_upside_combo2.tres" type="Animation" id=14]
-[ext_resource path="res://assets/resources/media/animations/entities/player/up/attack/slash/base_upside_combo3.tres" type="Animation" id=15]
-[ext_resource path="res://assets/resources/media/animations/entities/player/down/attack/slash/base_downside_combo1.tres" type="Animation" id=16]
-[ext_resource path="res://assets/resources/media/animations/entities/player/down/attack/slash/base_downside_combo2.tres" type="Animation" id=17]
-[ext_resource path="res://assets/resources/media/animations/entities/player/left/attack/slash/base_leftside_combo1.tres" type="Animation" id=18]
-[ext_resource path="res://assets/resources/media/animations/entities/player/left/attack/slash/base_leftside_combo2.tres" type="Animation" id=19]
-[ext_resource path="res://assets/resources/media/animations/entities/player/left/attack/slash/base_leftside_combo3.tres" type="Animation" id=20]
-[ext_resource path="res://assets/resources/media/animations/entities/player/right/attack/slash/base_rightside_combo1.tres" type="Animation" id=21]
-[ext_resource path="res://assets/resources/media/animations/entities/player/right/attack/slash/base_rightside_combo2.tres" type="Animation" id=22]
-[ext_resource path="res://assets/resources/media/animations/entities/player/right/attack/slash/base_rightside_combo3.tres" type="Animation" id=23]
 
 [sub_resource type="AnimationNodeAnimation" id=43]
 animation = "base_leftside_attack"
@@ -524,31 +507,16 @@ nodes/speed/node = SubResource( 25 )
 nodes/speed/position = Vector2( 880, 480 )
 nodes/swing/node = SubResource( 102 )
 nodes/swing/position = Vector2( -440, 200 )
-node_connections = [ "speed", 0, "character", "idle", 0, "idle-1", "output", 0, "speed", "character", 0, "dangerous", "character", 1, "passive", "slashes", 0, "combo", "slashes", 1, "swing", "attack", 0, "slashes", "attack", 1, "shooting", "shooting", 0, "projectiles", "shooting", 1, "charge", "dangerous", 0, "attack", "dangerous", 1, "dash", "passive", 0, "run", "passive", 1, "idle" ]
+node_connections = [ "speed", 0, "character", "idle", 0, "idle-1", "output", 0, "speed", "character", 0, "dangerous", "character", 1, "passive", "dangerous", 0, "attack", "dangerous", 1, "dash", "passive", 0, "run", "passive", 1, "idle", "slashes", 0, "combo", "slashes", 1, "swing", "attack", 0, "slashes", "attack", 1, "shooting", "shooting", 0, "projectiles", "shooting", 1, "charge" ]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=52]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=110]
 
-[sub_resource type="Animation" id=32]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/path = NodePath("look:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray(  ),
-"transitions": PoolRealArray(  ),
-"update": 0,
-"values": [  ]
-}
-
 [node name="look" type="AnimatedSprite"]
 frames = ExtResource( 4 )
 animation = "idle_1"
-frame = 6
+frame = 8
 script = ExtResource( 2 )
 
 [node name="tree" type="AnimationTree" parent="."]
@@ -583,24 +551,4 @@ parameters/shooting/current = 0
 parameters/slashes/current = 0
 parameters/speed/scale = 1.0
 
-[node name="animation" type="AnimationPlayer" parent="tree"]
-root_node = NodePath("../../..")
-anims/RESET = SubResource( 32 )
-anims/base_downside_combo1 = ExtResource( 16 )
-anims/base_downside_combo2 = ExtResource( 17 )
-anims/base_downside_combo3 = ExtResource( 10 )
-anims/base_leftside_combo1 = ExtResource( 18 )
-anims/base_leftside_combo2 = ExtResource( 19 )
-anims/base_leftside_combo3 = ExtResource( 20 )
-anims/base_rightside_combo1 = ExtResource( 21 )
-anims/base_rightside_combo2 = ExtResource( 22 )
-anims/base_rightside_combo3 = ExtResource( 23 )
-anims/base_upside_combo1 = ExtResource( 13 )
-anims/base_upside_combo2 = ExtResource( 14 )
-anims/base_upside_combo3 = ExtResource( 15 )
-anims/damage = ExtResource( 6 )
-anims/idle-1 = ExtResource( 7 )
-anims/run_down = ExtResource( 5 )
-anims/run_left = ExtResource( 3 )
-anims/run_right = ExtResource( 8 )
-anims/run_up = ExtResource( 9 )
+[node name="animation" parent="tree" instance=ExtResource( 3 )]
