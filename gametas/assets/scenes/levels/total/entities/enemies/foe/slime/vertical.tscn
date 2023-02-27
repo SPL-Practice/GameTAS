@@ -28,7 +28,7 @@ position = Vector2( 3, -24.5 )
 scale = Vector2( 0.570313, 0.570313 )
 frames = ExtResource( 1 )
 animation = "blue"
-frame = 16
+frame = 12
 playing = true
 
 [node name="slug" type="Area2D" parent="."]
