@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/scripts/levels/behavior/stats/health/spare.gd" type="Script" id=1]
+
+[node name="spare" type="Node"]
+script = ExtResource( 1 )
+
+[node name="invulnerability" type="Timer" parent="."]
+wait_time = 0.1
+
+[connection signal="timeout" from="invulnerability" to="." method="_on_invulnerability_timeout"]

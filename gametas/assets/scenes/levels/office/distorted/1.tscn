@@ -1,0 +1,240 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://assets/resources/media/images/levels/map/office/atlas.tres" type="TileSet" id=1]
+[ext_resource path="res://assets/scenes/levels/total/entities/hero/man.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/scenes/total/ui/hud/levels/usual.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/scenes/levels/total/items/bonuses/pills/telepill.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/scenes/levels/total/entities/enemies/foe/spikes.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/scripts/levels/prefabs/spawn.gd" type="Script" id=6]
+[ext_resource path="res://assets/scenes/levels/total/items/bonuses/pills/buffs/health.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/scenes/levels/total/items/bonuses/pills/aid/1.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/scenes/levels/total/items/bonuses/pills/buffs/power.tscn" type="PackedScene" id=9]
+[ext_resource path="res://assets/resources/media/ost/music/game/play/distorted.ogg" type="AudioStream" id=10]
+[ext_resource path="res://assets/scenes/levels/total/items/bonuses/pills/buffs/sanity.tscn" type="PackedScene" id=11]
+[ext_resource path="res://assets/scenes/levels/total/entities/enemies/foe/slime/vertical.tscn" type="PackedScene" id=12]
+[ext_resource path="res://assets/scenes/levels/total/entities/enemies/foe/slime/horizontal.tscn" type="PackedScene" id=13]
+[ext_resource path="res://assets/scenes/levels/total/items/bonuses/pills/buffs/speed.tscn" type="PackedScene" id=14]
+[ext_resource path="res://assets/scenes/levels/total/items/bonuses/pills/buffs/spare.tscn" type="PackedScene" id=15]
+
+[node name="distortion" type="Node2D"]
+
+[node name="pool" type="Node" parent="."]
+
+[node name="pills" type="Node" parent="pool"]
+script = ExtResource( 6 )
+prefab = ExtResource( 8 )
+
+[node name="map" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 128, 128 )
+cell_quadrant_size = 32
+format = 1
+tile_data = PoolIntArray( -983039, 1, 0, -851974, 1, 0, -851971, 1, 0, -917504, 1, 0, -917502, 1, 0, -917501, 1, 0, -917500, 1, 0, -917499, 1, 0, -786438, 1, 0, -786435, 11, 0, -786434, 1, 0, -851968, 1, 0, -851964, 1, 0, -851963, 1, 0, -720903, 1, 0, -720902, 1, 0, -720901, 1, 0, -720897, 16, 0, -786431, 6, 0, -786430, 10, 0, -786429, 6, 0, -786426, 1, 0, -786425, 1, 0, -786423, 1, 0, -655368, 1, 0, -655367, 11, 0, -655366, 11, 0, -655365, 6, 0, -655363, 16, 0, -655362, 16, 0, -655361, 16, 0, -720896, 8, 0, -720895, 9, 0, -720894, 10, 0, -720893, 11, 0, -720887, 1, 0, -720886, 1, 0, -589835, 1, 0, -589834, 1, 0, -589833, 1, 0, -589830, 6, 0, -589828, 11, 0, -589827, 8, 0, -589826, 16, 0, -589825, 11, 0, -655360, 8, 0, -655359, 11, 0, -655358, 8, 0, -655357, 11, 0, -655356, 10, 0, -655355, 10, 0, -655352, 11, 0, -655351, 11, 0, -655350, 1, 0, -655349, 1, 0, -655348, 1, 0, -524298, 11, 0, -524297, 11, 0, -524296, 6, 0, -524295, 11, 0, -524294, 11, 0, -524291, 8, 0, -524290, 6, 0, -589824, 11, 0, -589822, 8, 0, -589821, 8, 0, -589820, 9, 0, -589819, 11, 0, -589818, 11, 0, -589817, 8, 0, -589816, 11, 0, -589815, 11, 0, -589813, 1, 0, -458765, 1, 0, -458763, 0, 0, -458761, 6, 0, -458760, 6, 0, -458759, 11, 0, -458758, 11, 0, -458757, 11, 0, -458756, 10, 0, -458753, 12, 0, -524288, 15, 0, -524287, 18, 0, -524286, 18, 0, -524285, 11, 0, -524283, 11, 0, -524282, 10, 0, -524281, 10, 0, -524279, 11, 0, -524278, 11, 0, -524277, 1, 0, -393228, 11, 0, -393227, 11, 0, -393226, 11, 0, -393225, 11, 0, -393224, 11, 0, -393223, 11, 0, -393222, 6, 0, -393221, 16, 0, -393220, 18, 0, -393219, 16, 0, -393218, 0, 0, -393217, 13, 0, -458752, 14, 0, -458751, 10, 0, -458750, 18, 0, -458749, 11, 0, -458748, 11, 0, -458747, 19, 0, -458746, 19, 0, -458745, 18, 0, -458744, 11, 0, -458742, 11, 0, -458741, 11, 0, -458740, 11, 0, -458739, 1, 0, -327694, 1, 0, -327691, 6, 0, -327690, 11, 0, -327689, 18, 0, -327687, 18, 0, -327686, 7, 0, -327685, 19, 0, -327684, 19, 0, -327683, 16, 0, -327682, 16, 0, -327681, 11, 0, -393216, 11, 0, -393213, 6, 0, -393212, 0, 0, -393211, 19, 0, -393210, 19, 0, -393209, 11, 0, -393208, 11, 0, -393207, 10, 0, -393205, 6, 0, -393204, 11, 0, -393200, 1, 0, -262159, 1, 0, -262158, 1, 0, -262155, 6, 0, -262154, 11, 0, -262153, 18, 0, -262152, 18, 0, -262151, 19, 0, -262150, 7, 0, -262149, 18, 0, -262148, 19, 0, -262147, 16, 0, -262146, 16, 0, -262145, 11, 0, -327680, 9, 0, -327679, 6, 0, -327678, 9, 0, -327677, 6, 0, -327676, 0, 0, -327675, 19, 0, -327674, 8, 0, -327673, 19, 0, -327669, 6, 0, -327668, 6, 0, -327666, 11, 0, -196623, 1, 0, -196622, 1, 0, -196620, 10, 0, -196618, 16, 0, -196617, 19, 0, -196616, 12, 0, -196615, 15, 0, -196613, 7, 0, -196612, 7, 0, -196611, 7, 0, -196610, 11, 0, -196609, 11, 0, -262144, 10, 0, -262143, 11, 0, -262142, 17, 0, -262141, 17, 0, -262140, 17, 0, -262139, 6, 0, -262138, 8, 0, -262136, 19, 0, -262135, 10, 0, -262134, 6, 0, -262133, 6, 0, -262132, 10, 0, -262130, 11, 0, -131087, 1, 0, -131086, 1, 0, -131084, 19, 0, -131083, 16, 0, -131082, 17, 0, -131081, 17, 0, -131080, 13, 0, -131079, 14, 0, -131078, 5, 0, -131077, 0, 0, -131076, 17, 0, -131075, 11, 0, -131074, 11, 0, -131073, 8, 0, -196607, 11, 0, -196606, 17, 0, -196605, 17, 0, -196602, 18, 0, -196601, 19, 0, -196600, 19, 0, -196599, 19, 0, -196598, 19, 0, -196596, 19, 0, -196594, 11, 0, -65550, 1, 0, -65548, 19, 0, -65547, 17, 0, -65546, 17, 0, -65545, 11, 0, -65544, 11, 0, -65543, 4, 0, -65542, 16, 0, -65541, 19, 0, -65540, 18, 0, -65539, 18, 0, -65538, 11, 0, -65537, 8, 0, -131071, 17, 0, -131070, 8, 0, -131069, 17, 0, -131067, 10, 0, -131065, 19, 0, -131062, 10, 0, -131061, 19, 0, -131060, 19, 0, -131056, 11, 0, -15, 1, 0, -12, 19, 0, -11, 11, 0, -10, 11, 0, -8, 19, 0, -7, 19, 0, -6, 0, 0, -5, 19, 0, -4, 17, 0, -2, 7, 0, -1, 10, 0, -65535, 7, 0, -65534, 5, 0, -65533, 7, 0, -65532, 10, 0, -65530, 3, 0, -65529, 19, 0, -65528, 0, 0, -65527, 12, 0, -65526, 15, 0, -65524, 10, 0, -65523, 11, 0, -65519, 1, 0, 65524, 1, 0, 65525, 11, 0, 65526, 17, 0, 65527, 17, 0, 65528, 19, 0, 65529, 19, 0, 65530, 7, 0, 65531, 9, 0, 65532, 17, 0, 65533, 10, 0, 65534, 7, 0, 65535, 0, 0, 0, 10, 0, 1, 4, 0, 2, 2, 0, 4, 10, 0, 5, 9, 0, 6, 4, 0, 7, 2, 0, 8, 19, 0, 9, 19, 0, 10, 14, 0, 11, 1, 0, 12, 11, 0, 13, 8, 0, 16, 1, 0, 17, 1, 0, 131060, 1, 0, 131063, 17, 0, 131065, 19, 0, 131067, 17, 0, 131068, 18, 0, 131069, 9, 0, 131070, 0, 0, 131071, 10, 0, 65536, 10, 0, 65537, 7, 0, 65538, 7, 0, 65539, 0, 0, 65540, 10, 0, 65541, 11, 0, 65542, 11, 0, 65543, 11, 0, 65544, 0, 0, 65545, 19, 0, 65546, 11, 0, 65547, 11, 0, 65548, 8, 0, 65549, 8, 0, 65553, 1, 0, 196598, 1, 0, 196599, 0, 0, 196600, 19, 0, 196601, 19, 0, 196602, 7, 0, 196603, 7, 0, 196604, 18, 0, 196605, 9, 0, 196606, 18, 0, 196607, 18, 0, 131072, 0, 0, 131073, 3, 0, 131074, 0, 0, 131075, 0, 0, 131076, 11, 0, 131077, 9, 0, 131078, 11, 0, 131079, 8, 0, 131080, 0, 0, 131081, 10, 0, 131082, 11, 0, 131084, 8, 0, 131085, 8, 0, 262134, 1, 0, 262135, 11, 0, 262136, 0, 0, 262137, 7, 0, 262138, 7, 0, 262139, 10, 0, 262140, 9, 0, 262141, 18, 0, 262142, 18, 0, 262143, 0, 0, 196609, 4, 0, 196610, 11, 0, 196611, 9, 0, 196612, 8, 0, 196613, 11, 0, 196614, 11, 0, 196616, 1, 0, 196618, 11, 0, 196619, 6, 0, 196621, 6, 0, 196622, 6, 0, 196623, 1, 0, 327672, 11, 0, 327673, 11, 0, 327674, 11, 0, 327676, 9, 0, 327677, 11, 0, 327678, 0, 0, 327679, 0, 0, 262144, 0, 0, 262145, 9, 0, 262146, 0, 0, 262147, 0, 0, 262148, 8, 0, 262149, 0, 0, 262151, 0, 0, 262152, 18, 0, 262153, 7, 0, 262154, 7, 0, 262156, 6, 0, 262157, 6, 0, 262158, 1, 0, 393210, 1, 0, 393213, 0, 0, 393215, 12, 0, 327680, 11, 0, 327681, 15, 0, 327682, 0, 0, 327683, 18, 0, 327684, 11, 0, 327686, 11, 0, 327687, 10, 0, 327688, 11, 0, 327689, 7, 0, 327692, 11, 0, 458747, 1, 0, 458749, 1, 0, 458751, 11, 0, 393216, 16, 0, 393217, 11, 0, 393219, 10, 0, 393221, 18, 0, 393222, 18, 0, 393224, 7, 0, 393225, 7, 0, 393227, 11, 0, 393228, 11, 0, 524283, 1, 0, 524287, 13, 0, 458752, 11, 0, 458753, 14, 0, 458756, 18, 0, 458758, 10, 0, 458760, 7, 0, 458761, 11, 0, 458762, 1, 0, 589823, 10, 0, 524290, 1, 0, 524292, 1, 0, 524293, 1, 0, 524294, 18, 0, 524295, 1, 0, 524296, 1, 0 )
+
+[node name="enemies" type="Node2D" parent="map"]
+
+[node name="spikes" type="Node2D" parent="map/enemies"]
+
+[node name="1" parent="map/enemies/spikes" instance=ExtResource( 5 )]
+position = Vector2( -206, 211 )
+rotation = -1.57079
+scale = Vector2( 3.24872, 3.80886 )
+
+[node name="2" parent="map/enemies/spikes" instance=ExtResource( 5 )]
+position = Vector2( -631, 475 )
+rotation = -1.57079
+scale = Vector2( 3.24872, 3.80886 )
+
+[node name="3" parent="map/enemies/spikes" instance=ExtResource( 5 )]
+position = Vector2( -726, -2.00003 )
+rotation = -1.57079
+scale = Vector2( 3.24872, 3.80886 )
+
+[node name="4" parent="map/enemies/spikes" instance=ExtResource( 5 )]
+position = Vector2( -7, -359 )
+rotation = -1.57079
+scale = Vector2( 3.24872, 3.80886 )
+
+[node name="5" parent="map/enemies/spikes" instance=ExtResource( 5 )]
+position = Vector2( 547, -175 )
+rotation = -1.57079
+scale = Vector2( 3.24872, 3.80886 )
+
+[node name="6" parent="map/enemies/spikes" instance=ExtResource( 5 )]
+position = Vector2( 656, 889 )
+rotation = -1.57079
+scale = Vector2( 3.24872, 3.80886 )
+
+[node name="7" parent="map/enemies/spikes" instance=ExtResource( 5 )]
+position = Vector2( 1252, -595 )
+rotation = -1.57079
+scale = Vector2( 3.24872, 3.80886 )
+
+[node name="8" parent="map/enemies/spikes" instance=ExtResource( 5 )]
+position = Vector2( -974, -775 )
+rotation = -1.57079
+scale = Vector2( 3.24872, 3.80886 )
+
+[node name="9" parent="map/enemies/spikes" instance=ExtResource( 5 )]
+position = Vector2( -260, -1092 )
+rotation = -1.57079
+scale = Vector2( 3.24872, 3.80886 )
+
+[node name="10" parent="map/enemies/spikes" instance=ExtResource( 5 )]
+position = Vector2( 592, -1139 )
+rotation = -1.57079
+scale = Vector2( 3.24872, 3.80886 )
+
+[node name="slimes" type="Node2D" parent="map/enemies"]
+
+[node name="vertical" type="Node2D" parent="map/enemies/slimes"]
+
+[node name="1" parent="map/enemies/slimes/vertical" instance=ExtResource( 12 )]
+position = Vector2( -189, 587 )
+
+[node name="2" parent="map/enemies/slimes/vertical" instance=ExtResource( 12 )]
+position = Vector2( -933, 212 )
+
+[node name="3" parent="map/enemies/slimes/vertical" instance=ExtResource( 12 )]
+position = Vector2( 1105, 559 )
+
+[node name="4" parent="map/enemies/slimes/vertical" instance=ExtResource( 12 )]
+position = Vector2( 436, 712 )
+
+[node name="5" parent="map/enemies/slimes/vertical" instance=ExtResource( 13 )]
+position = Vector2( 835, -134 )
+
+[node name="6" parent="map/enemies/slimes/vertical" instance=ExtResource( 12 )]
+position = Vector2( -1216, -1094 )
+
+[node name="7" parent="map/enemies/slimes/vertical" instance=ExtResource( 12 )]
+position = Vector2( -607, -909 )
+
+[node name="8" parent="map/enemies/slimes/vertical" instance=ExtResource( 12 )]
+position = Vector2( -284, -1446 )
+
+[node name="9" parent="map/enemies/slimes/vertical" instance=ExtResource( 12 )]
+position = Vector2( 183, -535 )
+
+[node name="10" parent="map/enemies/slimes/vertical" instance=ExtResource( 12 )]
+position = Vector2( 1485, -423 )
+
+[node name="horizontal" type="Node2D" parent="map/enemies/slimes"]
+
+[node name="1" parent="map/enemies/slimes/horizontal" instance=ExtResource( 13 )]
+position = Vector2( -213, -184 )
+
+[node name="2" parent="map/enemies/slimes/horizontal" instance=ExtResource( 13 )]
+position = Vector2( 657, -1352 )
+
+[node name="3" parent="map/enemies/slimes/horizontal" instance=ExtResource( 13 )]
+position = Vector2( 347, 173 )
+
+[node name="4" parent="map/enemies/slimes/horizontal" instance=ExtResource( 13 )]
+position = Vector2( 732, -730 )
+
+[node name="5" parent="map/enemies/slimes/horizontal" instance=ExtResource( 13 )]
+position = Vector2( 1105, 113 )
+
+[node name="6" parent="map/enemies/slimes/horizontal" instance=ExtResource( 13 )]
+position = Vector2( 1661, 64 )
+
+[node name="7" parent="map/enemies/slimes/horizontal" instance=ExtResource( 13 )]
+position = Vector2( 1073, -947 )
+
+[node name="8" parent="map/enemies/slimes/horizontal" instance=ExtResource( 13 )]
+position = Vector2( 212, -1021 )
+
+[node name="9" parent="map/enemies/slimes/horizontal" instance=ExtResource( 13 )]
+position = Vector2( -1370, -457 )
+
+[node name="10" parent="map/enemies/slimes/horizontal" instance=ExtResource( 13 )]
+position = Vector2( -747, -342 )
+
+[node name="pills" type="Node2D" parent="map"]
+position = Vector2( -7, -67 )
+
+[node name="sanity" type="Node2D" parent="map/pills"]
+
+[node name="up" parent="map/pills/sanity" instance=ExtResource( 7 )]
+position = Vector2( -348, -502 )
+
+[node name="up2" parent="map/pills/sanity" instance=ExtResource( 7 )]
+position = Vector2( 1421, 417 )
+
+[node name="up3" parent="map/pills/sanity" instance=ExtResource( 7 )]
+position = Vector2( -536, 88 )
+
+[node name="up4" parent="map/pills/sanity" instance=ExtResource( 7 )]
+position = Vector2( 606, 105 )
+
+[node name="up5" parent="map/pills/sanity" instance=ExtResource( 7 )]
+position = Vector2( 190, -1799 )
+
+[node name="power" type="Node2D" parent="map/pills"]
+
+[node name="pill" parent="map/pills/power" instance=ExtResource( 9 )]
+position = Vector2( 480, -663 )
+
+[node name="speed" type="Node2D" parent="map/pills"]
+
+[node name="pill" parent="map/pills/speed" instance=ExtResource( 14 )]
+position = Vector2( 761, 832 )
+
+[node name="pill2" parent="map/pills/speed" instance=ExtResource( 14 )]
+position = Vector2( -1614, -33 )
+
+[node name="time" type="Node2D" parent="map/pills"]
+
+[node name="pill" parent="map/pills/time" instance=ExtResource( 11 )]
+position = Vector2( 1780, -608 )
+
+[node name="pill2" parent="map/pills/time" instance=ExtResource( 11 )]
+position = Vector2( -997, -580 )
+
+[node name="pill3" parent="map/pills/time" instance=ExtResource( 11 )]
+position = Vector2( -448, -1337 )
+
+[node name="spare" type="Node2D" parent="map/pills"]
+
+[node name="pill" parent="map/pills/spare" instance=ExtResource( 15 )]
+position = Vector2( 190, -2554 )
+
+[node name="audio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+autoplay = true
+
+[node name="player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 435, 404 )
+
+[node name="camera" type="Camera2D" parent="player"]
+position = Vector2( -13.903, -32.0386 )
+current = true
+editor_draw_drag_margin = true
+
+[node name="HUD" parent="." instance=ExtResource( 3 )]
+
+[node name="next" parent="." instance=ExtResource( 4 )]
+position = Vector2( 64, 829 )
+scene = "res://assets/scenes/levels/forest/1.tscn"
+
+[connection signal="trophy" from="map/enemies/slimes/vertical/1" to="pool/pills" method="_spawn"]
+[connection signal="trophy" from="map/enemies/slimes/vertical/2" to="pool/pills" method="_spawn"]
+[connection signal="trophy" from="map/enemies/slimes/vertical/3" to="pool/pills" method="_spawn"]
+[connection signal="trophy" from="map/enemies/slimes/vertical/4" to="pool/pills" method="_spawn"]
+[connection signal="trophy" from="map/enemies/slimes/vertical/5" to="pool/pills" method="_spawn"]
+[connection signal="trophy" from="map/enemies/slimes/vertical/6" to="pool/pills" method="_spawn"]
+[connection signal="trophy" from="map/enemies/slimes/vertical/7" to="pool/pills" method="_spawn"]
+[connection signal="trophy" from="map/enemies/slimes/vertical/8" to="pool/pills" method="_spawn"]
+[connection signal="trophy" from="map/enemies/slimes/vertical/9" to="pool/pills" method="_spawn"]
+[connection signal="trophy" from="map/enemies/slimes/vertical/10" to="pool/pills" method="_spawn"]
+[connection signal="trophy" from="map/enemies/slimes/horizontal/1" to="pool/pills" method="_spawn"]
+[connection signal="trophy" from="map/enemies/slimes/horizontal/2" to="pool/pills" method="_spawn"]
+[connection signal="trophy" from="map/enemies/slimes/horizontal/3" to="pool/pills" method="_spawn"]
+[connection signal="trophy" from="map/enemies/slimes/horizontal/4" to="pool/pills" method="_spawn"]
+[connection signal="trophy" from="map/enemies/slimes/horizontal/5" to="pool/pills" method="_spawn"]
+[connection signal="trophy" from="map/enemies/slimes/horizontal/6" to="pool/pills" method="_spawn"]
+[connection signal="trophy" from="map/enemies/slimes/horizontal/7" to="pool/pills" method="_spawn"]
+[connection signal="trophy" from="map/enemies/slimes/horizontal/8" to="pool/pills" method="_spawn"]
+[connection signal="trophy" from="map/enemies/slimes/horizontal/9" to="pool/pills" method="_spawn"]
+[connection signal="trophy" from="map/enemies/slimes/horizontal/10" to="pool/pills" method="_spawn"]

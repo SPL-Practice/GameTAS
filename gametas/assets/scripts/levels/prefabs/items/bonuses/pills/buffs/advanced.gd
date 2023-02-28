@@ -1,0 +1,13 @@
+extends Area2D
+
+export (int) var value = 5
+export (String) var path
+
+onready var audio = $audio
+
+func _on_pill_body_entered(body):
+	var stat = body.get_node(path)
+	if (is_instance_valid(stat)):
+		stat.increase(value)
+		audio.play()
+	queue_free()

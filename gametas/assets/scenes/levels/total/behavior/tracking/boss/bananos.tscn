@@ -1,0 +1,240 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://addons/godot-behavior-tree-plugin/sequence.gd" type="Script" id=1]
+[ext_resource path="res://addons/godot-behavior-tree-plugin/selector.gd" type="Script" id=2]
+[ext_resource path="res://assets/scripts/levels/prefabs/entities/enemies/bosses/bananos/moves/run_down.gd" type="Script" id=3]
+[ext_resource path="res://assets/scripts/levels/prefabs/entities/enemies/bosses/bananos/moves/spin_right.gd" type="Script" id=4]
+[ext_resource path="res://assets/scripts/levels/prefabs/entities/enemies/bosses/bananos/moves/death.gd" type="Script" id=5]
+[ext_resource path="res://assets/scripts/levels/prefabs/entities/enemies/bosses/bananos/moves/run_right.gd" type="Script" id=6]
+[ext_resource path="res://assets/scripts/levels/prefabs/entities/enemies/bosses/bananos/change_phase.gd" type="Script" id=7]
+
+[node name="battle" type="Node"]
+script = ExtResource( 1 )
+
+[node name="phases" type="Node" parent="."]
+script = ExtResource( 2 )
+
+[node name="1" type="Node" parent="phases"]
+script = ExtResource( 1 )
+
+[node name="calm" type="Node" parent="phases/1"]
+script = ExtResource( 7 )
+next_hp = 48
+
+[node name="moveset" type="Node" parent="phases/1"]
+script = ExtResource( 2 )
+
+[node name="run_right" type="Node" parent="phases/1/moveset"]
+script = ExtResource( 6 )
+next = "run_down"
+
+[node name="run_down" type="Node" parent="phases/1/moveset"]
+script = ExtResource( 3 )
+speed = 250
+finish = 25000
+next = "run_left"
+
+[node name="run_left" type="Node" parent="phases/1/moveset"]
+script = ExtResource( 6 )
+speed = -500
+finish = 0
+next = "spin_right"
+
+[node name="spin_right" type="Node" parent="phases/1/moveset"]
+script = ExtResource( 4 )
+speed = Vector2( 500, -250 )
+finish = Vector2( 50000, 0 )
+next = "return_left"
+
+[node name="return_left" type="Node" parent="phases/1/moveset"]
+script = ExtResource( 6 )
+speed = -500
+finish = 0
+next = "return_down"
+
+[node name="return_down" type="Node" parent="phases/1/moveset"]
+script = ExtResource( 3 )
+speed = 250
+finish = 25000
+next = "return_right"
+
+[node name="return_right" type="Node" parent="phases/1/moveset"]
+script = ExtResource( 6 )
+next = "spin_left"
+
+[node name="spin_left" type="Node" parent="phases/1/moveset"]
+script = ExtResource( 4 )
+speed = Vector2( -500, -250 )
+finish = Vector2( 0, 0 )
+next = "run_right"
+breakdown = 0
+
+[node name="2" type="Node" parent="phases"]
+script = ExtResource( 1 )
+
+[node name="dance" type="Node" parent="phases/2"]
+script = ExtResource( 7 )
+next_phase = 2
+next_hp = 36
+
+[node name="moveset" type="Node" parent="phases/2"]
+script = ExtResource( 2 )
+
+[node name="spiral_1_right" type="Node" parent="phases/2/moveset"]
+script = ExtResource( 6 )
+next = "spiral_1_down"
+
+[node name="spiral_1_down" type="Node" parent="phases/2/moveset"]
+script = ExtResource( 3 )
+speed = 250
+finish = 25000
+next = "spiral_1_left"
+
+[node name="spiral_1_left" type="Node" parent="phases/2/moveset"]
+script = ExtResource( 6 )
+speed = -500
+finish = 0
+next = "spiral_1_up"
+
+[node name="spiral_1_up" type="Node" parent="phases/2/moveset"]
+script = ExtResource( 3 )
+speed = -250
+finish = 8250
+next = "spiral_2_right"
+
+[node name="spiral_2_right" type="Node" parent="phases/2/moveset"]
+script = ExtResource( 6 )
+finish = 41500
+next = "spiral_2_down"
+
+[node name="spiral_2_down" type="Node" parent="phases/2/moveset"]
+script = ExtResource( 3 )
+speed = 250
+finish = 16500
+next = "spiral_2_left"
+
+[node name="spiral_2_left" type="Node" parent="phases/2/moveset"]
+script = ExtResource( 6 )
+speed = -500
+finish = 8000
+next = "tossing"
+
+[node name="tossing" type="Node" parent="phases/2/moveset"]
+script = ExtResource( 4 )
+speed = Vector2( -1600, 1700 )
+finish = Vector2( 0, 25000 )
+next = "tossing_1_right"
+
+[node name="tossing_1_right" type="Node" parent="phases/2/moveset"]
+script = ExtResource( 6 )
+speed = 1000
+next = "tossing_1_up"
+
+[node name="tossing_1_up" type="Node" parent="phases/2/moveset"]
+script = ExtResource( 3 )
+speed = -250
+finish = 16500
+next = "tossing_2_left"
+
+[node name="tossing_2_left" type="Node" parent="phases/2/moveset"]
+script = ExtResource( 6 )
+speed = -1000
+finish = 0
+next = "tossing_2_up"
+
+[node name="tossing_2_up" type="Node" parent="phases/2/moveset"]
+script = ExtResource( 3 )
+speed = -250
+finish = 8250
+next = "tossing_3_right"
+
+[node name="tossing_3_right" type="Node" parent="phases/2/moveset"]
+script = ExtResource( 6 )
+speed = 1000
+next = "tossing_3_up"
+
+[node name="tossing_3_up" type="Node" parent="phases/2/moveset"]
+script = ExtResource( 3 )
+speed = -250
+finish = 0
+next = "tossing_4_left"
+
+[node name="tossing_4_left" type="Node" parent="phases/2/moveset"]
+script = ExtResource( 6 )
+speed = -1000
+finish = 0
+next = "spiral_1_right"
+
+[node name="3" type="Node" parent="phases"]
+script = ExtResource( 1 )
+
+[node name="anger" type="Node" parent="phases/3"]
+script = ExtResource( 7 )
+next_phase = 3
+next_hp = 0
+
+[node name="moveset" type="Node" parent="phases/3"]
+script = ExtResource( 2 )
+
+[node name="spin_down_1" type="Node" parent="phases/3/moveset"]
+script = ExtResource( 4 )
+speed = Vector2( 330, 500 )
+finish = Vector2( 16500, 25000 )
+next = "spin_up"
+
+[node name="spin_up" type="Node" parent="phases/3/moveset"]
+script = ExtResource( 4 )
+speed = Vector2( 330, -500 )
+finish = Vector2( 33000, 0 )
+next = "spin_down_2"
+
+[node name="spin_down_2" type="Node" parent="phases/3/moveset"]
+script = ExtResource( 4 )
+speed = Vector2( 340, 500 )
+finish = Vector2( 50000, 25000 )
+next = "run_left"
+
+[node name="run_left" type="Node" parent="phases/3/moveset"]
+script = ExtResource( 6 )
+speed = -340
+finish = 33000
+next = "return_up"
+
+[node name="return_up" type="Node" parent="phases/3/moveset"]
+script = ExtResource( 4 )
+speed = Vector2( -330, -500 )
+finish = Vector2( 16500, 0 )
+next = "return_down"
+
+[node name="return_down" type="Node" parent="phases/3/moveset"]
+script = ExtResource( 4 )
+speed = Vector2( -330, 500 )
+finish = Vector2( 0, 25000 )
+next = "spin_right"
+
+[node name="spin_right" type="Node" parent="phases/3/moveset"]
+script = ExtResource( 4 )
+speed = Vector2( 1000, -170 )
+finish = Vector2( 50000, 16500 )
+next = "spin_left"
+
+[node name="spin_left" type="Node" parent="phases/3/moveset"]
+script = ExtResource( 4 )
+speed = Vector2( -1000, -170 )
+finish = Vector2( 0, 8000 )
+next = "return_right"
+
+[node name="return_right" type="Node" parent="phases/3/moveset"]
+script = ExtResource( 4 )
+speed = Vector2( 1000, -160 )
+finish = Vector2( 50000, 0 )
+next = "return_left"
+
+[node name="return_left" type="Node" parent="phases/3/moveset"]
+script = ExtResource( 6 )
+speed = -500
+finish = 0
+next = "spin_down_1"
+
+[node name="end" type="Node" parent="phases"]
+script = ExtResource( 5 )

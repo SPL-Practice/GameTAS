@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/scripts/menu/config.gd" type="Script" id=1]
+[ext_resource path="res://assets/resources/media/animations/scenes/fast_openning.tres" type="Animation" id=2]
+
+[sub_resource type="Animation" id=1]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("background:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ) ]
+}
+
+[node name="transition" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="background" type="ColorRect" parent="."]
+margin_left = -7.0
+margin_top = -2.0
+margin_right = 1033.0
+margin_bottom = 604.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="animation" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 1 )
+anims/open_scene = ExtResource( 2 )

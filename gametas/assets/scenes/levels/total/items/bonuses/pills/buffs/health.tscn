@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/scripts/levels/prefabs/items/bonuses/pills/buffs/health.gd" type="Script" id=1]
+[ext_resource path="res://assets/resources/media/animations/items/bonuses/pill/frames.tres" type="SpriteFrames" id=2]
+
+[sub_resource type="CircleShape2D" id=1]
+
+[node name="up" type="Area2D"]
+script = ExtResource( 1 )
+path = "stats/health/max"
+
+[node name="shape" type="CollisionShape2D" parent="."]
+position = Vector2( 3, 0 )
+shape = SubResource( 1 )
+
+[node name="look" type="AnimatedSprite" parent="shape"]
+position = Vector2( -1, 1 )
+scale = Vector2( 0.79375, 0.79375 )
+frames = ExtResource( 2 )
+frame = 2
+playing = true
+
+[connection signal="body_entered" from="." to="." method="_on_pill_body_entered"]

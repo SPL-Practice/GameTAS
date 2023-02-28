@@ -2,22 +2,40 @@ extends Control
 
 onready var sanity_over = $fill/over
 onready var sanity_under = $fill/under
-onready var update_tween = $updater
+onready var updater = $updater
 
-onready var character = get_parent().get_parent().get_node("player")
+onready var shaker = $shaker
+
+export (String) var path = "player"
+export (int) var depth = 4
+
+var health
+
+func _search(child):
+	for node in depth:
+		child = child.get_parent()
+	return child
 
 func _ready():
-	print(character.name)
-	character.connect("health_updated", self, "_on_health_updated")
-	character.connect("max_health_updated", self, "_on_max_health_updated")
-	_on_max_health_updated(character.max_health)
-	_on_health_updated(character.max_health)
-
-func _on_health_updated(health):
-	sanity_over.value = health
-	update_tween.interpolate_property(sanity_under, "value", sanity_under.value, health, 0.25, Tween.TRANS_SINE, Tween.EASE_IN_OUT, 0.25)
-	update_tween.start()
+	health = _search(self).get_node(path).health
+	health.connect("value_updated", self, "_on_health_updated")
+	health.get_node("max").connect("value_updated", self, "_on_max_health_updated")
+	health.connect("damage", self, "_on_damage")
 	
-func _on_max_health_updated(max_health):
-	sanity_over.max_value = max_health
-	sanity_under.max_value = max_health
+	_on_max_health_updated(health.maximum)
+	_on_health_updated(health.maximum)
+
+func _on_health_updated(value):
+	sanity_over.value = value
+	updater.interpolate_property(sanity_under, "value", sanity_under.value, value, 0.25, Tween.TRANS_SINE, Tween.EASE_IN_OUT, 0.25)
+	updater.start()
+
+func _on_max_health_updated(value):
+	sanity_over.max_value = value
+	sanity_under.max_value = value
+
+func _on_damage():
+	shaker.apply_shake()
+
+func _process(delta):
+	self.rect_position = shaker.shake(delta)

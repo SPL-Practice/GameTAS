@@ -1,0 +1,69 @@
+[gd_resource type="AnimationNodeBlendTree" load_steps=13 format=2]
+
+[sub_resource type="AnimationNodeTransition" id=1]
+input_count = 2
+input_0/name = "moves"
+input_0/auto_advance = false
+input_1/name = "scene"
+input_1/auto_advance = false
+
+[sub_resource type="AnimationNodeAnimation" id=3]
+animation = "death"
+
+[sub_resource type="AnimationNodeAnimation" id=4]
+animation = "run_left"
+
+[sub_resource type="AnimationNodeAnimation" id=5]
+animation = "run_backward"
+
+[sub_resource type="AnimationNodeAnimation" id=6]
+animation = "run_forward"
+
+[sub_resource type="AnimationNodeAnimation" id=7]
+animation = "run_right"
+
+[sub_resource type="AnimationNodeAnimation" id=8]
+animation = "spin"
+
+[sub_resource type="AnimationNodeAnimation" id=9]
+animation = "spin"
+
+[sub_resource type="AnimationNodeAnimation" id=10]
+animation = "spin"
+
+[sub_resource type="AnimationNodeAnimation" id=11]
+animation = "spin"
+
+[sub_resource type="AnimationNodeAnimation" id=12]
+animation = "spin"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=2]
+blend_point_0/node = SubResource( 4 )
+blend_point_0/pos = Vector2( -1, 0 )
+blend_point_1/node = SubResource( 5 )
+blend_point_1/pos = Vector2( 0, 1 )
+blend_point_2/node = SubResource( 6 )
+blend_point_2/pos = Vector2( 0, -1 )
+blend_point_3/node = SubResource( 7 )
+blend_point_3/pos = Vector2( 1, 0 )
+blend_point_4/node = SubResource( 8 )
+blend_point_4/pos = Vector2( 0, 0 )
+blend_point_5/node = SubResource( 9 )
+blend_point_5/pos = Vector2( 0.5, 0.5 )
+blend_point_6/node = SubResource( 10 )
+blend_point_6/pos = Vector2( 0.5, -0.5 )
+blend_point_7/node = SubResource( 11 )
+blend_point_7/pos = Vector2( -0.5, -0.5 )
+blend_point_8/node = SubResource( 12 )
+blend_point_8/pos = Vector2( -0.5, 0.5 )
+blend_mode = 1
+
+[resource]
+graph_offset = Vector2( -392.428, 63 )
+nodes/character/node = SubResource( 1 )
+nodes/character/position = Vector2( 120, 140 )
+nodes/death/node = SubResource( 3 )
+nodes/death/position = Vector2( -120, 220 )
+nodes/movement/node = SubResource( 2 )
+nodes/movement/position = Vector2( -160, 60 )
+node_connections = [ "output", 0, "character", "character", 0, "movement", "character", 1, "death" ]

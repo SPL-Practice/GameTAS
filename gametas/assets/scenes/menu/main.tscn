@@ -1,15 +1,13 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://assets/scripts/main.gd" type="Script" id=1]
-[ext_resource path="res://assets/scenes/levels/total/loading/transition.tscn" type="PackedScene" id=2]
-[ext_resource path="res://assets/resource/images/levels/background-test.png" type="Texture" id=3]
+[ext_resource path="res://assets/scripts/menu/main.gd" type="Script" id=1]
+[ext_resource path="res://assets/scenes/levels/total/transition.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/resources/media/images/ui/background/menu.png" type="Texture" id=3]
 [ext_resource path="res://assets/scripts/ui/load.gd" type="Script" id=4]
-[ext_resource path="res://assets/resources/ost/music/menu.ogg" type="AudioStream" id=5]
-[ext_resource path="res://assets/resources/images/ui/buttons/start/usual.png" type="Texture" id=6]
-[ext_resource path="res://assets/resources/images/ui/buttons/start/focus.png" type="Texture" id=7]
-[ext_resource path="res://assets/resources/images/ui/buttons/exit/usual.png" type="Texture" id=8]
-[ext_resource path="res://assets/resources/images/ui/buttons/exit/focus.png" type="Texture" id=9]
-[ext_resource path="res://assets/resources/images/ui/background/options.png" type="Texture" id=10]
+[ext_resource path="res://assets/resources/media/ost/music/menu.ogg" type="AudioStream" id=5]
+[ext_resource path="res://assets/scenes/total/ui/button.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/resources/media/images/ui/background/options.png" type="Texture" id=10]
+[ext_resource path="res://assets/resources/themes/menu.tres" type="Theme" id=11]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 
@@ -17,6 +15,7 @@
 anchor_right = 1.0
 anchor_bottom = 1.0
 rect_pivot_offset = Vector2( 40, 186 )
+theme = ExtResource( 11 )
 script = ExtResource( 1 )
 
 [node name="Background-test" type="Sprite" parent="."]
@@ -58,19 +57,22 @@ margin_right = 46.5
 margin_bottom = 90.0
 alignment = 1
 
-[node name="start" type="TextureButton" parent="menu/centered/aspect/options"]
-margin_right = 90.0
-margin_bottom = 35.0
-rect_min_size = Vector2( 0, 35 )
-rect_pivot_offset = Vector2( -133, 225 )
-focus_neighbour_right = NodePath("../quit")
-focus_neighbour_bottom = NodePath("../quit")
-texture_normal = ExtResource( 6 )
-texture_pressed = ExtResource( 7 )
-texture_hover = ExtResource( 6 )
-texture_focused = ExtResource( 7 )
-expand = true
-stretch_mode = 5
+[node name="start" parent="menu/centered/aspect/options" instance=ExtResource( 8 )]
+focus_neighbour_right = NodePath("")
+focus_neighbour_bottom = NodePath("")
+
+[node name="name" type="Label" parent="menu/centered/aspect/options/start"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -34.0
+margin_top = -7.5
+margin_right = 34.0
+margin_bottom = 7.5
+text = "START"
+align = 1
+valign = 1
 
 [node name="separator" type="HSeparator" parent="menu/centered/aspect/options"]
 margin_top = 39.0
@@ -82,20 +84,24 @@ margin_top = 47.0
 margin_right = 90.0
 margin_bottom = 51.0
 
-[node name="quit" type="TextureButton" parent="menu/centered/aspect/options"]
+[node name="exit" parent="menu/centered/aspect/options" instance=ExtResource( 8 )]
 margin_top = 55.0
-margin_right = 90.0
 margin_bottom = 90.0
-rect_min_size = Vector2( 0, 35 )
-rect_pivot_offset = Vector2( -133, 225 )
-focus_neighbour_left = NodePath("../start")
-focus_neighbour_top = NodePath("../start")
-texture_normal = ExtResource( 8 )
-texture_pressed = ExtResource( 9 )
-texture_hover = ExtResource( 8 )
-texture_focused = ExtResource( 9 )
-expand = true
-stretch_mode = 5
+focus_neighbour_right = NodePath(".")
+focus_neighbour_bottom = NodePath(".")
+
+[node name="name" type="Label" parent="menu/centered/aspect/options/exit"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -27.0
+margin_top = -7.5
+margin_right = 27.0
+margin_bottom = 7.5
+text = "EXIT"
+align = 1
+valign = 1
 
 [node name="Control" parent="." instance=ExtResource( 2 )]
 visible = false
@@ -107,5 +113,5 @@ margin_right = 125.0
 margin_bottom = -5.0
 script = ExtResource( 4 )
 
-[connection signal="pressed" from="menu/centered/aspect/options/start" to="." method="_on_Start_pressed"]
-[connection signal="pressed" from="menu/centered/aspect/options/quit" to="." method="_on_Quit_pressed"]
+[connection signal="pressed" from="menu/centered/aspect/options/start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="menu/centered/aspect/options/exit" to="." method="_on_exit_pressed"]

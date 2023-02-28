@@ -1,0 +1,59 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://assets/scenes/levels/total/entities/enemies/boss/moves/animation.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/scripts/levels/prefabs/entities/enemies/bosses/bananos/bananos.gd" type="Script" id=2]
+[ext_resource path="res://assets/resources/media/animations/entities/total/damage.tres" type="Animation" id=3]
+[ext_resource path="res://assets/scenes/levels/total/behavior/stats/health/vulnerability.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/scenes/levels/total/behavior/stats/value/stat.tscn" type="PackedScene" id=5]
+[ext_resource path="res://addons/godot-behavior-tree-plugin/blackboard.gd" type="Script" id=6]
+[ext_resource path="res://assets/scripts/levels/behavior/phase_root.gd" type="Script" id=7]
+[ext_resource path="res://assets/scenes/levels/total/behavior/tracking/boss/bananos.tscn" type="PackedScene" id=8]
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 25.5, 37.75 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 32, 43.25 )
+
+[node name="entity" type="KinematicBody2D"]
+collision_layer = 4
+collision_mask = 8
+script = ExtResource( 2 )
+
+[node name="shape" type="CollisionShape2D" parent="."]
+shape = SubResource( 3 )
+
+[node name="look" parent="shape" instance=ExtResource( 1 )]
+frame = 5
+
+[node name="pulp" type="Area2D" parent="shape"]
+collision_mask = 2
+
+[node name="danger" type="CollisionShape2D" parent="shape/pulp"]
+shape = SubResource( 2 )
+
+[node name="stats" type="Node" parent="."]
+
+[node name="health" parent="stats" instance=ExtResource( 4 )]
+value = 24
+
+[node name="max" parent="stats/health" instance=ExtResource( 5 )]
+value = 24
+
+[node name="power" parent="stats" instance=ExtResource( 5 )]
+value = 5
+
+[node name="animation" type="AnimationPlayer" parent="."]
+anims/damage = ExtResource( 3 )
+
+[node name="behavior" type="Node" parent="."]
+script = ExtResource( 7 )
+
+[node name="battle" parent="behavior" instance=ExtResource( 8 )]
+
+[node name="blackboard" type="Node" parent="."]
+script = ExtResource( 6 )
+
+[connection signal="body_entered" from="shape/pulp" to="." method="_on_slug_body_entered"]
+[connection signal="body_exited" from="shape/pulp" to="." method="_on_slug_body_exited"]
+[connection signal="value_updated" from="stats/health/max" to="stats/health" method="_set_maximum"]
