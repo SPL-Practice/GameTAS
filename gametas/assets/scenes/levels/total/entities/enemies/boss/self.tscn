@@ -25,17 +25,17 @@ shape = SubResource( 3 )
 
 [node name="look" parent="shape" instance=ExtResource( 1 )]
 scale = Vector2( 0.42, 0.42 )
-frame = 0
+frame = 5
 
 [node name="stats" type="Node" parent="."]
 
 [node name="health" parent="stats" instance=ExtResource( 4 )]
 script = ExtResource( 10 )
-value = 24
+value = 12
 vulnerable = true
 
 [node name="max" parent="stats/health" instance=ExtResource( 5 )]
-value = 24
+value = 12
 
 [node name="damage" parent="stats/health" instance=ExtResource( 9 )]
 value = 4

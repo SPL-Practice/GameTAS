@@ -1,15 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
+[ext_resource path="res://assets/resources/themes/shortcuts/enter.tres" type="ShortCut" id=1]
 [ext_resource path="res://assets/resources/themes/menu.tres" type="Theme" id=2]
 [ext_resource path="res://assets/resources/themes/headers.tres" type="Theme" id=3]
 [ext_resource path="res://assets/scripts/levels/prefabs/items/bonuses/pills/telepill.gd" type="Script" id=5]
 [ext_resource path="res://assets/resources/media/animations/scenes/announcement.tres" type="Animation" id=6]
-
-[sub_resource type="InputEventAction" id=1]
-action = "ui_accept"
-
-[sub_resource type="ShortCut" id=2]
-shortcut = SubResource( 1 )
 
 [node name="vs_self" type="Control"]
 anchor_right = 1.0
@@ -36,7 +31,8 @@ margin_bottom = -43.0
 margin_right = 120.0
 margin_bottom = 60.0
 theme = ExtResource( 2 )
-shortcut = SubResource( 2 )
+shortcut_in_tooltip = false
+shortcut = ExtResource( 1 )
 text = "Enter"
 
 [node name="backstage" type="ColorRect" parent="."]
