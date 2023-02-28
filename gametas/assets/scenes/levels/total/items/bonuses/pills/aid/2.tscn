@@ -17,7 +17,7 @@ position = Vector2( -0.875, 1.125 )
 scale = Vector2( 0.79375, 0.79375 )
 frames = ExtResource( 1 )
 animation = "refill-2"
-frame = 1
+frame = 5
 playing = true
 
 [connection signal="body_entered" from="." to="." method="_on_pill_body_entered"]

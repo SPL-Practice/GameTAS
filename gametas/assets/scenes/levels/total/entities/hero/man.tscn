@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://assets/scenes/levels/total/entities/hero/moves/animation.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/scripts/levels/prefabs/entities/player/man.gd" type="Script" id=2]
@@ -15,6 +15,9 @@
 [ext_resource path="res://assets/scenes/levels/total/behavior/stats/health/spare.tscn" type="PackedScene" id=13]
 [ext_resource path="res://assets/scenes/levels/total/behavior/stats/health/damage.tscn" type="PackedScene" id=14]
 [ext_resource path="res://assets/scenes/levels/total/behavior/stats/value/advanced.tscn" type="PackedScene" id=15]
+[ext_resource path="res://assets/resources/media/ost/sounds/player/pill.wav" type="AudioStream" id=16]
+[ext_resource path="res://assets/scenes/levels/total/items/bonuses/pills/audio.tscn" type="PackedScene" id=17]
+[ext_resource path="res://assets/scripts/levels/behavior/stats/sfx.gd" type="Script" id=18]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 41, 84 )
@@ -72,6 +75,15 @@ value = 400
 values = [ 400, 425, 450, 500 ]
 next = [ 3, 7, 16 ]
 
+[node name="sfx" type="Node" parent="stats"]
+
+[node name="pill" type="AudioStreamPlayer" parent="stats/sfx"]
+stream = ExtResource( 16 )
+script = ExtResource( 18 )
+
+[node name="skill" parent="stats/sfx" instance=ExtResource( 17 )]
+script = ExtResource( 18 )
+
 [node name="blackboard" type="Node" parent="."]
 script = ExtResource( 11 )
 
@@ -86,9 +98,17 @@ script = ExtResource( 8 )
 [connection signal="damage" from="stats/health" to="." method="_damage"]
 [connection signal="damage" from="stats/health" to="stats/health/spare" method="_on_damage"]
 [connection signal="heal" from="stats/health" to="." method="_heal"]
+[connection signal="heal" from="stats/health" to="stats/sfx/pill" method="_on_standalone_event"]
 [connection signal="killed" from="stats/health" to="." method="_kill"]
 [connection signal="killed" from="stats/health" to="stats/health/damage" method="_dead"]
 [connection signal="value_updated" from="stats/health/max" to="stats/health" method="_set_maximum"]
+[connection signal="value_updated" from="stats/health/max" to="stats/sfx/skill" method="_on_event"]
 [connection signal="spare_ended" from="stats/health/spare" to="stats/health" method="_on_invulnerability_ended"]
 [connection signal="spare_started" from="stats/health/spare" to="stats/health" method="_on_invulnerability_started"]
 [connection signal="sanity_sap" from="stats/health/damage" to="stats/health" method="_on_sap"]
+[connection signal="advance" from="stats/health/damage/level" to="stats/sfx/skill" method="_on_two_event"]
+[connection signal="increase_experience" from="stats/health/damage/level" to="stats/sfx/pill" method="_on_event"]
+[connection signal="advance" from="stats/power/level" to="stats/sfx/skill" method="_on_two_event"]
+[connection signal="increase_experience" from="stats/power/level" to="stats/sfx/pill" method="_on_event"]
+[connection signal="advance" from="stats/speed/level" to="stats/sfx/skill" method="_on_two_event"]
+[connection signal="increase_experience" from="stats/speed/level" to="stats/sfx/pill" method="_on_event"]

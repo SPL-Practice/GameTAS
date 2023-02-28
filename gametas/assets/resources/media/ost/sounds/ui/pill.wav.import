@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/pill.wav-7d98587659c6bdccfe787724ec75e827.sample"
+
+[deps]
+
+source_file="res://assets/resources/media/ost/sounds/ui/pill.wav"
+dest_files=[ "res://.import/pill.wav-7d98587659c6bdccfe787724ec75e827.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

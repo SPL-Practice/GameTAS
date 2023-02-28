@@ -6,6 +6,7 @@ signal defeat()
 export (String) var ending = "res://assets/scenes/menu/authors/ending/bad.tscn"
 
 var velocity = Vector2()
+var previous = Vector2(1, 1)
 onready var initial = self.position
 
 onready var behavior = $behavior
@@ -32,8 +33,7 @@ func new_phase(no):
 		self.position = initial
 
 func move(speed: Vector2):
-	look.move(speed)
-	move_and_slide(speed)
+	look.move(move_and_slide(speed))
 
 func move_partial(x, y):
 	velocity.x = x

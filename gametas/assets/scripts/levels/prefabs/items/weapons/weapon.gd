@@ -3,6 +3,8 @@ extends Node2D
 onready var attacks = $attacks
 onready var base_slash = $attacks/base_slash
 
+onready var audio_slash = $slash
+
 onready var behaviour = $behavior
 
 func _ready():
@@ -16,6 +18,7 @@ func move(velocity):
 func attack():
 	base_slash.move_side(get_local_mouse_position())
 	base_slash.attack()
+	audio_slash.play()
 	
 func _physics_process(_delta):
 	behaviour.tick(self, $blackboard)

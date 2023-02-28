@@ -26,11 +26,11 @@ func increase(bonus):
 
 func _on_sap_timeout():
 	if current > 0:
-		current -= drop
+		current -= 1
 		return
 	
 	current = value
-	emit_signal("sanity_sap", value)
+	emit_signal("sanity_sap", drop)
 
 func _dead():
 	sap.stop()
