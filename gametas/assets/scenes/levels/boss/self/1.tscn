@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://assets/scenes/total/ui/hud/levels/self.tscn" type="PackedScene" id=1]
-[ext_resource path="res://assets/resources/media/images/levels/map/office/walls.tres" type="TileSet" id=2]
+[ext_resource path="res://assets/scenes/total/ui/hud/variations/levels/self.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/resources/runtime/templates/materials/tiles/office/walls.tres" type="TileSet" id=2]
 [ext_resource path="res://assets/scenes/levels/total/entities/enemies/boss/self.tscn" type="PackedScene" id=4]
-[ext_resource path="res://assets/resources/media/images/levels/map/office/atlas.tres" type="TileSet" id=6]
+[ext_resource path="res://assets/resources/runtime/templates/materials/tiles/office/floor/details.tres" type="TileSet" id=6]
 
 [sub_resource type="Animation" id=1]
 resource_name = "hero_death"

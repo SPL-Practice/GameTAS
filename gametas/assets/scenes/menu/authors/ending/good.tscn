@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://assets/resources/media/images/ui/background/ending/good/2.jpg" type="Texture" id=1]
+[ext_resource path="res://assets/resources/media/images/ui/background/ending/good/office.jpg" type="Texture" id=1]
 [ext_resource path="res://assets/scripts/menu/authors/ending/good.gd" type="Script" id=2]
-[ext_resource path="res://assets/resources/themes/menu.tres" type="Theme" id=3]
-[ext_resource path="res://assets/resources/media/ost/music/game/won.ogg" type="AudioStream" id=4]
-[ext_resource path="res://assets/scenes/total/ui/hud/authors.tscn" type="PackedScene" id=5]
-[ext_resource path="res://assets/resources/themes/shortcuts/enter.tres" type="ShortCut" id=6]
+[ext_resource path="res://assets/resources/runtime/styles/themes/menu.tres" type="Theme" id=3]
+[ext_resource path="res://assets/resources/media/ost/music/game/ending/office.ogg" type="AudioStream" id=4]
+[ext_resource path="res://assets/scenes/total/ui/hud/variations/authors.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/resources/runtime/templates/controls/shortcuts/enter.tres" type="ShortCut" id=6]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0

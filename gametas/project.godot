@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "Node",
 "class": "Leaf",
 "language": "GDScript",
-"path": "res://assets/scripts/levels/behavior/leaf.gd"
+"path": "res://assets/scripts/levels/behavior/categories/leaf.gd"
 }, {
 "base": "AnimatedSprite",
 "class": "Look",
@@ -22,22 +22,22 @@ _global_script_classes=[ {
 "base": "Node",
 "class": "Point",
 "language": "GDScript",
-"path": "res://assets/scripts/levels/behavior/tracking/positioning/point.gd"
+"path": "res://assets/scripts/levels/behavior/tracking/paths/positioning/point.gd"
 }, {
 "base": "Node",
 "class": "Point_X",
 "language": "GDScript",
-"path": "res://assets/scripts/levels/behavior/tracking/positioning/point_x.gd"
+"path": "res://assets/scripts/levels/behavior/tracking/paths/positioning/point_x.gd"
 }, {
 "base": "Node",
 "class": "Point_Y",
 "language": "GDScript",
-"path": "res://assets/scripts/levels/behavior/tracking/positioning/point_y.gd"
+"path": "res://assets/scripts/levels/behavior/tracking/paths/positioning/point_y.gd"
 }, {
 "base": "Node",
 "class": "Positioner",
 "language": "GDScript",
-"path": "res://assets/scripts/levels/behavior/tracking/positioning/positioner.gd"
+"path": "res://assets/scripts/levels/behavior/tracking/paths/positioning/positioner.gd"
 } ]
 _global_script_class_icons={
 "Leaf": "",
@@ -52,7 +52,7 @@ _global_script_class_icons={
 
 config/name="Supregression"
 config/description="You are ordinary clerk, Edward Norton Commander. He tired of his routines every single day. Which decision he has to make?"
-run/main_scene="res://assets/scenes/levels/start.tscn"
+run/main_scene="res://assets/scenes/menu/authors/logo.tscn"
 boot_splash/bg_color=Color( 0.0588235, 0.0588235, 0.0588235, 1 )
 config/icon="res://assets/resources/media/images/logo/game/supregression.ico"
 config/macos_native_icon="res://assets/resources/media/images/logo/game/supregression.ico"

@@ -2,15 +2,15 @@
 
 [ext_resource path="res://assets/resources/media/ost/music/boss/1.ogg" type="AudioStream" id=1]
 [ext_resource path="res://assets/scenes/levels/total/entities/enemies/boss/bananos.tscn" type="PackedScene" id=2]
-[ext_resource path="res://assets/scenes/total/ui/hud/levels/boss.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/scenes/total/ui/hud/variations/levels/boss.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/scenes/levels/total/entities/hero/man.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/resources/media/ost/music/boss/2.ogg" type="AudioStream" id=5]
-[ext_resource path="res://assets/resources/media/images/levels/map/office/atlas.tres" type="TileSet" id=6]
+[ext_resource path="res://assets/resources/runtime/templates/materials/tiles/office/floor/details.tres" type="TileSet" id=6]
 [ext_resource path="res://assets/scenes/levels/total/entities/enemies/foe/spikes.tscn" type="PackedScene" id=7]
 [ext_resource path="res://assets/scenes/levels/total/items/bonuses/pills/buffs/health.tscn" type="PackedScene" id=8]
 [ext_resource path="res://assets/resources/media/ost/music/boss/3.ogg" type="AudioStream" id=9]
-[ext_resource path="res://assets/scripts/levels/prefabs/entities/enemies/bosses/phaser_audio.gd" type="Script" id=10]
-[ext_resource path="res://assets/resources/media/ost/music/boss/end.wav" type="AudioStream" id=11]
+[ext_resource path="res://assets/scripts/levels/prefabs/entities/enemies/bosses/sfx.gd" type="Script" id=10]
+[ext_resource path="res://assets/resources/media/ost/sounds/boss/end.wav" type="AudioStream" id=11]
 
 [node name="boss" type="Node2D"]
 

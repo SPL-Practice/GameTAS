@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/fear.ogg-e30d8245acea584d058c037ec53026dd.oggstr"
+
+[deps]
+
+source_file="res://assets/resources/media/ost/music/game/play/office/fear.ogg"
+dest_files=[ "res://.import/fear.ogg-e30d8245acea584d058c037ec53026dd.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

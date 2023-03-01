@@ -1,13 +1,13 @@
 [gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://assets/resources/media/animations/entities/bananos/bananos.tres" type="SpriteFrames" id=1]
-[ext_resource path="res://assets/resources/media/animations/entities/bananos/behavior.tres" type="AnimationNodeBlendTree" id=2]
-[ext_resource path="res://assets/resources/media/animations/entities/bananos/bananos_death.tres" type="Animation" id=3]
-[ext_resource path="res://assets/resources/media/animations/entities/bananos/movement/bananos_run_left.tres" type="Animation" id=4]
-[ext_resource path="res://assets/resources/media/animations/entities/bananos/movement/bananos_run_right.tres" type="Animation" id=5]
-[ext_resource path="res://assets/resources/media/animations/entities/bananos/movement/bananos_run_forward.tres" type="Animation" id=6]
-[ext_resource path="res://assets/resources/media/animations/entities/bananos/movement/bananos_run_backward.tres" type="Animation" id=7]
-[ext_resource path="res://assets/resources/media/animations/entities/bananos/movement/bananos_spin.tres" type="Animation" id=8]
+[ext_resource path="res://assets/resources/runtime/templates/materials/frames/enemies/bananos.tres" type="SpriteFrames" id=1]
+[ext_resource path="res://assets/resources/media/animations/tree/bananos/behavior.tres" type="AnimationNodeBlendTree" id=2]
+[ext_resource path="res://assets/resources/media/animations/playbacks/entities/bananos/bananos_death.tres" type="Animation" id=3]
+[ext_resource path="res://assets/resources/media/animations/playbacks/entities/bananos/movement/bananos_run_left.tres" type="Animation" id=4]
+[ext_resource path="res://assets/resources/media/animations/playbacks/entities/bananos/movement/bananos_run_right.tres" type="Animation" id=5]
+[ext_resource path="res://assets/resources/media/animations/playbacks/entities/bananos/movement/bananos_run_forward.tres" type="Animation" id=6]
+[ext_resource path="res://assets/resources/media/animations/playbacks/entities/bananos/movement/bananos_run_backward.tres" type="Animation" id=7]
+[ext_resource path="res://assets/resources/media/animations/playbacks/entities/bananos/movement/bananos_spin.tres" type="Animation" id=8]
 [ext_resource path="res://assets/scripts/levels/prefabs/entities/enemies/bosses/bananos/moves/animation.gd" type="Script" id=9]
 
 [node name="look" type="AnimatedSprite"]
@@ -15,7 +15,7 @@ position = Vector2( 3.5, -5.75 )
 scale = Vector2( 0.570313, 0.570313 )
 frames = ExtResource( 1 )
 animation = "spin"
-frame = 2
+frame = 1
 playing = true
 script = ExtResource( 9 )
 
