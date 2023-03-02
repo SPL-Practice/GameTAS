@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Slash.png-e9a263da840c3011dec1cf51d50f62b3.stex"
+path="res://.import/slash.png-2529d5292a84fc8c191e5cbc3c2d3fe5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/resources/media/images/levels/sprites/items/weapon/Slash.png"
-dest_files=[ "res://.import/Slash.png-e9a263da840c3011dec1cf51d50f62b3.stex" ]
+source_file="res://assets/resources/media/images/levels/sprites/items/weapon/slash.png"
+dest_files=[ "res://.import/slash.png-2529d5292a84fc8c191e5cbc3c2d3fe5.stex" ]
 
 [params]
 

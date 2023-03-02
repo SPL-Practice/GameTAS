@@ -2,7 +2,7 @@
 
 [ext_resource path="res://assets/scripts/levels/prefabs/items/bonuses/pills/buffs/advanced.gd" type="Script" id=1]
 [ext_resource path="res://assets/resources/media/images/levels/sprites/items/bonuses/pills/buffs/spare.png" type="Texture" id=2]
-[ext_resource path="res://assets/resources/media/images/levels/sprites/items/bonuses/pills/shape.tres" type="Shape2D" id=3]
+[ext_resource path="res://assets/resources/runtime/templates/materials/shapes/bonuses/pill.tres" type="Shape2D" id=3]
 [ext_resource path="res://assets/scenes/levels/total/items/bonuses/pills/audio.tscn" type="PackedScene" id=4]
 
 [sub_resource type="AtlasTexture" id=2]
