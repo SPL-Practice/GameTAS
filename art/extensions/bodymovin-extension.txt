@@ -1,0 +1,8 @@
+# Actual GitHub repo
+https://github.com/TelegramMessenger/bodymovin-extension
+
+# Download v5.5.2.3
+https://github.com/TelegramMessenger/bodymovin-extension/releases/tag/v5.5.2.3
+
+# Download ZPXInstaller
+https://zxpinstaller.com
