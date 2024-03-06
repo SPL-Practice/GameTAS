@@ -1,4 +1,3 @@
-# GameTAS
+# Supregression
 
-Theme:
-Saber Katana Jam II game
+Game about ordinary man
